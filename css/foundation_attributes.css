@@ -1,0 +1,263 @@
+@charset "UTF-8";
+
+/*
+	Filename: 		foundation_attributes.css
+	Author: 		Mats Richard Hellstrand (Sweden)
+	Website: 		www.hellstrand.org
+	Date: 			October 1st, 2017
+	Language:		English
+	Description:	This stylesheet is used for all selectors that are widespread/globally used.
+*/
+
+@font-face {
+	font-family				:	fontawesome-webfont;
+	src						:	url("../multimedia/font/fontawesome-webfont.ttf");
+}
+
+html {
+	height					:	100%;
+	font-size				:	12px;
+	overflow				:	hidden;
+}
+
+	body {
+		height					:	100%;
+		width					:	100%;
+		background-color		:	#000;
+		background-image		:	url("../multimedia/image/background2.png");
+		background-position		:	center center;
+		background-attachment	:	fixed;
+		font-family				:	"Bookman Old Style", "Verdana", "Geneva", "sans-serif";
+		overflow				:	hidden;
+	}
+
+		h1, h2, h3, h4, p {
+			clear					:	both;
+			display					:	block;
+			font-family				:	"Verdana", "Geneva", sans-serif;
+			overflow				:	hidden;
+		}
+
+			h1 {
+				font-size				:	2.5rem;
+			}
+
+			h2 {
+				font-size				:	2.25rem;
+			}
+
+			h3 {
+				font-size				:	1.5rem;
+			}
+
+			h4 {
+				font-size				:	1.25rem;
+			}
+
+			a {
+				text-decoration			:	none;
+				color					:	inherit;
+			}
+
+				a:hover {
+					text-decoration			:	none;
+					cursor					:	pointer;
+				}
+
+			p {
+				font-size				:	1rem; /* any larger and Certification won't fit */
+			}
+
+				p > strong, i > strong {
+					font-size				:	inherit;
+				}
+
+					p > a:hover {
+						color 					:	#F90;
+					}
+
+					p > a::after {
+						content					:	"\f08e";
+					}
+
+			h1 > a:hover, h2 > a:hover, h3 > a:hover, h4 > a:hover, a > strong:hover {
+				color					:	#F90;
+			}
+
+				h1 > a::after, h2 > a::after, h3 > a::after, h4 > a::after {
+					content					:	"\f1da";
+				}/*, a strong::after*/
+
+			q::before {
+				content					:	"\f10d";
+			}
+
+			q::after {
+				content					:	"\f10e";
+			}
+
+		span {
+			padding					:	0 10px 0 10px;
+		}
+
+		header {
+			height					:	auto;
+			width					:	100%;
+			position				:	absolute;
+			top						:	0;
+			margin					:	0;/*0px auto 25px auto;*/
+			border-bottom			:	3px solid #F90;
+			background-color		:	#000;
+			overflow				:	hidden;
+			z-index					:	1;
+		}
+
+			.handler {
+				width					:	100%;
+				background-color		:	#000;
+				color					:	#000;
+				display					:	inline-block;
+				cursor					:	pointer;
+			}
+
+				#navigationHandler {
+				}
+
+					#navigationHandler.showing::after {
+						content					:	"\f00d";
+					}
+
+					.handlerButton {
+						float					:	right;
+						margin					:	15px 15px 15px 0;
+						display					:	inline-block;
+						background-color		:	transparent;
+						color					:	#FFF;
+						font-size				:	2.25rem;
+						cursor					:	pointer;
+					}
+
+						.handlerButton::after {
+							content					:	"\f0c9";
+						}
+
+			#navigationBar {
+				display					:	inline-block;
+				margin					:	0px auto 0px auto;
+			}
+
+				.showing {
+					max-height				:	400px;
+				}
+
+				nav ul {
+					clear					:	right;
+					margin					:	0;
+					padding					:	0;
+					list-style				:	none;
+				}
+
+					nav ul li {
+						width					:	90%;
+						margin					:	0;
+						display					:	inline-block;
+						border-top				:	3px solid transparent;
+						border-left				:	3px solid transparent;
+						border-right			:	3px solid transparent;
+						border-bottom			:	3px solid transparent;
+						color					:	#FFF;
+						text-align				:	right;
+					}
+
+						nav > ul > li:hover {
+							border-left				:	3px solid #F90;
+							border-right			:	3px solid #F90;
+							background-color		:	#F90;
+							color					:	#000;
+							cursor					:	pointer;
+						}
+				
+					nav ul li a
+					{
+						padding					:	4px;
+						display					:	block;
+						font-size				:	1rem;
+					}
+
+					.active {
+						background-color: #F90;
+					}
+				
+					nav ul li a span
+					{
+						padding					:	0 0 0 10px;
+					}
+				
+						nav ul li a span:before
+						{
+							width					:	1.25em;
+						}
+
+					.forceLeft {
+						border-right			:	3px solid transparent;
+					}
+
+					.forceRight {
+						border-left				:	3px solid transparent;
+					}
+
+					.navHom::before, .navAbo::before, .navPor::before, .navQua::before, .navMap::before, .navCon::before {
+						float					:	left;
+						width					:	1.25em;
+						font-size				:	1.25rem;
+						text-align				:	center;
+						cursor					:	pointer;
+					}
+
+						.navHom::before {
+							content					:	"\f015";
+						}
+
+						.navAbo::before {
+							content					:	"\f007";
+						}
+
+						.navPor::before {
+							content					:	"\f0b1";
+						}
+
+						.navQua::before {
+							content					:	"\f19d";
+						}
+
+						.navMap::before {
+							content					:	"\f0e8";
+						}
+
+						.navCon::before {
+							content					:	"\f0e0";
+						}
+		
+		footer {
+			width					:	100%;
+			position				:	absolute;
+			bottom					:	0;
+			margin					:	0;
+			border-top				:	3px solid #F90;
+			background-color		:	#000;
+			overflow				:	hidden;
+			z-index					:	1;
+		}
+		
+			.statement {
+				width					:	100%;
+				margin					:	10px 0 10px 0;
+				font-size				:	1rem;
+				color					:	#FFF;
+			}
+
+				.statement img {
+					height					:	15px;
+					width					:	15px;
+					vertical-align			:	middle;
+				}

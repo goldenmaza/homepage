@@ -1,0 +1,221 @@
+@charset "UTF-8";
+
+/*
+	Filename:		form_attributes.css
+	Author:			Mats Richard Hellstrand (Sweden)
+	Website:		www.hellstrand.org
+	Date:			October 1st, 2017
+	Language:		English
+	Description:	This stylesheet is used for the form-tag and it's children (found under the contact page).
+*/
+
+.contactContainer {
+	overflow-y				:	scroll;
+}
+
+	textarea, input {
+		border					:	1px solid #0F0;
+		background-color		:	#000;
+		color					:	#FFF;
+		font-size 				:	0.9rem;
+	}
+
+		/*
+		*	>= 768x - tablet or standard monitor resolution...
+		*/
+		@media (min-width: 768px) {
+			textarea, input {
+				font-size 				:	1.2rem !important;
+			}
+		}
+
+		/*
+		*	>= 1600x - very large monitor resolution...
+		*/
+		@media (min-width: 1600px) {
+			textarea, input {
+				border					:	2px solid #0F0;
+				font-size 				:	1.75rem !important;
+			}
+
+			input[type=text] {
+				height					:	54px !important;
+			}
+		}
+
+		textarea {
+			height					:	250px;
+			width					:	100%;
+			padding					:	10px 5px 5px 10px;
+			resize					:	none;
+			overflow				:	hidden;
+		}
+
+			/*
+			*	<= x320 - small mobile resolution...
+			*/
+			@media (max-height: 320px) {
+				textarea {
+					height					:	100px;
+				}
+			}
+
+			/*
+			*	>= 768x - tablet or standard monitor resolution...
+			*/
+			@media (min-width: 768px) {
+				textarea {
+					height					:	300px;
+				}
+			}
+
+			/*
+			*	>= 1024x - large monitor resolution...
+			*/
+			@media (min-width: 1024px) {
+				textarea {
+					height					:	400px;
+				}
+			}
+
+			/*
+			*	>= 1600x - very large monitor resolution...
+			*/
+			@media (min-width: 1600px) {
+				textarea {
+					height					:	750px;
+				}
+			}
+
+			textarea[class$=invalid] {
+				border-color			:	#700 !important;
+			}
+
+		input[type=text] {
+			height					:	34px;
+			width					:	100%;
+			margin					:	3px 0 5px 0;
+			padding					:	5px 5px 5px 15px;
+		}
+
+		input[type=button], input[type=submit] {
+			height					:	34px;
+			width					:	100%;
+			margin					:	0 0 10px 0;
+			padding					:	5px;
+		}
+
+			input[type=submit] {
+				margin					:	0 0 25px 0;
+			}
+
+			/*
+			*	>= 1600x - very large monitor resolution...
+			*/
+			@media (min-width: 1600px) {
+				input[type=button] {
+					margin					:	0 0 20px 0;
+				}
+
+				input[type=text], input[type=button], input[type=submit] {
+					height					:	64px;
+				}
+			}
+
+			input[type=button]:active, input[type=submit]:active {
+				transform				:	translateY(3px);
+			}
+
+			input[type=button]:hover, input[type=submit]:hover {
+				border-color			:	#F90;
+			}
+
+			input[class$=invalid] {
+				border-color			:	#700 !important;
+			}
+			
+			input[disabled=disabled] {
+				border-color			:	#700 !important;
+				cursor					:	not-allowed !important;
+			}
+			
+				input[disabled=disabled]:hover {
+					color					:	#700 !important;
+				}
+		
+
+	#textareaCounter, #nameCounter, #mailCounter, #topicCounter {
+		right					:	13px;
+		position				:	absolute;
+		display					:	block;
+		color					:	#F90;
+	}
+
+		/*
+		*	>= 1024x - large monitor resolution...
+		*/
+		@media (min-width: 1024px) {
+			#nameCounter, #mailCounter, #topicCounter {
+				bottom					:	13px;
+			}
+		}
+
+		/*
+		*	>= 1600x - very large monitor resolution...
+		*/
+		@media (min-width: 1600px) {
+			#textareaCounter {
+				bottom					:	20px;
+			}
+
+			#nameCounter, #mailCounter, #topicCounter {
+				bottom					:	15px;
+			}
+
+			#textareaCounter, #nameCounter, #mailCounter, #topicCounter {
+				right					:	30px;
+				font-size 				:	1.5rem;
+			}
+		}
+
+		#textareaCounter {
+			bottom					:	12px;
+		}
+
+		/*#nameCounter, #mailCounter, #topicCounter {
+			bottom					:	15px;
+		}*/
+
+	#clearButton, #helpButton {
+		width					:	45% !important;
+	}
+
+		#clearButton:hover {
+			color					:	#F90;
+			cursor					:	pointer;
+		}
+
+		#helpButton.selected {
+			border-color			:	#F90 !important;
+			color					:	#F90 !important;
+		}
+
+		#helpButton:hover {
+			color					:	#F90;
+			cursor					:	help;
+		}
+
+	#sendButton {
+		width					:	75% !important;
+	}
+
+		#sendButton:hover {
+			color					:	#F90;
+			cursor					:	pointer;
+		}
+
+	#contactSummary {
+	}
+
+	#contactHelp {
+	}

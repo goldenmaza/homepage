@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+/*
+	Filename:		section_attributes.css
+	Author:			Mats Richard Hellstrand (Sweden)
+	Website:		www.hellstrand.org
+	Date:			October 1st, 2017
+	Language:		English
+	Description:	This stylesheet is used for the section-tag and it's children.
+*/
+
+.sections {
+	height					:	100%;
+	width					:	100%;
+	top						:	50%;
+	position				:	absolute;
+	margin-left				:	-250%;
+	display					:	block;
+	z-index					:	0;
+	overflow-y				:	auto;
+	overflow-x				:	hidden;
+}
+
+	.sections:target {
+		margin-left				:	0;
+	}
+
+	.container {
+		height					:	100%;
+		width					:	100%;
+		margin					:	0 auto 0 auto;
+		padding					:	60px 7px 50px 7px;
+		border-top				:	3px none #000;
+		border-left				:	3px solid #000;
+		border-right			:	3px solid #000;
+		border-bottom			:	3px none #000;
+		background-color		:	rgba(0, 0, 0, 0.75);
+		color					:	#FFF;
+		overflow-x				:	hidden;
+	}
+
+		.container + div + .row {
+			margin-top				:	40px !important;
+		}
+
+		.previousPage {
+			float					:	left;
+			width					:	auto;
+			height					:	auto;
+			margin					:	10px 0 0 10px;
+			border					:	2px solid transparent;
+			display					:	inline-block;
+		    font-size				:	1.75rem;
+		}
+
+			.previousPage:hover {
+				border					:	2px solid #f90 !important;
+				background-color		:	#F90;
+				color 					:	#000;
+			}
+
+			.previousPage > a {
+				padding					:	10px 0 10px 5px;
+				display					:	inline-block;
+			}
+
+				.previousPage > a::before {
+			    	padding-left			: 	5px;
+					content					:	"\f060" !important;
+				}
+
+				.previousPage > a::after {
+					content					:	none !important;
+				}
+
+		.nextPage {
+			float					:	right;
+			width					:	auto;
+			height					:	auto;
+			margin					:	10px 10px 0 0;
+			border					:	2px solid transparent;
+			display					:	inline-block;
+		    font-size				:	1.75rem;
+		}
+
+			.nextPage:hover {
+				border					:	2px solid #f90 !important;
+				background-color		:	#F90;
+				color 					:	#000;
+			}
+
+			.nextPage > a {
+				padding					:	10px 5px 10px 0;
+				display					:	inline-block;
+			}
+
+				.nextPage > a::after {
+			    	padding-right			: 		5px;
+					content					:		"\f061" !important;
+				}
+
+				.nextPage > a::before {
+					content					:		none !important;
+				}
+
+		.content {
+			width					:	100%;
+			margin					:	20px auto 50px auto !important;
+		}
+
+			.force-mini-left, .force-mini-right {
+				margin					:	0 10px 0 0 !important;
+				padding					:	0;
+				display					:	inline-block;
+				color					:	#FFF;
+				font-weight				:	bold;
+			}
+
+			.no-margin {
+				margin					:	0 !important;
+			}

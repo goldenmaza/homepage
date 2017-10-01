@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+/*
+	Filename: 		notice.css
+	Author: 		Mats Richard Hellstrand (Sweden)
+	Website: 		www.hellstrand.org
+	Date: 			June 15th, 2017
+	Language:		English
+	Description:	This stylesheet is used for all selectors that are widespread/globally used.
+*/
+
+*, *::before, *::after {
+	margin						:	0;
+	padding						:	0;
+	-webkit-box-sizing			:	border-box;
+	-moz-box-sizing				:	border-box;
+	-ms-box-sizing				:	border-box;
+	-o-box-sizing				:	border-box;
+	box-sizing					:	border-box;
+}
+
+::-moz-selection {
+	background-color			:	#F90;
+	color						:	#000;
+}
+
+::selection {
+	background-color			:	#F90;
+	color						:	#000;
+}
+
+html {
+	height					:	100%;
+	font-size				:	12px;
+	overflow				:	hidden;
+}
+
+	body {
+		height					:	100%;
+		width					:	100%;
+		background-color		:	#000;
+		background-image		:	url(../multimedia/image/background2.png);
+		background-position		:	center center;
+		background-attachment	:	fixed;
+	}
+
+		.sections {
+			height					:	100%;
+			width					:	90%;
+			top						:	50%;
+			margin					:	0 auto 0 auto;
+			display					:	block;
+			z-index					:	0;
+			overflow-y				:	auto;
+			overflow-x				:	hidden;
+		}
+
+			.container {
+				height					:	100%;
+				width					:	100%;
+				margin					:	0 auto 0 auto;
+				padding					:	60px 7px 50px 7px;
+				border-top				:	3px none #000;
+				border-left				:	3px solid #000;
+				border-right			:	3px solid #000;
+				border-bottom			:	3px none #000;
+				background-color		:	rgba(0, 0, 0, 0.75);
+				color					:	#FFF;
+				overflow-x				:	hidden;
+			}
+
+				.welcomeNotice {
+					top						:	10%;
+					margin					:	0 auto 0 auto;
+					font-family				:	"Bookman Old Style", "Verdana", "Geneva", "sans-serif";
+					font-size				:	1.5em;
+					color					:	#FFF;
+					overflow				:	hidden;
+				}
