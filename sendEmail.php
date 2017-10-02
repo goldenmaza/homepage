@@ -23,7 +23,7 @@
 		$name 		 = 	  $formArray[0];
 		$email 		 = 	  $formArray[1];
 		$subject 	 = 	  $name . " wanna talk about: " . $formArray[2];
-		$message 	 = 	  strip_tags($formArray[3], "");
+		$message 	 = 	  strip_tags($formArray[3], '');
 
 		$headers 	 = 	  "";
 		$headers 	.= 	  "Date: " . date('D, j M Y H:i:s O') . "\r\n";
