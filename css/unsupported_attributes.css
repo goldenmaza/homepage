@@ -43,24 +43,25 @@ html {
 .email::before, .skype::before, .linkedin::before, .github::before, .videopresentation::before,
 .download::before, .facebook::before, .youtube::before, .twitter::before,
 .avi::before, .doc::before, .jpg::before, .pdf::before, .zip::before {
-	-webkit-text-rendering			:	optimizeLegibility;
-	-moz-text-rendering				:	optimizeLegibility;
-	-ms-text-rendering				:	optimizeLegibility;
-	-o-text-rendering				:	optimizeLegibility;
-	text-rendering					:	optimizeLegibility;
-	-webkit-font-smoothing			:	antialiased;
-	-moz-font-smoothing				:	antialiased;
-	-ms-font-smoothing				:	antialiased;
-	-o-font-smoothing				:	antialiased;
-	font-smoothing					:	antialiased;
+	-webkit-text-rendering		:	optimizeLegibility;
+	-moz-text-rendering			:	optimizeLegibility;
+	-ms-text-rendering			:	optimizeLegibility;
+	-o-text-rendering			:	optimizeLegibility;
+	text-rendering				:	optimizeLegibility;
+	-webkit-font-smoothing		:	antialiased;
+	-moz-font-smoothing			:	antialiased;
+	-ms-font-smoothing			:	antialiased;
+	-o-font-smoothing			:	antialiased;
+	font-smoothing				:	antialiased;
 }
 
 h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, a strong:hover, p > a:hover, .displaySummaryContainer a:hover {
-	-webkit-animation			:	awesomePulse 1s ease-in-out infinite alternate;
+    color                       :   #F90;
+	/*-webkit-animation			:	awesomePulse 1s ease-in-out infinite alternate;
 	-moz-animation				:	awesomePulse 1s ease-in-out infinite alternate;
 	-ms-animation				:	awesomePulse 1s ease-in-out infinite alternate;
 	-o-animation				:	awesomePulse 1s ease-in-out infinite alternate;
-	animation					:	awesomePulse 1s ease-in-out infinite alternate;
+	animation					:	awesomePulse 1s ease-in-out infinite alternate;*/
 }
 
 	@keyframes awesomePulse {

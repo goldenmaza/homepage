@@ -22,7 +22,7 @@
 *	>= 1920x - very large monitor resolution...
 */
 @media (min-width: 1920px) {
-	h1 {
+	/*h1 {
 		font-size				:	4rem;
 	}
 
@@ -40,7 +40,7 @@
 
 	p {
 		font-size 				:	1.6rem;
-	}
+	}*/
 }
 
 /*
@@ -158,8 +158,9 @@
 		border-bottom			:	5px solid transparent;
 	}
 
-		nav ul li:hover, .row ul li:hover {
+		nav ul li:hover {
 			border-left				:	5px solid #F90;
+			border-right			:	5px solid #F90;
 		}
 
 	nav ul li a {
@@ -172,9 +173,9 @@
 *	>= 1920x - very large monitor resolution...
 */
 @media (min-width: 1920px) {
-	nav ul li a {
+	/*nav ul li a {
 		font-size 				:	2.25rem;
-	}
+	}*/
 }
 
 /*
@@ -201,13 +202,17 @@
 */
 @media (min-width: 1600px) {
 	.forceLeft:hover {
+		border-top				:	5px solid transparent;
 		border-left				:	5px solid transparent;
 		border-right			:	5px solid #F90;
+		border-bottom			:	5px solid transparent;
 	}
 
 	.forceRight:hover {
+		border-top				:	5px solid transparent;
 		border-left				:	5px solid #F90;
 		border-right			:	5px solid transparent;
+		border-bottom			:	5px solid transparent;
 	}
 }
 
@@ -273,18 +278,18 @@
 *	>= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.navHom::before, .navAbo::before, .navPor::before, .navQua::before, .navMap::before, .navCon::before {
+	/*.navHom::before, .navAbo::before, .navPor::before, .navQua::before, .navMap::before, .navCon::before {
 		font-size				:	2rem;
-	}
+	}*/
 }
 
 /*
 *	>= 1920x - very large monitor resolution...
 */
 @media (min-width: 1920px) {
-	.navHom::before, .navAbo::before, .navPor::before, .navQua::before, .navMap::before, .navCon::before {
+	/*.navHom::before, .navAbo::before, .navPor::before, .navQua::before, .navMap::before, .navCon::before {
 		font-size 				:	2.5rem;/*.1*/
-	}
+	}*/
 }
 
 /*
@@ -367,7 +372,6 @@
 	.previousPage {
 		margin					:	30px 0 0 30px !important;
 		border					:	4px solid transparent;
-		font-size 				:	2rem;
 	}
 
 	.previousPage:hover {
@@ -419,7 +423,6 @@
 	.nextPage {
 		margin					:	30px 30px 0 0 !important;
 		border					:	4px solid transparent;
-		font-size 				:	2rem;
 	}
 
 	.nextPage:hover {
@@ -491,7 +494,7 @@
 */
 @media (min-width: 1600px) {
 	.row > strong {
-		font-size 				:	2rem;
+		font-size 				:	1.5rem;
 	}
 }
 
@@ -528,9 +531,9 @@
 *	>= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.iconsBar {
+	/*.iconsBar {
 		font-size 				:	3rem;
-	}
+	}*/
 }
 
 /*
@@ -538,8 +541,8 @@
 */
 @media (min-width: 1600px) {
 	.iconsBar a:hover {
-		border-left				:	5px solid #f90 !important;
-		border-right			:	5px solid #f90 !important;
+		border-left				:	3px solid #F90 !important;
+		border-right			:	3px solid #F90 !important;
 	}
 }
 
@@ -604,7 +607,7 @@
 @media (min-width: 1600px) {
 	.edu::before, .car::before, .exp::before, .cer::before, .awa::before,
 	.tes::before, .res::before, .dow::before, .deg::before {
-		font-size				:	7rem;
+		font-size				:	6rem;
 	}
 }
 
@@ -766,7 +769,7 @@
 @media (min-width: 1600px) {
 	.statement {
 		padding					:	15px 0 15px 0;
-		font-size				:	1.5rem;
+		font-size				:	1.1rem;
 	}
 }
 

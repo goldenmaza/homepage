@@ -1,17 +1,17 @@
 @charset "UTF-8";
 
 /*
-	Filename: 		foundation_attributes.css
+	Filename: 		default_attributes.css
 	Author: 		Mats Richard Hellstrand (Sweden)
 	Website: 		www.hellstrand.org
-	Date: 			October 1st, 2017
+	Date: 			June 15th, 2017
 	Language:		English
 	Description:	This stylesheet is used for all selectors that are widespread/globally used.
 */
 
 @font-face {
 	font-family				:	fontawesome-webfont;
-	src						:	url("../multimedia/font/fontawesome-webfont.ttf");
+	src						:	url(../multimedia/font/fontawesome-webfont.ttf);
 }
 
 html {
@@ -24,7 +24,7 @@ html {
 		height					:	100%;
 		width					:	100%;
 		background-color		:	#000;
-		background-image		:	url("../multimedia/image/background2.png");
+		background-image		:	url(../multimedia/image/background2.png);
 		background-position		:	center center;
 		background-attachment	:	fixed;
 		font-family				:	"Bookman Old Style", "Verdana", "Geneva", "sans-serif";
@@ -108,6 +108,7 @@ html {
 			margin					:	0;/*0px auto 25px auto;*/
 			border-bottom			:	3px solid #F90;
 			background-color		:	#000;
+			font-size				:	2.25rem;
 			overflow				:	hidden;
 			z-index					:	1;
 		}
@@ -116,7 +117,7 @@ html {
 				width					:	100%;
 				background-color		:	#000;
 				color					:	#000;
-				display					:	inline-block;
+				display					:	none;
 				cursor					:	pointer;
 			}
 
@@ -130,7 +131,7 @@ html {
 					.handlerButton {
 						float					:	right;
 						margin					:	15px 15px 15px 0;
-						display					:	inline-block;
+						display					:	none;
 						background-color		:	transparent;
 						color					:	#FFF;
 						font-size				:	2.25rem;
@@ -142,81 +143,56 @@ html {
 						}
 
 			#navigationBar {
-				display					:	inline-block;
-				margin					:	0px auto -1px auto;
 			}
 
 				.showing {
 					max-height				:	400px;
 				}
 
-				nav ul {
+				nav > ul {
 					clear					:	right;
 					margin					:	0;
 					padding					:	0;
 					list-style				:	none;
 				}
 
-					nav ul li {
-						width					:	90%;
+					nav > ul > li {
 						margin					:	0;
 						display					:	inline-block;
-						border-top				:	3px solid transparent;
 						border-left				:	3px solid transparent;
-						border-right			:	3px solid transparent;
-						border-bottom			:	3px solid transparent;
+						background-color		:	#000;
 						color					:	#FFF;
 						text-align				:	right;
 					}
 
-						nav > ul > li:hover {
+						nav > ul > li:hover, .row > ul > li:hover {
 							border-left				:	3px solid #F90;
-							border-right			:	3px solid #F90;
-							background-color		:	#F90;
-							color					:	#000;
 							cursor					:	pointer;
 						}
 				
-					nav ul li a
+					nav > ul > li > a
 					{
-						padding					:	4px;
+						padding					:	15px 10px 15px 10px;
 						display					:	block;
-						font-size				:	1rem;
-					}
-
-					.active {
-						background-color: #F90;
+						font-size				:	2.25rem;
 					}
 				
-					nav ul li a span
+					nav > ul > li > a > span:before
 					{
-						padding					:	0 0 0 10px;
+						width					:	1.25em;
 					}
-				
-						nav ul li a span:before
-						{
-							width					:	1.25em;
-						}
 
-					/*.forceLeft {
+					.forceLeft {
 						border-right			:	3px solid transparent;
 					}
 
-					.forceRight {
-						border-left				:	3px solid transparent;
-					}*/
-
-					.navHom::before, .navAbo::before, .navPor::before, .navQua::before, .navMap::before, .navCon::before {
+					.navAbo::before, .navPor::before, .navQua::before, .navCon::before, .navMap::before {
 						float					:	left;
 						width					:	1.25em;
-						font-size				:	1.25rem;
+						font-size				:	2.25rem;
 						text-align				:	center;
 						cursor					:	pointer;
 					}
-
-						.navHom::before {
-							content					:	"\f015";
-						}
 
 						.navAbo::before {
 							content					:	"\f007";
@@ -230,19 +206,19 @@ html {
 							content					:	"\f19d";
 						}
 
-						.navMap::before {
-							content					:	"\f0e8";
-						}
-
 						.navCon::before {
 							content					:	"\f0e0";
+						}
+
+						.navMap::before {
+							content					:	"\f0e8";
 						}
 		
 		footer {
 			width					:	100%;
 			position				:	absolute;
 			bottom					:	0;
-			margin					:	0;
+			margin					:	0 auto 0 auto;
 			border-top				:	3px solid #F90;
 			background-color		:	#000;
 			overflow				:	hidden;
@@ -256,7 +232,7 @@ html {
 				color					:	#FFF;
 			}
 
-				.statement img {
+				.statement > img {
 					height					:	15px;
 					width					:	15px;
 					vertical-align			:	middle;
