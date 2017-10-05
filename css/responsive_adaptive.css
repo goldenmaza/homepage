@@ -64,11 +64,11 @@
 /*
 *	>= 768x - tablet or standard mobile resolution...
 */
-@media (min-height: 768px) {
+/*@media (min-height: 768px) {
 	header {
 		max-height				:	100px;
 	}
-}
+}*/
 
 /*
 *	>= 1600x - very large monitor resolution...
