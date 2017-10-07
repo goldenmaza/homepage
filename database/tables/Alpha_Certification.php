@@ -10,7 +10,7 @@
 	 * @copyright			Copyright (c) 2015-2016, Alpheria
 	 * @license				http://www.alpheria.com/about/license.html
 	 * @link				http://www.alpheria.com
-	 * @since				June 3rd, 2017 - Version 1.0
+	 * @since				October 7th, 2017 - Version 1.1
 	 */
 	 
 	// ===========================================================================

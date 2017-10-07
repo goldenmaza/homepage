@@ -61,8 +61,8 @@
 								</a>
 							</h4>
 							<div class="row col-12-xs">
-						    	<div class="col-5-xl col-5-lg col-5-sm col-12-xs col-1-sm-offset col-0-xs-offset text-left">
-						    		<ul id="skill' . $i . '" class="skillTree">
+								<div class="col-5-xl col-5-lg col-5-sm col-12-xs col-1-sm-offset col-0-xs-offset text-left">
+									<ul id="skill' . $i . '" class="skillTree">
 			';
 			if ($i > 0) {
 				foreach ($data as $cat => $arr) {
@@ -101,9 +101,9 @@
 				}
 			}
 			echo'
-						        	</ul>
-						        </div>
-						    	<div class="col-5-xl col-5-lg col-5-sm col-12-xs text-justify">
+									</ul>
+								</div>
+								<div class="col-5-xl col-5-lg col-5-sm col-12-xs text-justify">
 			';
 			if (isset($alpha_informationSize) == true) {
 				if ($index == $paragraphsSize) {
@@ -114,7 +114,7 @@
 				';
 			}
 			echo'
-					    		</div>
+								</div>
 							</div>
 						</div>
 					</div><!-- container ends -->
@@ -167,5 +167,5 @@
 		}
 		return $line;
 	}
-    
+	
 ?>

@@ -10,7 +10,7 @@
 	 * @copyright			Copyright (c) 2015-2016, Alpheria
 	 * @license				http://www.alpheria.com/about/license.html
 	 * @link				http://www.alpheria.com
-	 * @since				June 3rd, 2017 - Version 1.0
+	 * @since				October 7th, 2017 - Version 1.1
 	 */
 	 
 	// ===========================================================================
@@ -39,7 +39,7 @@
 		
 		// ===========================================================================
 
-	    /**
+		/**
 		 * Alpha_Testimonial - getObject
 		 * 
 		 * This function is used for returning non-static properties of the given object
@@ -51,7 +51,7 @@
 			return get_object_vars($this);
 		}
 
-	    /**
+		/**
 		 * Alpha_Testimonial - getNumber
 		 * 
 		 * This function is used for returning the id attribute
@@ -63,7 +63,7 @@
 			return $this->number;
 		}
 
-	    /**
+		/**
 		 * Alpha_Testimonial - getAuthor
 		 * 
 		 * This function is used for returning the author attribute
@@ -75,7 +75,7 @@
 			return $this->author;
 		}
 
-	    /**
+		/**
 		 * Alpha_Testimonial - getCompany
 		 * 
 		 * This function is used for returning the company attribute
@@ -87,7 +87,7 @@
 			return $this->company;
 		}
 
-	    /**
+		/**
 		 * Alpha_Testimonial - getWebsite
 		 * 
 		 * This function is used for returning the website attribute
@@ -99,7 +99,7 @@
 			return $this->website;
 		}
 
-	    /**
+		/**
 		 * Alpha_Testimonial - getAuthored
 		 * 
 		 * This function is used for returning the authored attribute
@@ -111,7 +111,7 @@
 			return $this->authored;
 		}
 
-	    /**
+		/**
 		 * Alpha_Testimonial - getDescription
 		 * 
 		 * This function is used for returning the description attribute
@@ -123,7 +123,7 @@
 			return $this->description;
 		}
 
-	    /**
+		/**
 		 * Alpha_Testimonial - getShort
 		 * 
 		 * This function is used for returning the short attribute

@@ -143,7 +143,7 @@
 									</div>
 									<div class="col-6-sm col-12-xs text-left">
 			';
-			if ($alpha_project[$i]->getWebsite() == null) {
+			if (is_null($alpha_project[$i]->getWebsite())) {
 				echo'
 										<p>
 											<span class="force-mini-left">Project: </span>' . $alpha_project[$i]->getName() . '
@@ -246,5 +246,5 @@
 			</section><!-- section ends -->
 		';
 	}
-    
+	
 ?>

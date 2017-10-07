@@ -142,7 +142,7 @@
 							<div class="col-12-xs no-margin">
 								<div class="col-4-sm col-12-xs text-left force-text-right">
 		';
-		if ($alpha_education[$index]->getWebsite() == null) {
+		if (is_null($alpha_education[$index]->getWebsite())) {
 			echo'
 									<p>
 										<span class="force-mini-left">Institution: </span>' . $alpha_education[$index]->getInstitution() . '
@@ -198,5 +198,5 @@
 			</section><!-- section ends -->
 		';
 	}
-        
+		
 ?>

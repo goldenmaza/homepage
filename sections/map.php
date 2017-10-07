@@ -70,5 +70,5 @@
 			</section><!-- section ends -->
 		';
 	}
-    
+	
 ?>

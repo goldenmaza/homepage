@@ -50,7 +50,7 @@
 							<div class="row col-12-xs">
 								<div class="col-5-sm col-12-xs text-left force-text-right no-margin">
 				';
-				if ($alpha_award[$j]->getWebsite() == null) {
+				if (is_null($alpha_award[$j]->getWebsite())) {
 					echo'
 									<p>
 										<span class="force-mini-left">Publisher: </span>' . $alpha_award[$j]->getPublisher() . '
@@ -143,7 +143,7 @@
 								<div class="col-12-xs no-margin">
 									<div class="col-4-sm col-12-xs text-left force-text-right">
 			';
-			if ($alpha_award[$i]->getWebsite() == null) {
+			if (is_null($alpha_award[$i]->getWebsite())) {
 				echo'
 										<p>
 											<span class="force-mini-left">Publisher: </span>' . $alpha_award[$i]->getPublisher() . '
@@ -255,5 +255,5 @@
 			</section><!-- section ends -->
 		';
 	}
-    
+	
 ?>

@@ -10,7 +10,7 @@
 	 * @copyright			Copyright (c) 2015-2016, Alpheria
 	 * @license				http://www.alpheria.com/about/license.html
 	 * @link				http://www.alpheria.com
-	 * @since				June 3rd, 2017 - Version 1.0
+	 * @since				October 7th, 2017 - Version 1.1
 	 */
 	 
 	// ===========================================================================
@@ -43,7 +43,7 @@
 		
 		// ===========================================================================
 
-	    /**
+		/**
 		 * Alpha_Career - getObject
 		 * 
 		 * This function is used for returning non-static properties of the given object
@@ -55,7 +55,7 @@
 			return get_object_vars($this);
 		}
 
-	    /**
+		/**
 		 * Alpha_Career - getNumber
 		 * 
 		 * This function is used for returning the id attribute
@@ -67,7 +67,7 @@
 			return $this->number;
 		}
 
-	    /**
+		/**
 		 * Alpha_Career - getCompany
 		 * 
 		 * This function is used for returning the company attribute
@@ -79,7 +79,7 @@
 			return $this->company;
 		}
 
-	    /**
+		/**
 		 * Alpha_Career - getPosition
 		 * 
 		 * This function is used for returning the position attribute
@@ -91,7 +91,7 @@
 			return $this->position;
 		}
 
-	    /**
+		/**
 		 * Alpha_Career - getEmployment
 		 * 
 		 * This function is used for returning the employment attribute
@@ -103,7 +103,7 @@
 			return $this->employment;
 		}
 
-	    /**
+		/**
 		 * Alpha_Career - getBeginning
 		 * 
 		 * This function is used for returning the beginning attribute
@@ -115,7 +115,7 @@
 			return $this->beginning;
 		}
 
-	    /**
+		/**
 		 * Alpha_Career - getEnding
 		 * 
 		 * This function is used for returning the ending attribute
@@ -127,7 +127,7 @@
 			return $this->ending;
 		}
 
-	    /**
+		/**
 		 * Alpha_Career - getWebsite
 		 * 
 		 * This function is used for returning the website attribute
@@ -139,7 +139,7 @@
 			return $this->website;
 		}
 
-	    /**
+		/**
 		 * Alpha_Career - getDescription
 		 * 
 		 * This function is used for returning the description attribute
@@ -151,7 +151,7 @@
 			return $this->description;
 		}
 
-	    /**
+		/**
 		 * Alpha_Career - getKeyword
 		 * 
 		 * This function is used for returning the keyword attribute

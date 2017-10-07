@@ -50,7 +50,7 @@
 							<div class="row col-12-xs">
 								<div class="col-5-sm col-12-xs text-left force-text-right no-margin">
 				';
-				if ($alpha_testimonial[$j]->getWebsite() == null) {
+				if (is_null($alpha_testimonial[$j]->getWebsite())) {
 					echo'
 									<p>
 										<span class="force-mini-left">Employer: </span>' . substr($alpha_testimonial[$j]->getCompany(), 0, strpos($alpha_testimonial[$j]->getCompany(), ' ')) . '
@@ -143,7 +143,7 @@
 								<div class="col-12-xs no-margin">
 									<div class="col-4-sm col-12-xs text-left force-text-right">
 			';
-			if ($alpha_testimonial[$i]->getWebsite() == null) {
+			if (is_null($alpha_testimonial[$i]->getWebsite())) {
 				echo'
 										<p>
 											<span class="force-mini-left">Employer: </span>' . $alpha_testimonial[$i]->getCompany() . '
@@ -214,5 +214,5 @@
 			</section><!-- section ends -->
 		';
 	}
-    
+	
 ?>

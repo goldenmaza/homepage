@@ -10,7 +10,7 @@
 	 * @copyright			Copyright (c) 2015-2016, Alpheria
 	 * @license				http://www.alpheria.com/about/license.html
 	 * @link				http://www.alpheria.com
-	 * @since				June 3rd, 2017 - Version 1.0
+	 * @since				October 7th, 2017 - Version 1.1
 	 */
 	 
 	// ===========================================================================
@@ -45,7 +45,7 @@
 		
 		// ===========================================================================
 
-	    /**
+		/**
 		 * Alpha_Project - getObject
 		 * 
 		 * This function is used for returning non-static properties of the given object
@@ -57,7 +57,7 @@
 			return get_object_vars($this);
 		}
 
-	    /**
+		/**
 		 * Alpha_Project - getNumber
 		 * 
 		 * This function is used for returning the id attribute
@@ -69,7 +69,7 @@
 			return $this->number;
 		}
 
-	    /**
+		/**
 		 * Alpha_Project - getName
 		 * 
 		 * This function is used for returning the name attribute
@@ -81,7 +81,7 @@
 			return $this->name;
 		}
 
-	    /**
+		/**
 		 * Alpha_Project - getCustomer
 		 * 
 		 * This function is used for returning the customer attribute
@@ -93,7 +93,7 @@
 			return $this->customer;
 		}
 
-	    /**
+		/**
 		 * Alpha_Project - getPosition
 		 * 
 		 * This function is used for returning the position attribute
@@ -105,7 +105,7 @@
 			return $this->position;
 		}
 
-	    /**
+		/**
 		 * Alpha_Project - getBeginning
 		 * 
 		 * This function is used for returning the beginning attribute
@@ -117,7 +117,7 @@
 			return $this->beginning;
 		}
 
-	    /**
+		/**
 		 * Alpha_Project - getEnding
 		 * 
 		 * This function is used for returning the ending attribute
@@ -129,7 +129,7 @@
 			return $this->ending;
 		}
 
-	    /**
+		/**
 		 * Alpha_Project - getWebsite
 		 * 
 		 * This function is used for returning the website attribute
@@ -141,7 +141,7 @@
 			return $this->website;
 		}
 
-	    /**
+		/**
 		 * Alpha_Project - getKeyword
 		 * 
 		 * This function is used for returning the keyword attribute
@@ -153,7 +153,7 @@
 			return $this->keyword;
 		}
 
-	    /**
+		/**
 		 * Alpha_Project - getDescription
 		 * 
 		 * This function is used for returning the description attribute
@@ -165,7 +165,7 @@
 			return $this->description;
 		}
 
-	    /**
+		/**
 		 * Alpha_Project - getDirectory
 		 * 
 		 * This function is used for returning the directory attribute

@@ -10,7 +10,7 @@
 	 * @copyright			Copyright (c) 2015-2016, Alpheria
 	 * @license				http://www.alpheria.com/about/license.html
 	 * @link				http://www.alpheria.com
-	 * @since				June 3rd, 2017 - Version 1.0
+	 * @since				October 7th, 2017 - Version 1.1
 	 */
 	 
 	// ===========================================================================
@@ -24,7 +24,6 @@
 		private $points 		= NULL;
 		private $location 		= NULL;
 		private $graduation 	= NULL;
-		private $graduated 		= NULL;
 		private $website 		= NULL;
 		private $description 	= NULL;
 		private $keyword 		= NULL;
@@ -41,15 +40,14 @@
 			$this->points 		= $dataArray[5];
 			$this->location 	= $dataArray[6];
 			$this->graduation 	= $dataArray[7];
-			$this->graduated 	= $dataArray[8];
-			$this->website 		= $dataArray[9];
-			$this->description 	= $dataArray[10];
-			$this->keyword 		= $dataArray[11];
+			$this->website 		= $dataArray[8];
+			$this->description 	= $dataArray[9];
+			$this->keyword 		= $dataArray[10];
 		}
 	 
 		// ===========================================================================
 
-	    /**
+		/**
 		 * Alpha_Education - getObject
 		 * 
 		 * This function is used for returning non-static properties of the given object
@@ -61,7 +59,7 @@
 			return get_object_vars($this);
 		}
 
-	    /**
+		/**
 		 * Alpha_Education - getNumber
 		 * 
 		 * This function is used for returning the id attribute
@@ -73,7 +71,7 @@
 			return $this->number;
 		}
 
-	    /**
+		/**
 		 * Alpha_Education - getInstitution
 		 * 
 		 * This function is used for returning the institution attribute
@@ -85,7 +83,7 @@
 			return $this->institution;
 		}
 
-	    /**
+		/**
 		 * Alpha_Education - getLevel
 		 * 
 		 * This function is used for returning the level attribute
@@ -97,7 +95,7 @@
 			return $this->level;
 		}
 
-	    /**
+		/**
 		 * Alpha_Education - getMajor
 		 * 
 		 * This function is used for returning the major attribute
@@ -109,7 +107,7 @@
 			return $this->major;
 		}
 
-	    /**
+		/**
 		 * Alpha_Education - getName
 		 * 
 		 * This function is used for returning the name attribute
@@ -121,7 +119,7 @@
 			return $this->name;
 		}
 
-	    /**
+		/**
 		 * Alpha_Education - getPoints
 		 * 
 		 * This function is used for returning the points attribute
@@ -133,7 +131,7 @@
 			return $this->points;
 		}
 
-	    /**
+		/**
 		 * Alpha_Education - getLocation
 		 * 
 		 * This function is used for returning the location attribute
@@ -145,7 +143,7 @@
 			return $this->location;
 		}
 
-	    /**
+		/**
 		 * Alpha_Education - getGraduation
 		 * 
 		 * This function is used for returning the graduation attribute
@@ -157,19 +155,7 @@
 			return $this->graduation;
 		}
 
-	    /**
-		 * Alpha_Education - getGraduated
-		 * 
-		 * This function is used for returning the graduated attribute
-		 * 
-		 * @access		public
-		 * @return		integer		the graduated attribute loaded from the database table
-		 */
-		public function getGraduated() {
-			return $this->graduated;
-		}
-
-	    /**
+		/**
 		 * Alpha_Education - getWebsite
 		 * 
 		 * This function is used for returning the website attribute
@@ -181,7 +167,7 @@
 			return $this->website;
 		}
 
-	    /**
+		/**
 		 * Alpha_Education - getDescription
 		 * 
 		 * This function is used for returning the description attribute
@@ -193,7 +179,7 @@
 			return $this->description;
 		}
 
-	    /**
+		/**
 		 * Alpha_Education - getKeyword
 		 * 
 		 * This function is used for returning the keyword attribute

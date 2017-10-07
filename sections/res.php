@@ -50,7 +50,7 @@
 							<div class="row col-12-xs">
 								<div class="col-5-sm col-10-xs col-xs-push-1 text-left force-text-right no-margin">
 				';
-				if ($alpha_result[$j]->getWebsite() == null) {
+				if (is_null($alpha_result[$j]->getWebsite())) {
 					echo'
 									<p>
 										<span class="force-mini-left">Agent: </span>' . $alpha_result[$j]->getAgent() . '
@@ -143,7 +143,7 @@
 								<div class="col-12-xs no-margin">
 									<div class="col-4-sm col-12-xs text-left force-text-right">
 			';
-			if ($alpha_result[$i]->getWebsite() == null) {
+			if (is_null($alpha_result[$i]->getWebsite())) {
 				echo'
 										<p>
 											<span class="force-mini-left">Agent: </span>' . $alpha_result[$i]->getAgent() . '
@@ -214,5 +214,5 @@
 			</section><!-- section ends -->
 		';
 	}
-    
+	
 ?>

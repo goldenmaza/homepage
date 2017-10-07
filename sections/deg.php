@@ -45,7 +45,7 @@
 							<div class="col-12-xs no-margin">
 								<div class="col-4-sm col-12-xs text-left force-text-right">
 			';
-			if ($alpha_degree[$i]->getWebsite() == null) {
+			if (is_null($alpha_degree[$i]->getWebsite())) {
 				echo'
 									<p>
 										<span class="force-mini-left">Institution: </span>' . $alpha_degree[$i]->getInstitution() . '
@@ -72,7 +72,7 @@
 							<div class="row col-12-xs no-margin">
 								<div class="col-4-sm col-12-xs text-left force-text-right">
 									<p>
-										<span class="force-mini-left">Graduated: </span>' . ($alpha_degree[$i]->getGraduated() == 0 ? "Incomplete or Not applied" : date_format(new DateTime($alpha_degree[$i]->getGraduation()), 'M jS, Y')) . '
+										<span class="force-mini-left">Graduated: </span>' . (is_null($alpha_degree[$i]->getGraduation()) ? "Incomplete or Not applied" : date_format(new DateTime($alpha_degree[$i]->getGraduation()), 'M jS, Y')) . '
 									</p>
 								</div>
 								<div class="col-6-sm col-12-xs text-left">
@@ -94,5 +94,5 @@
 			</section><!-- section ends -->
 		';
 	}
-    
+	
 ?>

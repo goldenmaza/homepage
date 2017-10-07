@@ -10,7 +10,7 @@
 	 * @copyright			Copyright (c) 2015-2017, Alpheria
 	 * @license				http://www.alpheria.com/about/license.html
 	 * @link				http://www.alpheria.com
-	 * @since				June 3rd, 2017 - Version 1.0
+	 * @since				October 7th, 2017 - Version 1.1
 	 */
 	 
 	// ===========================================================================
@@ -35,7 +35,7 @@
 		
 		// ===========================================================================
 
-	    /**
+		/**
 		 * Alpha_Information - getObject
 		 * 
 		 * This function is used for returning non-static properties of the given object
@@ -47,7 +47,7 @@
 			return get_object_vars($this);
 		}
 
-	    /**
+		/**
 		 * Alpha_Information - getNumber
 		 * 
 		 * This function is used for returning the id attribute
@@ -59,7 +59,7 @@
 			return $this->number;
 		}
 
-	    /**
+		/**
 		 * Alpha_Information - getTitle
 		 * 
 		 * This function is used for returning the title attribute
@@ -71,7 +71,7 @@
 			return $this->title;
 		}
 
-	    /**
+		/**
 		 * Alpha_Information - getParagraph
 		 * 
 		 * This function is used for returning the paragraph attribute
@@ -83,7 +83,7 @@
 			return $this->paragraph;
 		}
 
-	    /**
+		/**
 		 * Alpha_Information - getPage
 		 * 
 		 * This function is used for returning the page attribute
@@ -95,7 +95,7 @@
 			return $this->page;
 		}
 
-	    /**
+		/**
 		 * Alpha_Information - getGroup
 		 * 
 		 * This function is used for returning the group attribute

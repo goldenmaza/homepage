@@ -50,7 +50,7 @@
 							<div class="row col-12-xs">
 								<div class="col-5-sm col-12-xs text-left force-text-right no-margin">
 				';
-				if ($alpha_career[$j]->getWebsite() == null) {
+				if (is_null($alpha_career[$j]->getWebsite())) {
 					echo'
 									<p>
 										<span class="force-mini-left">Employeer: </span>' . $alpha_career[$j]->getCompany() . '
@@ -143,7 +143,7 @@
 								<div class="col-12-xs no-margin">
 									<div class="col-4-sm col-12-xs text-left force-text-right">
 			';
-			if ($alpha_career[$i]->getWebsite() == null) {
+			if (is_null($alpha_career[$i]->getWebsite())) {
 				echo'
 										<p>
 											<span class="force-mini-left">Employeer: </span>' . $alpha_career[$i]->getCompany() . '
@@ -219,5 +219,5 @@
 			</section><!-- section ends -->
 		';
 	}
-    
+	
 ?>

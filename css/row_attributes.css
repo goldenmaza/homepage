@@ -66,10 +66,13 @@
 		}
 
 	.viewTarget {
-	    float                   :   left;
-	    padding                 :   2px 10px 10px 10px;
-	    display                 :   block;
 	}
+
+		span.viewTarget {
+		    float                   :   left;
+		    padding                 :   2px 10px 10px 10px;
+		    display                 :   block;
+		}
 
 		.viewTarget::after {
 			content					:	"\f002";
