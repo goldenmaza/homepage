@@ -169,7 +169,7 @@
 							<div class="row col-12-xs no-margin">
 								<div class="col-4-sm col-12-xs text-left force-text-right">
 									<p>
-										<span class="force-mini-left">Date: </span>' . ($alpha_education[$index]->getGraduated() == 0 ? "Incomplete" : date_format(new DateTime($alpha_education[$index]->getGraduation()), 'M jS, Y')) . '
+										<span class="force-mini-left">Date: </span>' . (is_null($alpha_education[$index]->getGraduation()) ? "Incomplete" : date_format(new DateTime($alpha_education[$index]->getGraduation()), 'M jS, Y')) . '
 									</p>
 								</div>
 								<div class="col-6-sm col-12-xs text-left">
