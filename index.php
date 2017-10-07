@@ -51,6 +51,7 @@
 	$dlCertificationPath		= "download/certification";
 	$dlAwardPath				= "download/award";
 	$dlFilesPath				= "download/files";
+	$flashPath					= "multimedia/flash";
 	$imagePath					= "multimedia/image";
 	$sourcePath					= $imagePath . "/source";
 	$extensionPath				= $imagePath . "/extension";

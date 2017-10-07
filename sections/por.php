@@ -174,6 +174,27 @@
 										Comprised of: ' . $alpha_project[$i]->getKeyword() . '
 									</p>
 								</div>
+			';
+			if (is_dir($flashPath . "/" . $alpha_project[$i]->getDirectory())) {
+				echo'
+								<div class="row col-12-xs">
+									<p>
+										DEMO <span class="objectFlashHidden">(only available for non-mobile clients...)</span>
+									</p>
+									<div class="row col-12-xs">
+										<object class="objectFlash" type="application/x-shockwave-flash">
+											<param name=movie value="http://www.hellstrand.org/multimedia/flash/' . $alpha_project[$i]->getDirectory() . '/' . $alpha_project[$i]->getDirectory() . '.swf">
+											<param name=allowfullscreen value=false>
+											<param name=flashvars value="http://www.hellstrand.org/multimedia/flash/' . $alpha_project[$i]->getDirectory() . '/' . $alpha_project[$i]->getDirectory() . '.swf">
+											<video controls src="http://www.hellstrand.org/multimedia/flash/' . $alpha_project[$i]->getDirectory() . '/' . $alpha_project[$i]->getDirectory() . '.swf">
+												<a href="http://www.hellstrand.org/multimedia/flash/' . $alpha_project[$i]->getDirectory() . '/' . $alpha_project[$i]->getDirectory() . '.swf" target="_blank" title="Open the flash media in a new tab!">View flash element</a>.
+											</video>
+										</object>
+									</div>
+								</div>
+				';
+			}
+			echo'
 							</div>
 							<div class="col-4-sm col-12-xs col-sm-pull-7">
 								<div class="row col-10-lg col-12-xs col-lg-push-1 portfolioMediaHolder iconsBar">

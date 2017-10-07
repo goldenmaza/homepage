@@ -326,6 +326,14 @@
 			display					:	block;
 		}
 
+		.objectFlash {
+			display					:	none;
+		}
+
+			.objectFlashHidden {
+				display					:	block;
+			}
+
 		.skillTree {
 			margin					:	10px 0 0 0;
 			list-style				:	none;

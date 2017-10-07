@@ -641,6 +641,17 @@
 		margin					:	0 auto 0 auto;
 		display					:	block;
 	}
+
+	.objectFlash {
+		height					:	350px;
+		width					:	90%;
+		margin					:	0 auto 0 auto;
+		display					:	block;
+	}
+
+		.objectFlashHidden {
+			display					:	none;
+		}
 }
 
 /*
