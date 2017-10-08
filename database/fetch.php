@@ -11,7 +11,7 @@
 	 * @copyright			Copyright (c) 2015-2017, Alpheria
 	 * @license				http://www.alpheria.com/about/license.html
 	 * @link				http://www.alpheria.com
-	 * @since				October 1st, 2017 - Version 1.2
+	 * @since				October 8th, 2017 - Version 1.3
 	 *
 	 */
 	 
@@ -73,8 +73,8 @@
 		"table"=>["alpha_degree"],
 		"column"=>[],
 		"condition"=>[],
-		"sort"=>["name"],
-		"order"=>["ASC"]
+		"sort"=>["name", "graduation"],
+		"order"=>["ASC", "ASC"]
 	];
 	if ($handler->loadingSession($fetchDegree) == false) {
 		// echo 'ERROR with loading Degree';

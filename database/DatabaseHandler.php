@@ -11,7 +11,7 @@
 	 * @copyright			Copyright (c) 2015-2017, Alpheria
 	 * @license				http://www.alpheria.com/about/license.html
 	 * @link				http://www.alpheria.com
-	 * @since				October 7th, 2017 - Version 1.1
+	 * @since				October 8th, 2017 - Version 1.2
 	 */
 	 
 	// ===========================================================================
@@ -137,10 +137,9 @@
 								$this->tuples[5] 	= $row['points'];
 								$this->tuples[6] 	= $row['location'];
 								$this->tuples[7] 	= $row['graduation'];
-								$this->tuples[8] 	= $row['graduated'];
-								$this->tuples[9] 	= $row['website'];
-								$this->tuples[10] 	= $row['description'];
-								$this->tuples[11] 	= $row['keyword'];
+								$this->tuples[8] 	= $row['website'];
+								$this->tuples[9] 	= $row['description'];
+								$this->tuples[10] 	= $row['keyword'];
 								$_SESSION['process']->addAlpha_Degree($this->tuples);
 								$this->success = 0;
 							}
