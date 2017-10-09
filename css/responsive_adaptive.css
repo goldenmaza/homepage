@@ -148,6 +148,15 @@
 }
 
 /*
+*	>= 1024x - large monitor resolution...
+*/
+@media (min-width: 1024px) {
+	#navigationBar {
+		margin					:	0px auto -1px auto;
+	}
+}
+
+/*
 *	>= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
