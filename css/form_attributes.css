@@ -154,7 +154,8 @@
 		
 
 	#textareaCounter, #nameCounter, #mailCounter, #topicCounter {
-		right					:	13px;
+		right					:	10px;
+		margin-top				:	-30px;
 		position				:	absolute;
 		display					:	block;
 		color					:	#F90;
