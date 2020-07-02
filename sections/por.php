@@ -1,271 +1,179 @@
 <?php
 
 	echo'
-		<h2 class="hidden">
-			Portfolio\'s sections
-		</h2>
+		<h2 class="hidden">Portfolio\'s sections</h2>
 	';
-	if (isset($alpha_projectSize) == true) {
-		$currentLimit = 0;
+	if (isset($alpha_projectSize)) {
 		$pages = ceil($alpha_projectSize / $portfolioGrid);
+		$currentLimit = 0;
 		for ($i = 0; $i < $pages; $i++) {
+			$notAtStart = $i != 0;
+			$notAtEnd = $i != $pages-1;
 			echo'
 				<section id="por' . $i . '" class="sections" data-sitemap="Thumbnails - p. ' . ($i+1) . '">
 					<div class="container">
-						<div class="row col-12-xs">
-							<ul>
-			';
-			if ($i != 0) {
-				echo'
-								<li class="previousPage">
-									<a href="#por' . ($i-1) . '" title="Previous page, please!">
-										<span>
-											Prev
-										</span>
+						<header>
+							<ul class="containerRow">
+								<li class="previousPage' . ($notAtStart ? '' : ' disabled') . '">
+									<a' . ($notAtStart ? (' href="#por' . ($i-1) . '"') : '') . ' title="Previous page, please!" ' . ($notAtStart ? ('tabindex="' . ++$tabIndex) . '"' : '') . '>
+										<span>Prev</span>
 									</a>
-								</li>
-				';
-			}
-			if ($i != $pages-1) {
-				echo'
-								<li class="nextPage">
-									<a href="#por' . ($i+1) . '" title="Next page, please!">
-										<span>
-											Next
-										</span>
+								</li><!-- previousPage ends -->
+								<li class="nextPage' . ($notAtEnd ? '' : ' disabled') . '">
+									<a' . ($notAtEnd ? (' href="#por' . ($i+1) . '"') : '') . ' title="Next page, please!" ' . ($notAtEnd ? ('tabindex="' . ++$tabIndex) . '"' : '') . '>
+										<span>Next</span>
 									</a>
-								</li>
-				';
-			}
-			echo'
-							</ul>
-						</div>
-						<div class="content row col-12-xs">
-							<div class="col-12-xs">
-								<h3>
-									Thumbnails
-								</h3>
-							</div>
-							<div class="row col-12-xs">
-								<div class="col-6-lg col-8-md col-12-xs col-lg-push-0 col-md-push-2 displaySummaryContainer">
+								</li><!-- nextPage ends -->
+							</ul><!-- containerRow ends -->
+						</header><!-- header ends -->
+						<div class="containerColumn">
+							<div class="containerRow">
+								<h3>Thumbnails</h3>
+							</div><!-- containerRow ends -->
+							<div class="containerSwap gridLayout">
 			';
 			for ($j = $currentLimit; $j < $alpha_projectSize; $j++) {
-				if ($j != 0 && $j % 2 == 0) {
-					echo'
-								</div>
-								<div class="col-6-lg col-8-md col-12-xs col-lg-push-0 col-md-push-2 displaySummaryContainer">
-					';
-				}
-				$filePatha = $sourcePath . "/" . $alpha_project[$j]->getDirectory() . "/" . $alpha_project[$j]->getDirectory() . ".png";
-				$porThumbnailAlt = "The thumbnail used for the " . $alpha_project[$j]->getName() . " project!";
-				$fileFound = file_exists($filePatha);
+				$filePathLocation = $sourcePath . "/" . $alpha_project[$j]->getDirectory() . "/" . $alpha_project[$j]->getDirectory() . ".png";
+				$fileLocated = file_exists($filePathLocation);
+				$imageSrc = $fileLocated ? $filePathLocation : $pathThumbnailDummy;
+				$imageAlt = $fileLocated ? "The thumbnail used for the " . $alpha_project[$j]->getName() . " project!" : $altDummy;
 				echo'
-									<div class="col-6-xs text-center">
-										<div class="displayPortfolioGroup">
-											<a href="#pro' . $j . '" title="View the ' . $alpha_project[$j]->getName() . ' project details!">
-												<img src="' . ($fileFound == true ? $filePatha : $pathThumbnailDummy) . '" alt="' . ($fileFound == true ? $porThumbnailAlt : $altDummy) . '" />
-												<p class="overlay">
-													' . $alpha_project[$j]->getName() . '
-												</p>
-											</a>
-										</div>
-									</div>
+								<div class="displayPortfolioGroup">
+									<a href="#pro' . $j . '" title="View the ' . $alpha_project[$j]->getName() . ' project details!">
+										<img src="' . $imageSrc . '" alt="' . $imageAlt . '" aria-labelledby="' . $imageAlt . '" />
+									</a>
+									<p class="overlay">' . $alpha_project[$j]->getName() . '</p>
+								</div><!-- displayPortfolioGroup ends -->
 				';
 				$currentLimit++;
-				if ($currentLimit % $portfolioGrid == 0) {
+				if ($currentLimit % $portfolioGrid === 0) {
 					break;
 				}
 			}
 			echo'
-								</div>
-							</div>
-						</div>
+							</div><!-- containerSwap ends -->
+						</div><!-- containerColumn ends -->
 					</div><!-- container ends -->
 				</section><!-- section ends -->
 			';
 		}
 		for ($i = 0; $i < $alpha_projectSize; $i++) {
+			$notAtStart = $i !== 0;
+			$notAtEnd = $i !== $alpha_projectSize-1;
+			$startDate = date_format(new DateTime($alpha_project[$i]->getBeginning()), 'M jS, Y');
+			$endDate = ($alpha_project[$i]->getEnding() === NULL ? "UFN" : date_format(new DateTime($alpha_project[$i]->getEnding()), 'M jS, Y'));
+			$hrefTag = is_null($alpha_project[$i]->getWebsite()) ? '' : ' href="' . $alpha_project[$i]->getWebsite() . '"';
 			echo'
 				<section id="pro' . $i . '" class="sections" data-sitemap="' . $alpha_project[$i]->getName() . '">
 					<div class="container">
-						<div class="row col-12-xs">
-							<ul>
-			';
-			if ($i != 0) {
-				echo'
-								<li class="previousPage">
-									<a href="#pro' . ($i-1) . '" title="Previous page, please!">
-										<span>
-											Prev
-										</span>
+						<header>
+							<ul class="containerRow">
+								<li class="previousPage' . ($notAtStart ? '' : ' disabled') . '">
+									<a' . ($notAtStart ? (' href="#pro' . ($i-1) . '"') : '') . ' title="Previous page, please!" ' . ($notAtStart ? ('tabindex="' . ++$tabIndex) . '"' : '') . '>
+										<span>Prev</span>
 									</a>
-								</li>
-				';
-			}
-			if ($i != $alpha_projectSize-1) {
-				echo'
-								<li class="nextPage">
-									<a href="#pro' . ($i+1) . '" title="Next page, please!">
-										<span>
-											Next
-										</span>
+								</li><!-- previousPage ends -->
+								<li class="nextPage' . ($notAtEnd ? '' : ' disabled') . '">
+									<a' . ($notAtEnd ? (' href="#pro' . ($i+1) . '"') : '') . ' title="Next page, please!" ' . ($notAtEnd ? ('tabindex="' . ++$tabIndex) . '"' : '') . '>
+										<span>Next</span>
 									</a>
-								</li>
-				';
-			}
-			echo'
-							</ul>
-						</div>
-						<div class="content row col-12-xs">
-							<h3>
-								<a href="#por0" title="Return to the Portfolio page!">
-									' . $alpha_project[$i]->getName() . '
-								</a>
-							</h3>
-							<div class="row col-12-xs">
-								<div class="col-12-xs no-margin">
-									<div class="col-4-sm col-12-xs text-left force-text-right">
+								</li><!-- nextPage ends -->
+							</ul><!-- containerRow ends -->
+						</header><!-- header ends -->
+						<div class="containerColumn">
+							<div class="containerRow">
+								<h3>
+									<a href="#por0" title="Return to the Portfolio page!">' . $alpha_project[$i]->getName() . '</a>
+								</h3>
+							</div><!-- containerRow ends -->
+							<div class="containerColumn force-left">
+								<div class="containerSwap force-left">
+									<div class="containerRow force-text-right">
+										<p><span class="force-mini-right">Position: </span>' . $alpha_project[$i]->getPosition() . '</p>
+									</div><!-- containerRow ends -->
+									<div class="containerRow">
+										<p><span class="force-mini-left">Customer: </span>' . $alpha_project[$i]->getCustomer() . '</p>
+									</div><!-- containerRow ends -->
+								</div><!-- containerSwap ends -->
+								<div class="containerSwap force-left">
+									<div class="containerRow force-text-right">
+										<p><span class="force-mini-right">Date: </span>' . $startDate . ' - ' . $endDate . '</p>
+									</div><!-- containerRow ends -->
+									<div class="containerRow">
 										<p>
-											<span class="force-mini-right">Position: </span>' . $alpha_project[$i]->getPosition() . '
-										</p>
-									</div>
-									<div class="col-6-sm col-12-xs text-left">
-										<p>
-											<span class="force-mini-left">Customer: </span>' . $alpha_project[$i]->getCustomer() . '
-										</p>
-									</div>
-								</div>
-								<div class="row col-12-xs no-margin">
-									<div class="col-4-sm col-12-xs text-left force-text-right">
-										<p>
-											<span class="force-mini-right">Date: </span>' . date_format(new DateTime($alpha_project[$i]->getBeginning()), 'M jS, Y') . ' - ' . ($alpha_project[$i]->getEnding() == NULL ? "UFN" : date_format(new DateTime($alpha_project[$i]->getEnding()), 'M jS, Y')) . '
-										</p>
-									</div>
-									<div class="col-6-sm col-12-xs text-left">
-			';
-			if (is_null($alpha_project[$i]->getWebsite())) {
-				echo'
-										<p>
-											<span class="force-mini-left">Project: </span>' . $alpha_project[$i]->getName() . '
-										</p>
-				';
-			}
-			else {
-				echo'
-										<p>
-											<a href="' . $alpha_project[$i]->getWebsite() . '" target="_blank" title="Visit the released ' . $alpha_project[$i]->getName() . ' project page!">
+											<a' . $hrefTag . ' target="_blank" title="Visit the released ' . $alpha_project[$i]->getName() . ' project page!">
 												<span class="force-mini-left">Project: </span>' . $alpha_project[$i]->getName() . '
 											</a>
 										</p>
-				';
-			}
-			echo'
-									</div>
-								</div>
-							</div>
-							<div class="col-7-sm col-12-xs col-sm-push-4 no-padding">
-								<div class="row col-12-xs text-justify">
-									<p>
-										' . $alpha_project[$i]->getDescription() . '
-									</p>
-								</div>
-								<div class="row col-12-xs text-justify">
-									<p>
-										Comprised of: ' . $alpha_project[$i]->getKeyword() . '
-									</p>
-								</div>
+									</div><!-- containerRow ends -->
+								</div><!-- containerSwap ends -->
+							</div><!-- containerColumn ends -->
+							<div class="containerSwap">
+								<div class="containerColumn">
+									<div class="containerRow">
+										<p class="text-justify">' . str_replace("<br><br>", "</p>", $alpha_project[$i]->getDescription()) . '</p>
+									</div><!-- containerRow ends -->
+									<div class="containerRow">
+										<p class="text-justify">Comprised of: ' . $alpha_project[$i]->getKeyword() . '</p>
+									</div><!-- containerRow ends -->
+								</div><!-- containerColumn ends -->
+								<div class="containerColumn">
+									<div class="containerColumn portfolioMediaHolder iconsBar">
 			';
-			if (is_dir($flashPath . "/" . $alpha_project[$i]->getDirectory())) {
-				echo'
-								<div class="row col-12-xs">
-									<p>
-										DEMO <span class="objectFlashHidden">(only available for non-mobile clients...)</span>
-									</p>
-									<div class="row col-12-xs">
-										<object class="objectFlash" type="application/x-shockwave-flash">
-											<param name=movie value="http://www.hellstrand.org/multimedia/flash/' . $alpha_project[$i]->getDirectory() . '/' . $alpha_project[$i]->getDirectory() . '.swf">
-											<param name=allowfullscreen value=false>
-											<param name=flashvars value="http://www.hellstrand.org/multimedia/flash/' . $alpha_project[$i]->getDirectory() . '/' . $alpha_project[$i]->getDirectory() . '.swf">
-											<video controls src="http://www.hellstrand.org/multimedia/flash/' . $alpha_project[$i]->getDirectory() . '/' . $alpha_project[$i]->getDirectory() . '.swf">
-												<a href="http://www.hellstrand.org/multimedia/flash/' . $alpha_project[$i]->getDirectory() . '/' . $alpha_project[$i]->getDirectory() . '.swf" target="_blank" title="Open the flash media in a new tab!">View flash element</a>.
-											</video>
-										</object>
-									</div>
-								</div>
-				';
-			}
-			echo'
-							</div>
-							<div class="col-4-sm col-12-xs col-sm-pull-7">
-								<div class="row col-10-lg col-12-xs col-lg-push-1 portfolioMediaHolder iconsBar">
-			';
-			$filecount = 0;
-			$filePatha = $sourcePath . "/" . $alpha_project[$i]->getDirectory() . "/";
-			if (glob($filePatha . "*.*") !== false) {
-				$files = array_map('basename', glob($filePatha . "*.*"));
+			$screensPathLocation = $sourcePath . "/" . $alpha_project[$i]->getDirectory() . "/";
+			if (glob($screensPathLocation . "*.*") !== false) {
+				$files = array_map('basename', glob($screensPathLocation . "*.*"));
 				$filecount = count($files);
-				for ($j = 1; $j < $filecount; $j++) {
-					if (strpos($files[$j], "thumb_") === false) {
-						$filePathb = $filePatha . "thumb_" . $files[$j];
-						$filePathc = $filePatha . $files[$j];
+				for ($j = 1; $j < $filecount; $j++) {//skip the first image, as it is used by the Portfolio page...
+					if (strpos($files[$j], "thumb_") === false) {//ignore thumbnails...
+						$imagePathThumb = $screensPathLocation . "thumb_" . $files[$j];
+						$imagePathSrc = $screensPathLocation . $files[$j];
 						echo'
-									<a href="' . $filePathc . '" target="_blank" title="View the full image #' . ($j+1) . ' of the ' . $alpha_project[$i]->getName() . ' project!">
-										<img class="displayThumbnailImage expandingThumbnailImage" src="' . $filePathb . '" alt="The thumbnail #' . ($j+1) . ' used for the ' . $alpha_project[$i]->getName() . ' project!" />
-									</a>
+										<a href="' . $imagePathThumb . '" target="_blank" title="View the full image #' . ($j-1) . ' of the ' . $alpha_project[$i]->getName() . ' project!">
+											<img class="displayThumbnailImage expandingThumbnailImage" src="' . $imagePathThumb . '" alt="The thumbnail #' . $j . ' used for the ' . $alpha_project[$i]->getName() . ' project!" />
+										</a>
 						';
 					}
 				}
 			}
 			echo'
-								</div>
-								<div class="row col-10-lg col-12-xs col-lg-push-1 iconsBar">
+									</div><!-- containerColumn ends -->
+									<div class="containerColumn iconsBar">
 			';
-			$filecount = 0;
-			$filePatha = $dlPortfolioPath . "/" . $alpha_project[$i]->getDirectory() . "/";
-			if (glob($filePatha . "*.*") !== false) {
-				$files = array_map('basename', glob($filePatha . "*.*"));
+			$downloadPathLocation = $dlPortfolioPath . "/" . $alpha_project[$i]->getDirectory() . "/";
+			if (glob($downloadPathLocation . "*.*") !== false) {
+				$files = array_map('basename', glob($downloadPathLocation . "*.*"));
 				$filecount = count($files);
 				for ($j = 0; $j < $filecount; $j++) {
-					if ($j != 0 && $j % 3 == 0) {
-						echo'
-								</div>
-								<div class="row col-10-lg col-12-xs col-lg-push-1 iconsBar">
-						';
-					}
 					$extension = pathinfo($files[$j], PATHINFO_EXTENSION);
-					$filePathb = $dlPortfolioPath . "/" . $alpha_project[$i]->getDirectory() . "/" . $files[$j];
+					$filePathLocation = $downloadPathLocation . $files[$j];
 					echo'
-									<a class="expandingThumbnailIcon ' . $extension . '" href="' . $filePathb . '" target="_blank" title="Download ' . $files[$j] . '!">
-									</a>
+										<a class="expandingThumbnailIcon ' . $extension . '" href="' . $filePathLocation . '" target="_blank" title="Download ' . $files[$j] . '!"></a>
 					';
 				}
 			}
 			echo'
-								</div>
-							</div>
-						</div>
+									</div><!-- containerColumn ends -->
+								</div><!-- containerColumn ends -->
+							</div><!-- containerSwap ends -->
+						</div><!-- containerColumn ends -->
 					</div><!-- container ends -->
 				</section><!-- section ends -->
 			';
 		}
-	}
-	else {
+	} else {
 		echo'
 			<section id="por0" class="sections" data-sitemap="Empty | Error">
 				<div class="container">
-					<div class="content row col-12-xs">
-						<h3>
-							Unable to load data / no data to be loaded - regarding the Portfolio pages
-						</h3>
-						<div class="row col-12-xs">
-							<strong>
-								Currently, this page was unable to load! Please, try again later!
-							</strong>
-						</div>
-					</div>
+					<div class="containerColumn">
+						<h3>Unable to load data / no data to be loaded - regarding the Portfolio pages</h3>
+						<div class="containerRow">
+							<strong>Currently, this page was unable to load! Please, try again later!</strong>
+						</div><!-- containerRow ends -->
+					</div><!-- containerColumn ends -->
 				</div><!-- container ends -->
 			</section><!-- section ends -->
 		';
 	}
-	
+
 ?>

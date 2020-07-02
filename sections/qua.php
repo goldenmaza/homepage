@@ -1,47 +1,34 @@
 <?php
 
 	echo'
-		<h2 class="hidden">
-			Qualifications\'s sections
-		</h2>
+		<h2 class="hidden">Qualifications\'s sections</h2>
 		<section id="qua" class="sections" data-sitemap="Categories">
 			<div class="container">
-				<div class="content row col-12-xs">
-					<div class="row col-12-xs">
-						<h3>
-							Categories
-						</h3>
-					</div>
-					<div class="row col-12-xs text-center">
+				<div class="containerColumn">
+					<div class="containerRow">
+						<h3>Categories</h3>
+					</div><!-- containerRow ends -->
+					<div class="containerSwap gridLayout">
 	';
-	for ($i = 0; $i < count($qualificationCategories); $i++) {
-		$category = $qualificationCategories[$i];
-		$quantity = $qualificationQuantities[$i];
-		if ($i != 0 && $i % 3 == 0) {
-			echo'
-					</div>
-					<div class="row col-12-xs text-center">
-			';
-		}
+	foreach ($qualificationKeyMatching as $categoryLabel => $categoryQuantity) {
+		$paragraphQuantity = $categoryQuantity === NULL ? "#0" : "#" . $categoryQuantity;
+		$anchorClass = $categoryQuantity === NULL ? " disabled" : "";
+		$anchorTag = $anchorKeyMatching[$categoryLabel];
+		$hrefTag = $categoryQuantity === NULL ? $anchorTag . "0" : "qua";
+		$titleTag = str_replace("X", $categoryLabel, $quaDefaultTitle);
 		echo'
-						<div class="col-4-xs displaySummaryContainer iconsBar">
-							<h4 class="hidden">
-								' . $category . ' ' . ($quantity > 0 ? "#" . $quantity : "#0") . '
-							</h4>
-							<a class="' . $anchorTags[$i] . ($quantity == NULL ? " disabled" : "") . '" href="#' . ($quantity > 0 ? $anchorTags[$i] . "0" : "qua") . '" title="' . str_replace("X", $category, $quaDefaultTitle) . '">
-								<p>
-									' . $category . '
-								</p>
-								<p>
-									' . ($quantity > 0 ? "#" . $quantity : "#0") . '
-								</p>
+						<div class="displaySummaryContainer iconsBar">
+							<h4 class="hidden">' . $categoryLabel . ' #' . $paragraphQuantity . '</h4>
+							<a class="' . $anchorClass . '" href="#' . $hrefTag . '" title="' . $titleTag . '">
+								<p>' . $categoryLabel . '</p>
+								<p>' . $paragraphQuantity . '</p>
 							</a>
-						</div>
+						</div><!-- containerColumn ends -->
 		';
 	}
 	echo'
-					</div>
-				</div>
+					</div><!-- containerGrid ends -->
+				</div><!-- containerColumn ends -->
 			</div><!-- container ends -->
 		</section><!-- section ends -->
 	';
