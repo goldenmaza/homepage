@@ -1,202 +1,156 @@
 <?php
 
 	echo'
-		<h3 class="hidden">
-			Course overview\'s subsections
-		</h3>
+		<h3 class="hidden">Course overview\'s subsections</h3>
 	';
-	for ($i = 0; $i < count($institutes); $i++) {
-		$currentPage = 0;
-		$currentLimit = 0;
-		$remaining = $quantity[$institutes[$i]];
-		for ($j = 0; $j < $alpha_educationSize; $j++) {
-			if ($institutes[$i] == $alpha_education[$j]->getInstitution()) {
-				if ($currentLimit == 0) {
-					$amount = $quantity[$alpha_education[$j]->getInstitution()];
-					echo'
-						<section id="ins' . $i . 'p' . $currentPage . '" class="sections" data-sitemap="' . $alpha_education[$j]->getInstitution() . ' - p. ' . ($currentPage+1) . '">
-							<div class="container">
-								<div class="row col-12-xs">
-									<ul>
-					';
-					if ($currentPage > 0) {
-						echo'
-										<li class="previousPage">
-											<a href="#ins' . $i  . 'p' . ($currentPage > 0 ? ($currentPage-1) : $currentPage) . '" title="Previous page, please!">
-												<span>
-													Prev
-												</span>
-											</a>
-										</li>
-						';
-					}
-					if ($currentPage < ($quantity[$institutes[$i]] / $defaultListGrid)-1) {
-						echo'
-										<li class="nextPage">
-											<a href="#ins' . $i . 'p' . ($currentPage < $remaining ? ($currentPage+1) : $currentPage) . '" title="Next page, please!">
-												<span>
-													Next
-												</span>
-											</a>
-										</li>
-						';
-					}
-					echo'
-									</ul>
-								</div>
-								<div class="content row col-12-xs">
-									<h4>
-										<a href="#edu0" title="Return to the Education page!">
-											' . $alpha_education[$j]->getInstitution() . ' - ' . number_format((float)$points[$institutes[$i]] / 100, 1, ',', '') . ' ECTS points - page ' . ($currentPage+1) . '
-										</a>
-									</h4>
-					';
-				}
-				echo'
-									<div class="row col-12-xs">
-										<div class="col-5-sm col-12-xs text-left force-text-right no-margin">
-											<p>
-												<a class="viewTarget" href="#ins' . $i . 'c' . $j . '" title="Visit the page regarding the specific course!">
-													<span class="force-mini-left">Course: </span>' . $alpha_education[$j]->getName() . '
-												</a>
-											</p>
-										</div>
-										<div class="col-6-sm col-12-xs text-left no-margin">
-											<p>
-												<span class="force-mini-left">Keywords: </span>' . $alpha_education[$j]->getKeyword() . '
-											</p>
-										</div>
-									</div>
-				';
-				$currentLimit++;
-				$remaining--;
-				if ($remaining == 0 || $currentLimit == $defaultListGrid) {
-					echo'
-								</div>
-							</div><!-- container ends -->
-						</section><!-- section ends -->
-					';
-					$currentPage++;
-					$currentLimit = 0;
-				}
-			}
-		}
-	}
 	$ins = [];
 	$cor = [];
-	$disLeft = [];
-	$disRight = [];
-	$firstElement = true;
-	for ($i = 0; $i < count($institutes); $i++) {
-		for ($j = 0; $j < $alpha_educationSize; $j++) {
-			if ($institutes[$i] == $alpha_education[$j]->getInstitution()) {
-				$ins[] = $i;
-				$cor[] = $j;
-				$firstElement == true ? $disLeft[] = $j : NULL;
-				$firstElement = false;
+	$prev = [];
+	$next = [];
+	$temp = [];
+	$places = count($institutes);
+	for ($i = 0; $i < $places; $i++) {
+		$institute = $institutes[$i];
+		$pages = ceil($quantity[$institute] / $defaultListGrid);
+		$temp = [];
+		$n = 0;
+		for ($j = 0; $j < $pages; $j++) {
+			$notAtStart = $j > 0;
+			$notAtEnd = $j < $pages - 1;
+			$ectsPoints = number_format((float)$points[$institute] / 100, 1, ',', '');
+			$label = $institute . ' - ' . $ectsPoints . ' ECTS points - page ' . ($j + 1);
+			$limit = 0;
+			echo'
+				<section id="ins' . $i . 'p' . $j . '" class="sections" data-sitemap="' . $institute . ' - p. ' . ($j + 1) . '">
+					<div class="container">
+						<header>
+							<ul class="containerRow">
+								<li class="previousPage' . ($notAtStart ? '' : ' disabled') . '">
+									<a' . ($notAtStart ? (' href="#ins' . $i . 'p' . ($j - 1) . '"') : '') . ' title="Previous page, please!">
+										<span>Prev</span>
+									</a>
+								</li><!-- previousPage ends -->
+								<li class="nextPage' . ($notAtEnd ? '' : ' disabled') . '">
+									<a' . ($notAtEnd ? (' href="#ins' . $i . 'p' . ($j + 1) . '"') : '') . ' title="Next page, please!">
+										<span>Next</span>
+									</a>
+								</li><!-- nextPage ends -->
+							</ul><!-- containerRow ends -->
+						</header><!-- header ends -->
+						<div class="containerColumn">
+							<div class="containerRow">
+								<h4>
+									<a href="#edu0" title="Return to the Education page!">' . $label . '</a>
+								</h4>
+							</div><!-- containerRow ends -->
+							<div class="containerColumn">
+			';
+			for ($k = $n; $k < $alpha_educationSize && $defaultListGrid !== $limit; $k++) {
+				if ($institute === $alpha_education[$k]->getInstitution()) {
+					$ins[] = $i;
+					$cor[] = $k;
+					$temp[] = $k;
+					echo'
+								<div class="containerSwap">
+									<div class="containerRow">
+										<p>
+											<a class="viewTarget" href="#ins' . $i . 'c' . $k . '" title="Visit the page regarding the specific course!">
+												<span class="force-mini-left">Course: </span>' . $alpha_education[$k]->getName() . '
+											</a>
+										</p>
+									</div><!-- containerRow ends -->
+									<div class="containerRow">
+										<p><span class="force-mini-left">Keywords: </span>' . $alpha_education[$k]->getKeyword() . '</p>
+									</div><!-- containerRow ends -->
+								</div><!-- containerSwap ends -->
+					';
+					$n = $k + 1;
+					$limit++;
+				}
 			}
+			echo'
+							</div><!-- containerColumn ends -->
+						</div><!-- containerColumn ends -->
+					</div><!-- container ends -->
+				</section><!-- section ends -->
+			';
 		}
-		$disRight[] = end($cor);
-		$firstElement = true;
+		$prev[] = reset($temp);
+		$next[] = end($temp);
 	}
-	for ($i = 0; $i < $alpha_educationSize; $i++) {
-		$index = $cor[$i];
+	$subPages = count($cor);
+	for ($i = 0; $i < $subPages; $i++) {
+		$institute = $ins[$i];
+		$course = $cor[$i];
+		$notAtStart = $course !== $prev[$institute];
+		$notAtEnd = $course !== $next[$institute];
+		$emptyLink = is_null($alpha_education[$course]->getWebsite());
+		$anchorClass = $emptyLink ? 'disabled' : '';
+		$hrefTag = $emptyLink ? '' : 'href="' . $alpha_education[$course]->getWebsite() . '"';
+		$emptyDate = is_null($alpha_education[$course]->getGraduation());
+		$courseStatus = $emptyDate ? 'Incomplete' : date_format(new DateTime($alpha_education[$course]->getGraduation()), 'M jS, Y');
 		echo'
-			<section id="ins' . $ins[$i] . 'c' . $cor[$i] . '" class="sections" data-sitemap="' . $alpha_education[$index]->getName() . '">
+			<section id="ins' . $institute . 'c' . $course . '" class="sections" data-sitemap="' . $alpha_education[$course]->getName() . '">
 				<div class="container">
-					<div class="row col-12-xs">
-						<ul>
-		';
-		if ($cor[$i] != $disLeft[$ins[$i]]) {
-			echo'
-							<li class="previousPage">
-								<a href="#ins' . ($ins[$i] . 'c' . ($cor[$i] > 0 ? $cor[$i-1] : $cor[$i])) . '" title="Previous page, please!">
-									<span>
-										Prev
-									</span>
+					<header>
+						<ul class="containerRow">
+							<li class="previousPage' . ($notAtStart ? '' : ' disabled') . '">
+								<a' . ($notAtStart ? (' href="#ins' . $institute . 'c' . $cor[$i - 1] . '"') : '') . ' title="Previous page, please!">
+									<span>Prev</span>
 								</a>
-							</li>
-			';
-		}
-		if ($cor[$i] != $disRight[$ins[$i]]) {
-			echo'
-							<li class="nextPage">
-								<a href="#ins' . ($ins[$i] . 'c' . ($cor[$i] < $alpha_educationSize ? ($cor[$i+1]) : $cor[$i])) . '" title="Next page, please!">
-									<span>
-										Next
-									</span>
+							</li><!-- previousPage ends -->
+							<li class="nextPage' . ($notAtEnd ? '' : ' disabled') . '">
+								<a' . ($notAtEnd ? (' href="#ins' . $institute . 'c' . $cor[$i + 1] . '"') : '') . ' title="Next page, please!">
+									<span>Next</span>
 								</a>
-							</li>
-			';
-		}
-		echo'
-						</ul>
-					</div>
-					<div class="content row col-12-xs">
-						<h4>
-							<a href="#ins' . $ins[$i] . 'p0" title="Return to the Institute summary page!">
-								' . $alpha_education[$index]->getName() . '
-							</a>
-						</h4>
-						<div class="row col-12-xs">
-							<div class="col-12-xs no-margin">
-								<div class="col-4-sm col-12-xs text-left force-text-right">
-		';
-		if (is_null($alpha_education[$index]->getWebsite())) {
-			echo'
+							</li><!-- nextPage ends -->
+						</ul><!-- containerRow ends -->
+					</header><!-- header ends -->
+					<div class="containerColumn">
+						<div class="containerRow">
+							<h4>
+								<a href="#ins' . $institute . 'p0" title="Return to the Institute summary page!">' . $alpha_education[$course]->getName() . '</a>
+							</h4>
+						</div><!-- containerRow ends -->
+						<div class="containerColumn">
+							<div class="containerSwap force-left">
+								<div class="containerRow force-text-right">
 									<p>
-										<span class="force-mini-left">Institution: </span>' . $alpha_education[$index]->getInstitution() . '
-									</p>
-			';
-		}
-		else {
-			echo'
-									<p>
-										<a href="' . $alpha_education[$index]->getWebsite() . '" target="_blank" title="Visit the official website of the institution!">
-											<span class="force-mini-left">Institution: </span>' . $alpha_education[$index]->getInstitution() . '
+										<a class="' . $anchorClass . '" ' . $hrefTag . ' target="_blank" title="Visit the official website of the institution!">
+											<span class="force-mini-left">Institution: </span>' . $alpha_education[$course]->getInstitution() . '
 										</a>
 									</p>
-			';
-		}
-		echo'
-								</div>
-								<div class="col-6-sm col-12-xs text-left">
-									<p>
-										<span class="force-mini-left">Course: </span>' . $alpha_education[$index]->getName() . ', ' . $alpha_education[$index]->getPoints() . ' ECTS points
-									</p>
-								</div>
-							</div>
-							<div class="row col-12-xs no-margin">
-								<div class="col-4-sm col-12-xs text-left force-text-right">
-									<p>
-										<span class="force-mini-left">Date: </span>' . (is_null($alpha_education[$index]->getGraduation()) ? "Incomplete" : date_format(new DateTime($alpha_education[$index]->getGraduation()), 'M jS, Y')) . '
-									</p>
-								</div>
-								<div class="col-6-sm col-12-xs text-left">
-									<p>
-										<span class="force-mini-left">Type: </span>' . $alpha_education[$index]->getLevel() . '
-									</p>
-								</div>
-							</div>
-							<div class="col-7-sm col-12-xs col-sm-push-4 no-padding">
-								<div class="row col-12-xs text-justify">
-									<p>
-										' . $alpha_education[$index]->getDescription() . '
-										<br/><br/>
-										Note: Swedish National Agency for Education: <a href="http://www.skolverket.se" target="_BLANK">here </a>
-									</p>
-								</div>
-								<div class="row col-12-xs text-justify">
-									<p>
-										Comprised of: ' . $alpha_education[$index]->getKeyword() . '
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
+								</div><!-- containerRow ends -->
+								<div class="containerRow">
+									<p><span class="force-mini-left">Course: </span>' . $alpha_education[$course]->getName() . ', ' . $alpha_education[$course]->getPoints() . ' ECTS points</p>
+								</div><!-- containerRow ends -->
+							</div><!-- containerSwap ends -->
+							<div class="containerSwap">
+								<div class="containerRow force-text-right">
+									<p><span class="force-mini-left">Date: </span>' . $courseStatus . '</p>
+								</div><!-- containerRow ends -->
+								<div class="containerRow">
+									<p><span class="force-mini-left">Type: </span>' . $alpha_education[$course]->getLevel() . '</p>
+								</div><!-- containerRow ends -->
+							</div><!-- containerSwap ends -->
+						</div><!-- containerColumn ends -->
+						<div class="containerSwap">
+							<div class="containerColumn">
+								<div class="containerColumn">
+									<p class="text-justify">' . $alpha_education[$course]->getDescription() . '</p>
+									<p class="text-justify">Note: The Swedish National Agency for Education can be found here for more information regarding grading in Sweden: <a href="http://www.skolverket.se" target="_blank">here </a></p>
+								</div><!-- containerColumn ends -->
+								<div class="containerColumn">
+									<p class="text-justify">Comprised of: ' . $alpha_education[$course]->getKeyword() . '</p>
+								</div><!-- containerColumn ends -->
+							</div><!-- containerColumn ends -->
+							<div class="containerColumn">
+							</div><!-- containerColumn ends -->
+						</div><!-- containerSwap ends -->
+					</div><!-- containerColumn ends -->
 				</div><!-- container ends -->
 			</section><!-- section ends -->
 		';
 	}
-		
+
 ?>
