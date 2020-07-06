@@ -113,7 +113,7 @@
 							<div class="containerSwap">
 								<div class="containerColumn">
 									<div class="containerColumn">
-										<p class="text-justify">' . str_replace('<br><br>', '</p>', $alpha_project[$i]->getDescription()) . '</p>
+										<p class="text-justify">' . htmlspecialchars_decode(str_replace('<br><br>', '</p>', $alpha_project[$i]->getDescription())) . '</p>
 									</div><!-- containerColumn ends -->
 									<div class="containerColumn">
 										<p class="text-justify">Comprised of: ' . $alpha_project[$i]->getKeyword() . '</p>

@@ -57,7 +57,7 @@
 						<div class="containerSwap">
 							<div class="containerColumn">
 								<div class="containerColumn">
-									<p class="text-justify">' . $alpha_degree[$i]->getDescription() . '</p>
+									<p class="text-justify">' . htmlspecialchars_decode($alpha_degree[$i]->getDescription()) . '</p>
 								</div><!-- containerColumn ends -->
 							</div><!-- containerColumn ends -->
 							<div class="containerColumn">

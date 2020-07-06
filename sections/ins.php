@@ -137,7 +137,7 @@
 						<div class="containerSwap">
 							<div class="containerColumn">
 								<div class="containerColumn">
-									<p class="text-justify">' . $alpha_education[$course]->getDescription() . '</p>
+									<p class="text-justify">' . htmlspecialchars_decode($alpha_education[$course]->getDescription()) . '</p>
 									<p class="text-justify">Note: The Swedish National Agency for Education can be found here for more information regarding grading in Sweden: <a href="http://www.skolverket.se" target="_blank">here </a></p>
 								</div><!-- containerColumn ends -->
 								<div class="containerColumn">
