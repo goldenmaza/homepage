@@ -8,7 +8,7 @@
 		$paragraphs = [[]];
 		for ($i = 0; $i < $alpha_informationSize; $i++) {
 			$title = $alpha_information[$i]->getTitle();
-			if ($alpha_information[$i]->getPage() === "abo") {
+			if ($alpha_information[$i]->getPage() === 'abo') {
 				if (!in_array($title, $titles)) {
 					$titles[] = $title;
 				}
@@ -17,9 +17,9 @@
 		}
 		$pages = count($titles);
 		for ($i = 0; $i < $pages; $i++) {
-			$notAtStart = $i != 0;
-			$notAtEnd = $i != $pages-1;
-			$filePathLocation = str_replace("X", $i, $pathAboutImage);
+			$notAtStart = $i !== 0;
+			$notAtEnd = $i !== $pages - 1;
+			$filePathLocation = str_replace('X', $i, $pathAboutImage);
 			$fileLocated = file_exists($filePathLocation);
 			$imageSrc = $fileLocated ? $filePathLocation : $pathAboutDummy;
 			$imageAlt = $fileLocated ? $altAboutImage : $altDummy;
@@ -29,12 +29,12 @@
 						<header>
 							<ul class="containerRow">
 								<li class="previousPage' . ($notAtStart ? '' : ' disabled') . '">
-									<a' . ($notAtStart ? (' href="#abo' . ($i-1) . '"') : '') . ' title="Previous page, please!">
+									<a' . ($notAtStart ? (' href="#abo' . ($i - 1) . '"') : '') . ' title="Previous page, please!">
 										<span>Prev</span>
 									</a>
 								</li><!-- previousPage ends -->
 								<li class="nextPage' . ($notAtEnd ? '' : ' disabled') . '">
-									<a' . ($notAtEnd ? (' href="#abo' . ($i+1) . '"') : '') . ' title="Next page, please!">
+									<a' . ($notAtEnd ? (' href="#abo' . ($i + 1) . '"') : '') . ' title="Next page, please!">
 										<span>Next</span>
 									</a>
 								</li><!-- nextPage ends -->
@@ -54,7 +54,7 @@
 							</div><!-- containerColumn ends -->
 							<div class="containerColumn">
 								<div class="containerRow">
-									<a href="' . str_replace("thumb_", "", $imageSrc) . '" title="View a high resolution of the targeted multimedia file..." aria-labelledby="View a high resolution of the targeted multimedia file...">
+									<a href="' . str_replace('thumb_', '', $imageSrc) . '" title="View a high resolution of the targeted multimedia file..." aria-labelledby="View a high resolution of the targeted multimedia file...">
 										<img class="displayProfileImage" src="' . $imageSrc . '" alt="' . $imageAlt . '" />
 									</a>
 								</div><!-- containerRow ends -->

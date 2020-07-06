@@ -7,20 +7,20 @@
 		$pages = ceil($alpha_projectSize / $portfolioGrid);
 		$currentLimit = 0;
 		for ($i = 0; $i < $pages; $i++) {
-			$notAtStart = $i != 0;
-			$notAtEnd = $i != $pages-1;
+			$notAtStart = $i !== 0;
+			$notAtEnd = $i !== $pages - 1;
 			echo'
-				<section id="por' . $i . '" class="sections" data-sitemap="Thumbnails - p. ' . ($i+1) . '">
+				<section id="por' . $i . '" class="sections" data-sitemap="Thumbnails - p. ' . ($i + 1) . '">
 					<div class="container">
 						<header>
 							<ul class="containerRow">
 								<li class="previousPage' . ($notAtStart ? '' : ' disabled') . '">
-									<a' . ($notAtStart ? (' href="#por' . ($i-1) . '"') : '') . ' title="Previous page, please!">
+									<a' . ($notAtStart ? (' href="#por' . ($i - 1) . '"') : '') . ' title="Previous page, please!">
 										<span>Prev</span>
 									</a>
 								</li><!-- previousPage ends -->
 								<li class="nextPage' . ($notAtEnd ? '' : ' disabled') . '">
-									<a' . ($notAtEnd ? (' href="#por' . ($i+1) . '"') : '') . ' title="Next page, please!">
+									<a' . ($notAtEnd ? (' href="#por' . ($i + 1) . '"') : '') . ' title="Next page, please!">
 										<span>Next</span>
 									</a>
 								</li><!-- nextPage ends -->
@@ -33,10 +33,10 @@
 							<div class="containerSwap gridLayout">
 			';
 			for ($j = $currentLimit; $j < $alpha_projectSize; $j++) {
-				$filePathLocation = $sourcePath . "/" . $alpha_project[$j]->getDirectory() . "/" . $alpha_project[$j]->getDirectory() . ".png";
+				$filePathLocation = $sourcePath . '/' . $alpha_project[$j]->getDirectory() . '/' . $alpha_project[$j]->getDirectory() . '.png';
 				$fileLocated = file_exists($filePathLocation);
 				$imageSrc = $fileLocated ? $filePathLocation : $pathThumbnailDummy;
-				$imageAlt = $fileLocated ? "The thumbnail used for the " . $alpha_project[$j]->getName() . " project!" : $altDummy;
+				$imageAlt = $fileLocated ? 'The thumbnail used for the ' . $alpha_project[$j]->getName() . ' project!' : $altDummy;
 				echo'
 								<div class="displayPortfolioGroup">
 									<a href="#pro' . $j . '" title="View the ' . $alpha_project[$j]->getName() . ' project details!">
@@ -61,20 +61,22 @@
 			$notAtStart = $i !== 0;
 			$notAtEnd = $i !== $alpha_projectSize-1;
 			$startDate = date_format(new DateTime($alpha_project[$i]->getBeginning()), 'M jS, Y');
-			$endDate = ($alpha_project[$i]->getEnding() === NULL ? "UFN" : date_format(new DateTime($alpha_project[$i]->getEnding()), 'M jS, Y'));
-			$hrefTag = is_null($alpha_project[$i]->getWebsite()) ? '' : ' href="' . $alpha_project[$i]->getWebsite() . '"';
+			$endDate = ($alpha_project[$i]->getEnding() === NULL ? 'UFN' : date_format(new DateTime($alpha_project[$i]->getEnding()), 'M jS, Y'));
+			$emptyLink = is_null($alpha_project[$i]->getWebsite());
+			$anchorClass = $emptyLink ? 'disabled' : '';
+			$hrefTag = $emptyLink ? '' : 'href="' . $alpha_project[$i]->getWebsite() . '"';
 			echo'
 				<section id="pro' . $i . '" class="sections" data-sitemap="' . $alpha_project[$i]->getName() . '">
 					<div class="container">
 						<header>
 							<ul class="containerRow">
 								<li class="previousPage' . ($notAtStart ? '' : ' disabled') . '">
-									<a' . ($notAtStart ? (' href="#pro' . ($i-1) . '"') : '') . ' title="Previous page, please!">
+									<a' . ($notAtStart ? (' href="#pro' . ($i - 1) . '"') : '') . ' title="Previous page, please!">
 										<span>Prev</span>
 									</a>
 								</li><!-- previousPage ends -->
 								<li class="nextPage' . ($notAtEnd ? '' : ' disabled') . '">
-									<a' . ($notAtEnd ? (' href="#pro' . ($i+1) . '"') : '') . ' title="Next page, please!">
+									<a' . ($notAtEnd ? (' href="#pro' . ($i + 1) . '"') : '') . ' title="Next page, please!">
 										<span>Next</span>
 									</a>
 								</li><!-- nextPage ends -->
@@ -101,7 +103,7 @@
 									</div><!-- containerRow ends -->
 									<div class="containerRow">
 										<p>
-											<a' . $hrefTag . ' target="_blank" title="Visit the released ' . $alpha_project[$i]->getName() . ' project page!">
+											<a class="' . $anchorClass . '" ' . $hrefTag . ' target="_blank" title="Visit the released ' . $alpha_project[$i]->getName() . ' project page!">
 												<span class="force-mini-left">Project: </span>' . $alpha_project[$i]->getName() . '
 											</a>
 										</p>
@@ -110,26 +112,26 @@
 							</div><!-- containerColumn ends -->
 							<div class="containerSwap">
 								<div class="containerColumn">
-									<div class="containerRow">
-										<p class="text-justify">' . str_replace("<br><br>", "</p>", $alpha_project[$i]->getDescription()) . '</p>
-									</div><!-- containerRow ends -->
-									<div class="containerRow">
+									<div class="containerColumn">
+										<p class="text-justify">' . str_replace('<br><br>', '</p>', $alpha_project[$i]->getDescription()) . '</p>
+									</div><!-- containerColumn ends -->
+									<div class="containerColumn">
 										<p class="text-justify">Comprised of: ' . $alpha_project[$i]->getKeyword() . '</p>
-									</div><!-- containerRow ends -->
+									</div><!-- containerColumn ends -->
 								</div><!-- containerColumn ends -->
 								<div class="containerColumn">
 									<div class="containerColumn portfolioMediaHolder iconsBar">
 			';
-			$screensPathLocation = $sourcePath . "/" . $alpha_project[$i]->getDirectory() . "/";
-			if (glob($screensPathLocation . "*.*") !== false) {
-				$files = array_map('basename', glob($screensPathLocation . "*.*"));
+			$screensPathLocation = $sourcePath . '/' . $alpha_project[$i]->getDirectory() . '/';
+			if (glob($screensPathLocation . '*.*') !== false) {
+				$files = array_map('basename', glob($screensPathLocation . '*.*'));
 				$filecount = count($files);
 				for ($j = 1; $j < $filecount; $j++) {//skip the first image, as it is used by the Portfolio page...
-					if (strpos($files[$j], "thumb_") === false) {//ignore thumbnails...
-						$imagePathThumb = $screensPathLocation . "thumb_" . $files[$j];
+					if (strpos($files[$j], 'thumb_') === false) {//ignore thumbnails...
+						$imagePathThumb = $screensPathLocation . 'thumb_' . $files[$j];
 						$imagePathSrc = $screensPathLocation . $files[$j];
 						echo'
-										<a href="' . $imagePathThumb . '" target="_blank" title="View the full image #' . ($j-1) . ' of the ' . $alpha_project[$i]->getName() . ' project!">
+										<a href="' . $imagePathThumb . '" target="_blank" title="View the full image #' . ($j - 1) . ' of the ' . $alpha_project[$i]->getName() . ' project!">
 											<img class="displayThumbnailImage expandingThumbnailImage" src="' . $imagePathThumb . '" alt="The thumbnail #' . $j . ' used for the ' . $alpha_project[$i]->getName() . ' project!" />
 										</a>
 						';
@@ -140,9 +142,9 @@
 									</div><!-- containerColumn ends -->
 									<div class="containerColumn iconsBar">
 			';
-			$downloadPathLocation = $dlPortfolioPath . "/" . $alpha_project[$i]->getDirectory() . "/";
-			if (glob($downloadPathLocation . "*.*") !== false) {
-				$files = array_map('basename', glob($downloadPathLocation . "*.*"));
+			$downloadPathLocation = $dlPortfolioPath . '/' . $alpha_project[$i]->getDirectory() . '/';
+			if (glob($downloadPathLocation . '*.*') !== false) {
+				$files = array_map('basename', glob($downloadPathLocation . '*.*'));
 				$filecount = count($files);
 				for ($j = 0; $j < $filecount; $j++) {
 					$extension = pathinfo($files[$j], PATHINFO_EXTENSION);

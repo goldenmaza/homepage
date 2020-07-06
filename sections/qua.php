@@ -12,11 +12,11 @@
 	';
 	foreach ($qualificationKeyMatching as $categoryLabel => $categoryQuantity) {
 		$emptyCategory = is_null($categoryQuantity);
-		$paragraphQuantity = $emptyCategory ? "0" : $categoryQuantity;
+		$paragraphQuantity = $emptyCategory ? '0' : $categoryQuantity;
 		$anchorTag = $anchorKeyMatching[$categoryLabel];
-		$anchorClass = $anchorTag . ($emptyCategory ? " disabled" : "");
-		$hrefTag = $emptyCategory ? "qua" : $anchorTag . "0";
-		$titleTag = str_replace("X", $categoryLabel, $quaDefaultTitle);
+		$anchorClass = $anchorTag . ($emptyCategory ? ' disabled' : '');
+		$hrefTag = $emptyCategory ? 'qua' : $anchorTag . '0';
+		$titleTag = str_replace('X', $categoryLabel, $quaDefaultTitle);
 		echo'
 						<div class="displaySummaryContainer iconsBar">
 							<h4 class="hidden">' . $categoryLabel . ' #' . $paragraphQuantity . '</h4>
@@ -24,11 +24,11 @@
 								<p>' . $categoryLabel . '</p>
 								<p>' . $paragraphQuantity . '</p>
 							</a>
-						</div><!-- containerColumn ends -->
+						</div><!-- displaySummaryContainer ends -->
 		';
 	}
 	echo'
-					</div><!-- containerGrid ends -->
+					</div><!-- containerSwap ends -->
 				</div><!-- containerColumn ends -->
 			</div><!-- container ends -->
 		</section><!-- section ends -->
