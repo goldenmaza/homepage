@@ -4,15 +4,16 @@
 		<h3 class="hidden">Testimonial sections</h3>
 	';
 	if (isset($alpha_testimonialSize)) {
-		$currentLimit = 0;
 		$pages = ceil($alpha_testimonialSize / $defaultListGrid);
+		$currentLimit = 0;
 		$n = 0;
 		for ($i = 0; $i < $pages; $i++) {
+			$sectionId = 'tes' . $i;
 			$notAtStart = $i !== 0;
 			$notAtEnd = $i != $pages - 1;//TODO: bug that makes the strict comparison not work with pages
 			$limit = 0;
 			echo'
-				<section id="tes' . $i . '" class="sections" data-sitemap="List of Testimonials - p. ' . ($i + 1) . '">
+				<section id="' . $sectionId . '" class="sections" data-sitemap="List of Testimonials - p. ' . ($i + 1) . '">
 					<div class="container">
 						<header>
 							<ul class="containerRow">
@@ -74,6 +75,7 @@
 			';
 		}
 		for ($i = 0; $i < $alpha_testimonialSize; $i++) {
+			$sectionId = 'quo' . $i;
 			$notAtStart = $i !== 0;
 			$notAtEnd = $i !== $alpha_testimonialSize - 1;
 			$emptyLink = is_null($alpha_testimonial[$i]->getWebsite());
@@ -81,7 +83,7 @@
 			$hrefTag = $emptyLink ? '' : 'href="' . $alpha_testimonial[$i]->getWebsite() . '"';
 			$date = date_format(new DateTime($alpha_testimonial[$i]->getAuthored()), 'M jS, Y');
 			echo'
-				<section id="quo' . $i . '" class="sections" data-sitemap="' . $alpha_testimonial[$i]->getAuthor() . '">
+				<section id="' . $sectionId . '" class="sections" data-sitemap="' . $alpha_testimonial[$i]->getAuthor() . '">
 					<div class="container">
 						<header>
 							<ul class="containerRow">

@@ -1,7 +1,7 @@
 <?php
 
 	echo'
-		<h3 class="hidden">Course overview\'s subsections</h3>
+		<h4 class="hidden">Course overview\'s subsections</h4>
 	';
 	$ins = [];
 	$cor = [];
@@ -15,13 +15,14 @@
 		$temp = [];
 		$n = 0;
 		for ($j = 0; $j < $pages; $j++) {
+			$sectionId = 'ins' . $i;
 			$notAtStart = $j > 0;
 			$notAtEnd = $j < $pages - 1;
 			$ectsPoints = number_format((float)$points[$institute] / 100, 1, ',', '');
 			$label = $institute . ' - ' . $ectsPoints . ' ECTS points - page ' . ($j + 1);
 			$limit = 0;
 			echo'
-				<section id="ins' . $i . 'p' . $j . '" class="sections" data-sitemap="' . $institute . ' - p. ' . ($j + 1) . '">
+				<section id="' . $sectionId . 'p' . $j . '" class="sections" data-sitemap="' . $institute . ' - p. ' . ($j + 1) . '">
 					<div class="container">
 						<header>
 							<ul class="containerRow">
@@ -39,9 +40,9 @@
 						</header><!-- header ends -->
 						<div class="containerColumn">
 							<div class="containerRow">
-								<h4>
+								<h5>
 									<a href="#edu0" title="Return to the Education page!">' . $label . '</a>
-								</h4>
+								</h5>
 							</div><!-- containerRow ends -->
 							<div class="containerColumn">
 			';
@@ -80,6 +81,7 @@
 	for ($i = 0; $i < $subPages; $i++) {
 		$institute = $ins[$i];
 		$course = $cor[$i];
+		$sectionId = 'ins' . $institute . 'c' . $course;
 		$notAtStart = $course !== $prev[$institute];
 		$notAtEnd = $course !== $next[$institute];
 		$emptyLink = is_null($alpha_education[$course]->getWebsite());
@@ -88,7 +90,7 @@
 		$emptyDate = is_null($alpha_education[$course]->getGraduation());
 		$courseStatus = $emptyDate ? 'Incomplete' : date_format(new DateTime($alpha_education[$course]->getGraduation()), 'M jS, Y');
 		echo'
-			<section id="ins' . $institute . 'c' . $course . '" class="sections" data-sitemap="' . $alpha_education[$course]->getName() . '">
+			<section id="' . $sectionId . '" class="sections" data-sitemap="' . $alpha_education[$course]->getName() . '">
 				<div class="container">
 					<header>
 						<ul class="containerRow">
@@ -106,9 +108,9 @@
 					</header><!-- header ends -->
 					<div class="containerColumn">
 						<div class="containerRow">
-							<h4>
+							<h5>
 								<a href="#ins' . $institute . 'p0" title="Return to the Institute summary page!">' . $alpha_education[$course]->getName() . '</a>
-							</h4>
+							</h5>
 						</div><!-- containerRow ends -->
 						<div class="containerColumn">
 							<div class="containerSwap force-left">

@@ -4,15 +4,17 @@
 		<h3 class="hidden">Certification sections</h3>
 	';
 	if (isset($alpha_certificationSize)) {
-		$currentLimit = 0;
+		$currentFile = basename(__FILE__, '.php');
 		$pages = ceil($alpha_certificationSize / $defaultListGrid);
+		$currentLimit = 0;
 		$n = 0;
 		for ($i = 0; $i < $pages; $i++) {
+			$sectionId = 'cer' . $i;
 			$notAtStart = $i !== 0;
 			$notAtEnd = $i != $pages - 1;//TODO: bug that makes the strict comparison not work with pages
 			$limit = 0;
 			echo'
-				<section id="cer' . $i . '" class="sections" data-sitemap="List of Certifications - p. ' . ($i + 1) . '">
+				<section id="' . $sectionId . '" class="sections" data-sitemap="List of Certifications - p. ' . ($i + 1) . '">
 					<div class="container">
 						<header>
 							<ul class="containerRow">
@@ -74,6 +76,7 @@
 			';
 		}
 		for ($i = 0; $i < $alpha_certificationSize; $i++) {
+			$sectionId = 'rec' . $i;
 			$notAtStart = $i !== 0;
 			$notAtEnd = $i !== $alpha_certificationSize - 1;
 			$emptyLink = is_null($alpha_certification[$i]->getWebsite());
@@ -81,7 +84,7 @@
 			$hrefTag = $emptyLink ? '' : 'href="' . $alpha_certification[$i]->getWebsite() . '"';
 			$date = date_format(new DateTime($alpha_certification[$i]->getNominated()), 'M jS, Y');
 			echo'
-				<section id="rec' . $i . '" class="sections" data-sitemap="' . $alpha_certification[$i]->getCategory() . '">
+				<section id="' . $sectionId . '" class="sections" data-sitemap="' . $alpha_certification[$i]->getCategory() . '">
 					<div class="container">
 						<header>
 							<ul class="containerRow">
@@ -143,6 +146,9 @@
 				$filecount = count($files);
 				for ($j = 0; $j < $filecount; $j++) {
 					$imagePathSrc = $badgePathLocation . $files[$j];
+					$downloadKeyMatching[$currentFile][$sectionId][0] = $alpha_certification[$i]->getName();
+					$downloadKeyMatching[$currentFile][$sectionId][1][] = $imagePathSrc;
+					$qualificationQuantities['Download']++;
 					echo'
 										<img src="' . $imagePathSrc . '" alt="The verified badge for the ' . $alpha_certification[$i]->getCategory() . ' certification!" />
 					';
@@ -159,6 +165,8 @@
 				for ($j = 0; $j < $filecount; $j++) {
 					$extension = pathinfo($files[$j], PATHINFO_EXTENSION);
 					$filePathLocation = $downloadPathLocation . $files[$j];
+					$downloadKeyMatching[$currentFile][$sectionId][1][] = $filePathLocation;
+					$qualificationQuantities['Download']++;
 					echo'
 										<a class="expandingThumbnailIcon ' . $extension . '" href="' . $filePathLocation . '" target="_blank" title="Download the ' . $files[$j] . ' file!"></a>
 					';

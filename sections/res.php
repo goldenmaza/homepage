@@ -4,15 +4,16 @@
 		<h3 class="hidden">Result sections</h3>
 	';
 	if (isset($alpha_resultSize)) {
-		$currentLimit = 0;
 		$pages = ceil($alpha_resultSize / $defaultListGrid);
+		$currentLimit = 0;
 		$n = 0;
 		for ($i = 0; $i < $pages; $i++) {
+			$sectionId = 'res' . $i;
 			$notAtStart = $i !== 0;
 			$notAtEnd = $i != $pages - 1;//TODO: bug that makes the strict comparison not work with pages
 			$limit = 0;
 			echo'
-				<section id="res' . $i . '" class="sections" data-sitemap="List of Results - p. ' . ($i + 1) . '">
+				<section id="' . $sectionId . '" class="sections" data-sitemap="List of Results - p. ' . ($i + 1) . '">
 					<div class="container">
 						<header>
 							<ul class="containerRow">
@@ -75,6 +76,7 @@
 			';
 		}
 		for ($i = 0; $i < $alpha_resultSize; $i++) {
+			$sectionId = 'sco' . $i;
 			$notAtStart = $i !== 0;
 			$notAtEnd = $i !== $alpha_resultSize - 1;
 			$emptyLink = is_null($alpha_result[$i]->getWebsite());
@@ -84,7 +86,7 @@
 			$endDate = $alpha_result[$i]->getEnding() === NULL ? 'UFN' : date_format(new DateTime($alpha_result[$i]->getEnding()), 'M jS, Y');
 			$date = $alpha_result[$i]->getBeginning() === $alpha_result[$i]->getEnding() ? $startDate : $startDate . ' - ' . $endDate;
 			echo'
-				<section id="sco' . $i . '" class="sections" data-sitemap="' . $alpha_result[$i]->getName() . '">
+				<section id="' . $sectionId . '" class="sections" data-sitemap="' . $alpha_result[$i]->getName() . '">
 					<div class="container">
 						<header>
 							<ul class="containerRow">

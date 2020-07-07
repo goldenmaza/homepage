@@ -1,5 +1,8 @@
 <?php
 
+	echo'
+		<h3 class="hidden">Education\'s subsections</h3>
+	';
 	if (isset($alpha_degreeSize) && isset($alpha_educationSize)) {
 		$institutes = [];
 		$quantity = [];
@@ -24,7 +27,6 @@
 		}
 		echo'
 			<section id="edu0" class="sections" data-sitemap="Education\'s subsections">
-				<h3 class="hidden">Education\'s subsections</h3>
 				<div class="container">
 					<div class="containerColumn">
 						<div class="containerColumn">
@@ -79,7 +81,6 @@
 	} else {
 		echo'
 			<section id="deg0" class="sections" data-sitemap="Empty | Error">
-				<h3 class="hidden">Education\'s subsections - Degree overview</h3>
 				<div class="container">
 					<div class="containerColumn">
 						<h4>Unable to load data / no data to be loaded - regarding the Degree pages</h4>
@@ -90,7 +91,6 @@
 				</div><!-- container ends -->
 			</section><!-- section ends -->
 			<section id="ins0p0" class="sections" data-sitemap="Empty | Error">
-				<h3 class="hidden">Education\'s subsections - Course overview</h3>
 				<div class="container">
 					<div class="containerColumn">
 						<h4>Unable to load data / no data to be loaded - regarding the Course pages</h4>

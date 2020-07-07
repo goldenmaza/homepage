@@ -4,15 +4,17 @@
 		<h3 class="hidden">Award sections</h3>
 	';
 	if (isset($alpha_awardSize)) {
-		$currentLimit = 0;
+		$currentFile = basename(__FILE__, '.php');
 		$pages = ceil($alpha_awardSize / $defaultListGrid);
+		$currentLimit = 0;
 		$n = 0;
 		for ($i = 0; $i < $pages; $i++) {
+			$sectionId = 'awa' . $i;
 			$notAtStart = $i !== 0;
 			$notAtEnd = $i != $pages - 1;//TODO: bug that makes the strict comparison not work with pages
 			$limit = 0;
 			echo'
-				<section id="awa' . $i . '" class="sections" data-sitemap="List of Awards - p. ' . ($i + 1) . '">
+				<section id="' . $sectionId . '" class="sections" data-sitemap="List of Awards - p. ' . ($i + 1) . '">
 					<div class="container">
 						<header>
 							<ul class="containerRow">
@@ -74,6 +76,7 @@
 			';
 		}
 		for ($i = 0; $i < $alpha_awardSize; $i++) {
+			$sectionId = 'rew' . $i;
 			$notAtStart = $i !== 0;
 			$notAtEnd = $i !== $alpha_awardSize - 1;
 			$emptyLink = is_null($alpha_award[$i]->getWebsite());
@@ -81,7 +84,7 @@
 			$hrefTag = $emptyLink ? '' : 'href="' . $alpha_award[$i]->getWebsite() . '"';
 			$date = date_format(new DateTime($alpha_award[$i]->getNominated()), 'M jS, Y');
 			echo'
-				<section id="rew' . $i . '" class="sections" data-sitemap="Rewarded by ' . $alpha_award[$i]->getPublisher() . '">
+				<section id="' . $sectionId . '" class="sections" data-sitemap="Rewarded by ' . $alpha_award[$i]->getPublisher() . '">
 					<div class="container">
 						<header>
 							<ul class="containerRow">
@@ -143,6 +146,9 @@
 				$filecount = count($files);
 				for ($j = 0; $j < $filecount; $j++) {
 					$imagePathSrc = $badgePathLocation . $files[$j];
+					$downloadKeyMatching[$currentFile][$sectionId][0] = $alpha_award[$i]->getName();
+					$downloadKeyMatching[$currentFile][$sectionId][1][] = $imagePathSrc;
+					$qualificationQuantities['Download']++;
 					echo'
 										<img src="' . $imagePathSrc . '" alt="The verified badge for the ' . $alpha_award[$i]->getName() . ' award!" />
 					';
@@ -159,6 +165,8 @@
 				for ($j = 0; $j < $filecount; $j++) {
 					$extension = pathinfo($files[$j], PATHINFO_EXTENSION);
 					$filePathLocation = $downloadPathLocation . $files[$j];
+					$downloadKeyMatching[$currentFile][$sectionId][1][] = $filePathLocation;
+					$qualificationQuantities['Download']++;
 					echo'
 										<a class="expandingThumbnailIcon ' . $extension . '" href="' . $filePathLocation . '" target="_blank" title="Download the ' . $files[$j] . ' file!"></a>
 					';

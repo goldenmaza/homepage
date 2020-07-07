@@ -1,6 +1,10 @@
 <?php
 
+	echo'
+		<h4 class="hidden">Degree overview\'s subsections</h4>
+	';
 	for ($i = 0; $i < $alpha_degreeSize; $i++) {
+		$sectionId = 'deg' . $i;
 		$notAtStart = $i !== 0;
 		$notAtEnd = $i !== $alpha_degreeSize-1;
 		$emptyLink = is_null($alpha_degree[$i]->getWebsite());
@@ -9,8 +13,7 @@
 		$emptyDate = is_null($alpha_degree[$i]->getGraduation());
 		$degreeStatus = $emptyDate ? 'Incomplete or Not applied' : date_format(new DateTime($alpha_degree[$i]->getGraduation()), 'M jS, Y');
 		echo'
-			<section id="deg' . $i . '" class="sections" data-sitemap="' . $alpha_degree[$i]->getLevel() . '">
-				<h3 class="hidden">Degree overview\'s subsections</h3>
+			<section id="' . $sectionId . '" class="sections" data-sitemap="' . $alpha_degree[$i]->getLevel() . '">
 				<div class="container">
 					<header>
 						<ul class="containerRow">
@@ -28,9 +31,9 @@
 					</header><!-- header ends -->
 					<div class="containerColumn">
 						<div class="containerRow">
-							<h4>
+							<h5>
 								<a href="#edu0" title="Return to the Education page!">' . $alpha_degree[$i]->getLevel() . '</a>
-							</h4>
+							</h5>
 						</div><!-- containerRow ends -->
 						<div class="containerColumn force-left">
 							<div class="containerSwap force-left">

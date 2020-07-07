@@ -4,15 +4,16 @@
 		<h3 class="hidden">Career sections</h3>
 	';
 	if (isset($alpha_careerSize)) {
-		$currentLimit = 0;
 		$pages = ceil($alpha_careerSize / $defaultListGrid);
+		$currentLimit = 0;
 		$n = 0;
 		for ($i = 0; $i < $pages; $i++) {
+			$sectionId = 'car' . $i;
 			$notAtStart = $i !== 0;
 			$notAtEnd = $i != $pages - 1;//TODO: bug that makes the strict comparison not work with pages
 			$limit = 0;
 			echo'
-				<section id="car' . $i . '" class="sections" data-sitemap="List of Careers - p. ' . ($i + 1) . '">
+				<section id="' . $sectionId . '" class="sections" data-sitemap="List of Careers - p. ' . ($i + 1) . '">
 					<div class="container">
 						<header>
 							<ul class="containerRow">
@@ -75,6 +76,7 @@
 			';
 		}
 		for ($i = 0; $i < $alpha_careerSize; $i++) {
+			$sectionId = 'job' . $i;
 			$notAtStart = $i !== 0;
 			$notAtEnd = $i !== $alpha_careerSize - 1;
 			$emptyLink = is_null($alpha_career[$i]->getWebsite());
@@ -83,7 +85,7 @@
 			$startDate = date_format(new DateTime($alpha_career[$i]->getBeginning()), 'Y');
 			$endDate = $alpha_career[$i]->getEnding() === NULL ? 'UFN' : date_format(new DateTime($alpha_career[$i]->getEnding()), 'Y');
 			echo'
-				<section id="job' . $i . '" class="sections" data-sitemap="' . $alpha_career[$i]->getCompany() . '">
+				<section id="' . $sectionId . '" class="sections" data-sitemap="' . $alpha_career[$i]->getCompany() . '">
 					<div class="container">
 						<header>
 							<ul class="containerRow">

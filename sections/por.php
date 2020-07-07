@@ -4,13 +4,15 @@
 		<h2 class="hidden">Portfolio\'s sections</h2>
 	';
 	if (isset($alpha_projectSize)) {
+		$currentFile = basename(__FILE__, '.php');
 		$pages = ceil($alpha_projectSize / $portfolioGrid);
 		$currentLimit = 0;
 		for ($i = 0; $i < $pages; $i++) {
+			$sectionId = 'por' . $i;
 			$notAtStart = $i !== 0;
 			$notAtEnd = $i !== $pages - 1;
 			echo'
-				<section id="por' . $i . '" class="sections" data-sitemap="Thumbnails - p. ' . ($i + 1) . '">
+				<section id="' . $sectionId . '" class="sections" data-sitemap="Thumbnails - p. ' . ($i + 1) . '">
 					<div class="container">
 						<header>
 							<ul class="containerRow">
@@ -58,6 +60,7 @@
 			';
 		}
 		for ($i = 0; $i < $alpha_projectSize; $i++) {
+			$sectionId = 'pro' . $i;
 			$notAtStart = $i !== 0;
 			$notAtEnd = $i !== $alpha_projectSize-1;
 			$startDate = date_format(new DateTime($alpha_project[$i]->getBeginning()), 'M jS, Y');
@@ -66,7 +69,7 @@
 			$anchorClass = $emptyLink ? 'disabled' : '';
 			$hrefTag = $emptyLink ? '' : 'href="' . $alpha_project[$i]->getWebsite() . '"';
 			echo'
-				<section id="pro' . $i . '" class="sections" data-sitemap="' . $alpha_project[$i]->getName() . '">
+				<section id="' . $sectionId . '" class="sections" data-sitemap="' . $alpha_project[$i]->getName() . '">
 					<div class="container">
 						<header>
 							<ul class="containerRow">
@@ -130,6 +133,9 @@
 					if (strpos($files[$j], 'thumb_') === false) {//ignore thumbnails...
 						$imagePathThumb = $screensPathLocation . 'thumb_' . $files[$j];
 						$imagePathSrc = $screensPathLocation . $files[$j];
+						$downloadKeyMatching[$currentFile][$sectionId][0] = $alpha_project[$i]->getName();
+						$downloadKeyMatching[$currentFile][$sectionId][1][] = $imagePathSrc;
+						$qualificationQuantities['Download']++;
 						echo'
 										<a href="' . $imagePathThumb . '" target="_blank" title="View the full image #' . ($j - 1) . ' of the ' . $alpha_project[$i]->getName() . ' project!">
 											<img class="displayThumbnailImage expandingThumbnailImage" src="' . $imagePathThumb . '" alt="The thumbnail #' . $j . ' used for the ' . $alpha_project[$i]->getName() . ' project!" />
@@ -149,6 +155,8 @@
 				for ($j = 0; $j < $filecount; $j++) {
 					$extension = pathinfo($files[$j], PATHINFO_EXTENSION);
 					$filePathLocation = $downloadPathLocation . $files[$j];
+					$downloadKeyMatching[$currentFile][$sectionId][1][] = $filePathLocation;
+					$qualificationQuantities['Download']++;
 					echo'
 										<a class="expandingThumbnailIcon ' . $extension . '" href="' . $filePathLocation . '" target="_blank" title="Download ' . $files[$j] . '!"></a>
 					';

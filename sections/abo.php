@@ -17,6 +17,7 @@
 		}
 		$pages = count($titles);
 		for ($i = 0; $i < $pages; $i++) {
+			$sectionId = 'abo' . $i;
 			$notAtStart = $i !== 0;
 			$notAtEnd = $i !== $pages - 1;
 			$filePathLocation = str_replace('X', $i, $pathAboutImage);
@@ -24,7 +25,7 @@
 			$imageSrc = $fileLocated ? $filePathLocation : $pathAboutDummy;
 			$imageAlt = $fileLocated ? $altAboutImage : $altDummy;
 			echo'
-				<section id="abo' . $i . '" class="sections" data-sitemap="' . $titles[$i] . '">
+				<section id="' . $sectionId . '" class="sections" data-sitemap="' . $titles[$i] . '">
 					<div class="container">
 						<header>
 							<ul class="containerRow">
