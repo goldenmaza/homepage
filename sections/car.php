@@ -40,33 +40,27 @@
 				$anchorClass = $emptyLink ? 'disabled' : '';
 				$hrefTag = $emptyLink ? '' : 'href="' . $alpha_career[$j]->getWebsite() . '"';
 				$startDate = date_format(new DateTime($alpha_career[$j]->getBeginning()), 'Y');
-				$endDate = ($alpha_career[$j]->getEnding() === NULL ? 'UFN' : date_format(new DateTime($alpha_career[$j]->getEnding()), 'Y'));
+				$endDate = $alpha_career[$j]->getEnding() === NULL ? 'UFN' : date_format(new DateTime($alpha_career[$j]->getEnding()), 'Y');
 				echo'
 							<div class="containerColumn force-left">
 								<div class="containerSwap force-left">
 									<div class="containerRow force-text-right">
-										<p>
-											<a class="' . $anchorClass . '" ' . $hrefTag . ' target="_blank" title="Visit the official company website!">
-												<span class="force-mini-left">Employeer: </span>' . $alpha_career[$j]->getCompany() . '
-											</a>
-										</p>
+										<span class="force-mini-left">Employeer: </span>
+										<a class="' . $anchorClass . '" ' . $hrefTag . ' target="_blank" title="Visit the official company website!">' . $alpha_career[$j]->getCompany() . '</a>
 									</div><!-- containerRow ends -->
 									<div class="containerRow">
-										<p>
-											<a class="viewTarget" href="#job' . $j . '" title="Visit the page regarding the position!">
-												<span class="force-mini-left">Position: </span>' . $alpha_career[$j]->getPosition() . '
-											</a>
-										</p>
+										<span class="force-mini-left">Position: </span>
+										<a class="viewTarget" href="#job' . $j . '" title="Visit the page regarding the position!">' . $alpha_career[$j]->getPosition() . '</a>
 									</div><!-- containerRow ends -->
 								</div><!-- containerSwap ends -->
 								<div class="containerSwap force-left">
 									<div class="containerRow force-text-right">
-										<p>
-											<span class="force-mini-left">Duration: </span>' . $startDate . ' - ' . $endDate . '
-										</p>
+										<span class="force-mini-left">Duration: </span>
+										<p>' . $startDate . ' - ' . $endDate . '</p>
 									</div><!-- containerRow ends -->
 									<div class="containerRow">
-										<p><span class="force-mini-left">Keywords: </span>' . $alpha_career[$j]->getKeyword() . '</p>
+										<span class="force-mini-left">Keywords: </span>
+										<p>' . $alpha_career[$j]->getKeyword() . '</p>
 									</div><!-- containerRow ends -->
 								</div><!-- containerSwap ends -->
 							</div><!-- containerColumn ends -->
@@ -87,7 +81,7 @@
 			$anchorClass = $emptyLink ? 'disabled' : '';
 			$hrefTag = $emptyLink ? '' : 'href="' . $alpha_career[$i]->getWebsite() . '"';
 			$startDate = date_format(new DateTime($alpha_career[$i]->getBeginning()), 'Y');
-			$endDate = ($alpha_career[$i]->getEnding() === NULL ? 'UFN' : date_format(new DateTime($alpha_career[$i]->getEnding()), 'Y'));
+			$endDate = $alpha_career[$i]->getEnding() === NULL ? 'UFN' : date_format(new DateTime($alpha_career[$i]->getEnding()), 'Y');
 			echo'
 				<section id="job' . $i . '" class="sections" data-sitemap="' . $alpha_career[$i]->getCompany() . '">
 					<div class="container">
@@ -114,28 +108,22 @@
 							<div class="containerColumn force-left">
 								<div class="containerSwap force-left">
 									<div class="containerRow force-text-right">
-										<p>
-											<a class="' . $anchorClass . '" ' . $hrefTag . ' target="_blank" title="Visit the official company website!">
-												<span class="force-mini-left">Employeer: </span>' . $alpha_career[$i]->getCompany() . '
-											</a>
-										</p>
+										<span class="force-mini-left">Employeer: </span>
+										<a class="' . $anchorClass . '" ' . $hrefTag . ' target="_blank" title="Visit the official company website!">' . $alpha_career[$i]->getCompany() . '</a>
 									</div><!-- containerRow ends -->
 									<div class="containerRow">
-										<p>
-											<a class="viewTarget" href="#job' . $i . '" title="Visit the page regarding the position!">
-												<span class="force-mini-left">Position: </span>' . $alpha_career[$i]->getPosition() . '
-											</a>
-										</p>
+										<span class="force-mini-left">Position: </span>
+										<a class="viewTarget" href="#job' . $i . '" title="Visit the page regarding the position!">' . $alpha_career[$i]->getPosition() . '</a>
 									</div><!-- containerRow ends -->
 								</div><!-- containerSwap ends -->
 								<div class="containerSwap force-left">
 									<div class="containerRow force-text-right">
-										<p>
-											<span class="force-mini-left">Duration: </span>' . $startDate . ' - ' . $endDate . '
-										</p>
+										<span class="force-mini-left">Duration: </span>
+										<p>' . $startDate . ' - ' . $endDate . '</p>
 									</div><!-- containerRow ends -->
 									<div class="containerRow">
-										<p><span class="force-mini-left">Type: </span>' . $alpha_career[$i]->getEmployment() . '</p>
+										<span class="force-mini-left">Type: </span>
+										<p>' . $alpha_career[$i]->getEmployment() . '</p>
 									</div><!-- containerRow ends -->
 								</div><!-- containerSwap ends -->
 							</div><!-- containerColumn ends -->
@@ -174,5 +162,5 @@
 			</section><!-- section ends -->
 		';
 	}
-	
+
 ?>

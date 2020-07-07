@@ -35,22 +35,22 @@
 						<div class="containerColumn force-left">
 							<div class="containerSwap force-left">
 								<div class="containerRow force-text-right">
-									<p>
-										<a class="' . $anchorClass . '" ' . $hrefTag . ' target="_blank" title="Visit the official website of the institution!">
-											<span class="force-mini-left">Institution: </span>' . $alpha_degree[$i]->getInstitution() . '
-										</a>
-									</p>
+									<span class="force-mini-left">Institution: </span>
+									<a class="' . $anchorClass . '" ' . $hrefTag . ' target="_blank" title="Visit the official website of the institution!">' . $alpha_degree[$i]->getInstitution() . '</a>
 								</div><!-- containerRow ends -->
 								<div class="containerRow">
-									<p><span class="force-mini-left">Degree: </span>' . $alpha_degree[$i]->getLevel() . '</p>
+									<span class="force-mini-left">Degree: </span>
+									<p>' . $alpha_degree[$i]->getLevel() . '</p>
 								</div><!-- containerRow ends -->
 							</div><!-- containerSwap ends -->
 							<div class="containerSwap force-left">
 								<div class="containerRow force-text-right">
-									<p><span class="force-mini-left">Graduated: </span>' . $degreeStatus . '</p>
+									<span class="force-mini-left">Graduated: </span>
+									<p>' . $degreeStatus . '</p>
 								</div><!-- containerRow ends -->
 								<div class="containerRow">
-									<p><span class="force-mini-left">Programme: </span>' . $alpha_degree[$i]->getName() . '</p>
+									<span class="force-mini-left">Programme: </span>
+									<p>' . $alpha_degree[$i]->getName() . '</p>
 								</div><!-- containerRow ends -->
 							</div><!-- containerSwap ends -->
 						</div><!-- containerColumn ends -->
@@ -68,5 +68,5 @@
 			</section><!-- section ends -->
 		';
 	}
-	
+
 ?>

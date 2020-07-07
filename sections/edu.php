@@ -39,8 +39,8 @@
 			echo'
 								<div class="displaySummaryContainer iconsBar">
 									<a class="deg" href="#deg' . $i . '" title="View the specific degree!">
-										<p>' . $alpha_degree[$i]->getLevel() . '</p>
-										<p>' . $alpha_degree[$i]->getInstitution() . '</p>
+										<span>' . $alpha_degree[$i]->getLevel() . '</span>
+										<span>' . $alpha_degree[$i]->getInstitution() . '</span>
 									</a>
 								</div><!-- displaySummaryContainer ends -->
 			';
@@ -61,8 +61,8 @@
 			echo'
 								<div class="displaySummaryContainer iconsBar">
 									<a class="edu" href="#ins' . $i . 'p0" title="View the courses taken at this institute!">
-										<p>' . $institutes[$i] . '</p>
-										<p>' . $amount . ($amount === 1 ? " course" : " courses") . '</p>
+										<span>' . $institutes[$i] . '</span>
+										<span>' . $amount . ($amount === 1 ? " course" : " courses") . '</span>
 									</a>
 								</div><!-- displaySummaryContainer ends -->
 			';
@@ -102,5 +102,5 @@
 			</section><!-- section ends -->
 		';
 	}
-	
+
 ?>

@@ -53,14 +53,12 @@
 					echo'
 								<div class="containerSwap">
 									<div class="containerRow">
-										<p>
-											<a class="viewTarget" href="#ins' . $i . 'c' . $k . '" title="Visit the page regarding the specific course!">
-												<span class="force-mini-left">Course: </span>' . $alpha_education[$k]->getName() . '
-											</a>
-										</p>
+										<span class="force-mini-left">Course: </span>
+										<a class="viewTarget" href="#ins' . $i . 'c' . $k . '" title="Visit the page regarding the specific course!">' . $alpha_education[$k]->getName() . '</a>
 									</div><!-- containerRow ends -->
 									<div class="containerRow">
-										<p><span class="force-mini-left">Keywords: </span>' . $alpha_education[$k]->getKeyword() . '</p>
+										<span class="force-mini-left">Keywords: </span>
+										<p>' . $alpha_education[$k]->getKeyword() . '</p>
 									</div><!-- containerRow ends -->
 								</div><!-- containerSwap ends -->
 					';
@@ -115,22 +113,22 @@
 						<div class="containerColumn">
 							<div class="containerSwap force-left">
 								<div class="containerRow force-text-right">
-									<p>
-										<a class="' . $anchorClass . '" ' . $hrefTag . ' target="_blank" title="Visit the official website of the institution!">
-											<span class="force-mini-left">Institution: </span>' . $alpha_education[$course]->getInstitution() . '
-										</a>
-									</p>
+									<span class="force-mini-left">Institution: </span>
+									<a class="' . $anchorClass . '" ' . $hrefTag . ' target="_blank" title="Visit the official website of the institution!">' . $alpha_education[$course]->getInstitution() . '</a>
 								</div><!-- containerRow ends -->
 								<div class="containerRow">
-									<p><span class="force-mini-left">Course: </span>' . $alpha_education[$course]->getName() . ', ' . $alpha_education[$course]->getPoints() . ' ECTS points</p>
+									<span class="force-mini-left">Course: </span>
+									<p>' . $alpha_education[$course]->getName() . ', ' . $alpha_education[$course]->getPoints() . ' ECTS points</p>
 								</div><!-- containerRow ends -->
 							</div><!-- containerSwap ends -->
 							<div class="containerSwap">
 								<div class="containerRow force-text-right">
-									<p><span class="force-mini-left">Date: </span>' . $courseStatus . '</p>
+									<span class="force-mini-left">Date: </span>
+									<p>' . $courseStatus . '</p>
 								</div><!-- containerRow ends -->
 								<div class="containerRow">
-									<p><span class="force-mini-left">Type: </span>' . $alpha_education[$course]->getLevel() . '</p>
+									<span class="force-mini-left">Type: </span>
+									<p>' . $alpha_education[$course]->getLevel() . '</p>
 								</div><!-- containerRow ends -->
 							</div><!-- containerSwap ends -->
 						</div><!-- containerColumn ends -->

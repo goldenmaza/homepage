@@ -61,7 +61,7 @@
 			$notAtStart = $i !== 0;
 			$notAtEnd = $i !== $alpha_projectSize-1;
 			$startDate = date_format(new DateTime($alpha_project[$i]->getBeginning()), 'M jS, Y');
-			$endDate = ($alpha_project[$i]->getEnding() === NULL ? 'UFN' : date_format(new DateTime($alpha_project[$i]->getEnding()), 'M jS, Y'));
+			$endDate = $alpha_project[$i]->getEnding() === NULL ? 'UFN' : date_format(new DateTime($alpha_project[$i]->getEnding()), 'M jS, Y');
 			$emptyLink = is_null($alpha_project[$i]->getWebsite());
 			$anchorClass = $emptyLink ? 'disabled' : '';
 			$hrefTag = $emptyLink ? '' : 'href="' . $alpha_project[$i]->getWebsite() . '"';
@@ -91,22 +91,22 @@
 							<div class="containerColumn force-left">
 								<div class="containerSwap force-left">
 									<div class="containerRow force-text-right">
-										<p><span class="force-mini-right">Position: </span>' . $alpha_project[$i]->getPosition() . '</p>
+										<span class="force-mini-right">Position: </span>
+										<p>' . $alpha_project[$i]->getPosition() . '</p>
 									</div><!-- containerRow ends -->
 									<div class="containerRow">
-										<p><span class="force-mini-left">Customer: </span>' . $alpha_project[$i]->getCustomer() . '</p>
+										<span class="force-mini-left">Customer: </span>
+										<p>' . $alpha_project[$i]->getCustomer() . '</p>
 									</div><!-- containerRow ends -->
 								</div><!-- containerSwap ends -->
 								<div class="containerSwap force-left">
 									<div class="containerRow force-text-right">
-										<p><span class="force-mini-right">Date: </span>' . $startDate . ' - ' . $endDate . '</p>
+										<span class="force-mini-right">Date: </span>
+										<p>' . $startDate . ' - ' . $endDate . '</p>
 									</div><!-- containerRow ends -->
 									<div class="containerRow">
-										<p>
-											<a class="' . $anchorClass . '" ' . $hrefTag . ' target="_blank" title="Visit the released ' . $alpha_project[$i]->getName() . ' project page!">
-												<span class="force-mini-left">Project: </span>' . $alpha_project[$i]->getName() . '
-											</a>
-										</p>
+										<span class="force-mini-left">Project: </span>
+										<a class="' . $anchorClass . '" ' . $hrefTag . ' target="_blank" title="Visit the released ' . $alpha_project[$i]->getName() . ' project page!">' . $alpha_project[$i]->getName() . '</a>
 									</div><!-- containerRow ends -->
 								</div><!-- containerSwap ends -->
 							</div><!-- containerColumn ends -->

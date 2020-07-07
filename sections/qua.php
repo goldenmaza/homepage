@@ -21,8 +21,8 @@
 						<div class="displaySummaryContainer iconsBar">
 							<h4 class="hidden">' . $categoryLabel . ' #' . $paragraphQuantity . '</h4>
 							<a class="' . $anchorClass . '" href="#' . $hrefTag . '" title="' . $titleTag . '">
-								<p>' . $categoryLabel . '</p>
-								<p>' . $paragraphQuantity . '</p>
+								<span>' . $categoryLabel . '</span>
+								<span>' . $paragraphQuantity . '</span>
 							</a>
 						</div><!-- displaySummaryContainer ends -->
 		';
@@ -36,11 +36,11 @@
 
 	include("sections/edu.php");
 	include("sections/car.php");
-	include("sections/res.php");
+	include("sections/tes.php");
 	include("sections/exp.php");
 	include("sections/cer.php");
+	include("sections/res.php");
 	include("sections/dow.php");
 	include("sections/awa.php");
-	include("sections/tes.php");
 
 ?>
