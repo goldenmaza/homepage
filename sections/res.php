@@ -110,7 +110,7 @@
 								<div class="containerSwap force-left">
 									<div class="containerRow force-text-right">
 										<span class="force-mini-left">Agent: </span>
-										<p>' . $alpha_result[$i]->getAgent() . '</p>
+										<a class="' . $anchorClass . '" ' . $hrefTag . ' target="_blank" title="Visit the official website of the testing agent!">' . $alpha_result[$i]->getAgent() . '</a>
 									</div><!-- containerRow ends -->
 									<div class="containerRow">
 										<span class="force-mini-left">Name: </span>
@@ -131,7 +131,7 @@
 							<div class="containerSwap">
 								<div class="containerColumn">
 									<div class="containerColumn">
-										<p class="text-justify">' . $alpha_result[$i]->getDescription() . '</p>
+										<p class="text-justify">' . htmlspecialchars_decode($alpha_result[$i]->getDescription()) . '</p>
 									</div><!-- containerColumn ends -->
 									<div class="containerColumn">
 									</div><!-- containerColumn ends -->
