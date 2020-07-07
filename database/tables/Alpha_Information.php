@@ -6,13 +6,12 @@
 	 * This class is used for holding the aspects regarding the Alpha_Information-profile.
 	 * 
 	 * @package				Homepage
-	 * @author				Richard M. Hellstrand
-	 * @copyright			Copyright (c) 2015-2017, Alpheria
+	 * @author				Mats Richard Hellstrand
+	 * @copyright			Copyright (c) 2015-2020, Alpheria
 	 * @license				http://www.alpheria.com/about/license.html
 	 * @link				http://www.alpheria.com
-	 * @since				October 7th, 2017 - Version 1.1
+	 * @since				July 7th, 2020 - Version 1.2
 	 */
-	 
 	// ===========================================================================
 
 	class Alpha_Information {
@@ -32,7 +31,7 @@
 			$this->page 		= $dataArray[3];
 			$this->group 		= $dataArray[4];
 		}
-		
+
 		// ===========================================================================
 
 		/**

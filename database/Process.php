@@ -7,13 +7,12 @@
 	 * of all the elements that is used by this website.
 	 * 
 	 * @package				Homepage
-	 * @author				Richard M. Hellstrand
-	 * @copyright			Copyright (c) 2015-2017, Alpheria
+	 * @author				Mats Richard Hellstrand
+	 * @copyright			Copyright (c) 2015-2020, Alpheria
 	 * @license				http://www.alpheria.com/about/license.html
 	 * @link				http://www.alpheria.com
-	 * @since				June 5th, 2017 - Version 1.1
+	 * @since				July 7th, 2020 - Version 1.2
 	 */
-	 
 	// ===========================================================================
 
 	// The following are used for storing data under specific objects.
@@ -24,7 +23,6 @@
 	require_once("tables/Alpha_Result.php");
 	require_once("tables/Alpha_Experience.php");
 	require_once("tables/Alpha_Certification.php");
-	require_once("tables/Alpha_Download.php");
 	require_once("tables/Alpha_Award.php");
 	require_once("tables/Alpha_Testimonial.php");
 
@@ -37,10 +35,9 @@
 		private $alpha_result 			= NULL;
 		private $alpha_experience 		= NULL;
 		private $Alpha_certification	= NULL;
-		private $alpha_download			= NULL;
 		private $alpha_award 			= NULL;
 		private $alpha_testimonial 		= NULL;
-		
+
 		/**
 		 * The default constructor of the Process-object.
 		 */
@@ -53,10 +50,11 @@
 			$this->alpha_result 		= [];
 			$this->alpha_experience 	= [];
 			$this->alpha_certification	= [];
-			$this->alpha_download 		= [];
 			$this->alpha_award 			= [];
 			$this->alpha_testimonial 	= [];
 		}
+
+		// ===========================================================================
 
 	    /**
 		 * Data management - addAlpha_Information
@@ -129,7 +127,7 @@
 		public function getAlpha_Project() {
 			return $this->alpha_project;
 		}
-		
+
 	    /**
 		 * Data management - addAlpha_Degree
 		 * 
@@ -165,7 +163,7 @@
 		public function getAlpha_Degree() {
 			return $this->alpha_degree;
 		}
-		
+
 	    /**
 		 * Data management - addAlpha_Education
 		 * 
@@ -201,7 +199,7 @@
 		public function getAlpha_Education() {
 			return $this->alpha_education;
 		}
-		
+
 	    /**
 		 * Data management - addAlpha_Career
 		 * 
@@ -237,7 +235,7 @@
 		public function getAlpha_Career() {
 			return $this->alpha_career;
 		}
-		
+
 	    /**
 		 * Data management - addAlpha_Result
 		 * 
@@ -273,7 +271,7 @@
 		public function getAlpha_Result() {
 			return $this->alpha_result;
 		}
-		
+
 	    /**
 		 * Data management - addAlpha_Experience
 		 * 
@@ -309,7 +307,7 @@
 		public function getAlpha_Experience() {
 			return $this->alpha_experience;
 		}
-		
+
 	    /**
 		 * Data management - addAlpha_Certification
 		 * 
@@ -345,43 +343,7 @@
 		public function getAlpha_Certification() {
 			return $this->alpha_certification;
 		}
-		
-	    /**
-		 * Data management - addAlpha_Download
-		 * 
-		 * This function is used for assigning the Alpha_Download-array a new set of content from the database.
-		 * 
-		 * @access		public
-		 * @param		array		$dataArray			the array holds Download specific data
-		 */
-	    public function addAlpha_Download($dataArray) {
-	        $this->alpha_download[] = new Alpha_Download($dataArray);
-		}
 
-	    /**
-		 * Data management - getAlpha_DownloadSize
-		 * 
-		 * This function is used for returning the specific amount of stored Alpha_Download-objects under the array.
-		 * 
-		 * @access		public
-		 * @return		integer		the amount of objects stored under the Download array
-		 */
-		public function getAlpha_DownloadSize() {
-			return count($this->alpha_download);
-		}
-
-	    /**
-		 * Data management - getAlpha_Download
-		 * 
-		 * This function is used for returning the entire Alpha_Download-array.
-		 * 
-		 * @access		public
-		 * @return		array		the entire array of Download-objects
-		 */
-		public function getAlpha_Download() {
-			return $this->alpha_download;
-		}
-		
 	    /**
 		 * Data management - addAlpha_Award
 		 * 
@@ -417,7 +379,7 @@
 		public function getAlpha_Award() {
 			return $this->alpha_award;
 		}
-		
+
 	    /**
 		 * Data management - addAlpha_Testimonial
 		 * 
@@ -429,7 +391,7 @@
 	    public function addAlpha_Testimonial($dataArray) {
 	        $this->alpha_testimonial[] = new Alpha_Testimonial($dataArray);
 		}
-		
+
 	    /**
 		 * Data management - getAlpha_TestimonialSize
 		 * 
@@ -453,7 +415,7 @@
 		public function getAlpha_Testimonial() {
 			return $this->alpha_testimonial;
 		}
-		
+
 	    /**
 		 * Data management - clearObject
 		 * 
@@ -465,35 +427,23 @@
 		public function clearObject($target) {
 			if ($target == "Alpha_Information") {
 				$this->alpha_information = [];
-			}
-			else if ($target == "Alpha_Project") {
+			} else if ($target == "Alpha_Project") {
 				$this->alpha_project = [];
-			}
-			else if ($target == "Alpha_Degree") {
+			} else if ($target == "Alpha_Degree") {
 				$this->alpha_degree = [];
-			}
-			else if ($target == "Alpha_Education") {
+			} else if ($target == "Alpha_Education") {
 				$this->alpha_education = [];
-			}
-			else if ($target == "Alpha_Career") {
+			} else if ($target == "Alpha_Career") {
 				$this->alpha_career = [];
-			}
-			else if ($target == "Alpha_Result") {
+			} else if ($target == "Alpha_Result") {
 				$this->alpha_result = [];
-			}
-			else if ($target == "Alpha_Experience") {
+			} else if ($target == "Alpha_Experience") {
 				$this->alpha_experience = [];
-			}
-			else if ($target == "Alpha_Certification") {
+			} else if ($target == "Alpha_Certification") {
 				$this->alpha_certification = [];
-			}
-			else if ($target == "Alpha_Download") {
-				$this->alpha_download = [];
-			}
-			else if ($target == "Alpha_Award") {
+			} else if ($target == "Alpha_Award") {
 				$this->alpha_award = [];
-			}
-			else if ($target == "Alpha_Testimonial") {
+			} else if ($target == "Alpha_Testimonial") {
 				$this->alpha_testimonial = [];
 			}
 		}

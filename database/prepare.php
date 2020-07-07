@@ -7,11 +7,11 @@
 	 * and presenting data around the website.
 	 * 
 	 * @package				Homepage
-	 * @author				Richard M. Hellstrand
-	 * @copyright			Copyright (c) 2015-2016, Alpheria
+	 * @author				Mats Richard Hellstrand
+	 * @copyright			Copyright (c) 2015-2020, Alpheria
 	 * @license				http://www.alpheria.com/about/license.html
 	 * @link				http://www.alpheria.com
-	 * @since				June 3rd, 2017 - Version 1.0
+	 * @since				July 7th, 2020 - Version 1.2
 	 *
 	 */
 	
@@ -73,12 +73,6 @@
 	if ($_SESSION['process']->getAlpha_ResultSize() != 0) {
 		$alpha_result = $_SESSION['process']->getAlpha_Result();
 		$alpha_resultSize = $_SESSION['process']->getAlpha_ResultSize();
-	}
-	
-	// Alpha_Download-table, which holds the files listed under the Download page(s).
-	if ($_SESSION['process']->getAlpha_DownloadSize() != 0) {
-		$alpha_download = $_SESSION['process']->getAlpha_Download();
-		$alpha_downloadSize = $_SESSION['process']->getAlpha_DownloadSize();
 	}
 
 ?>

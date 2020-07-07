@@ -6,13 +6,12 @@
 	 * This class is used for holding the aspects regarding the Alpha_Award-profile.
 	 * 
 	 * @package				Homepage
-	 * @author				Richard M. Hellstrand
-	 * @copyright			Copyright (c) 2015-2016, Alpheria
+	 * @author				Mats Richard Hellstrand
+	 * @copyright			Copyright (c) 2015-2020, Alpheria
 	 * @license				http://www.alpheria.com/about/license.html
 	 * @link				http://www.alpheria.com
-	 * @since				October 7th, 2017 - Version 1.1
+	 * @since				July 7th, 2020 - Version 1.2
 	 */
-	 
 	// ===========================================================================
 
 	class Alpha_Award {
@@ -38,7 +37,7 @@
 			$this->description 	= $dataArray[6];
 			$this->directory 	= $dataArray[7];
 		}
-		
+
 		// ===========================================================================
 
 		/**

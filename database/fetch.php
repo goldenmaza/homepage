@@ -7,14 +7,13 @@
 	 * table, and then sending this array through the loadingSession-method.
 	 * 
 	 * @package				Homepage
-	 * @author				Richard M. Hellstrand
-	 * @copyright			Copyright (c) 2015-2017, Alpheria
+	 * @author				Mats Richard Hellstrand
+	 * @copyright			Copyright (c) 2015-2020, Alpheria
 	 * @license				http://www.alpheria.com/about/license.html
 	 * @link				http://www.alpheria.com
-	 * @since				October 8th, 2017 - Version 1.3
+	 * @since				July 7th, 2020 - Version 1.4
 	 *
 	 */
-	 
 	// ===========================================================================
 
 	require_once("configuration.php");
@@ -37,8 +36,6 @@
 	$alpha_experienceSize 		= NULL;
 	$alpha_certification		= NULL;
 	$alpha_certificationSize	= NULL;
-	$alpha_download 			= NULL;
-	$alpha_downloadSize	 		= NULL;
 	$alpha_award 				= NULL;
 	$alpha_awardSize 			= NULL;
 	$alpha_testimonial 			= NULL;
@@ -138,18 +135,6 @@
 	];
 	if ($handler->loadingSession($fetchCertification) == false) {
 		// echo 'ERROR with loading Certification';
-	}
-	
-	// Alpha_Download-table, which holds the files listed under the Download page(s).
-	$fetchDownload = [
-		"table"=>["alpha_download"],
-		"column"=>[],
-		"condition"=>[],
-		"sort"=>["id"],
-		"order"=>["ASC"]
-	];
-	if ($handler->loadingSession($fetchDownload) == false) {
-		// echo 'ERROR with loading Download';
 	}
 	
 	// Alpha_Award-table, which holds the awards listed under the Award page(s).
