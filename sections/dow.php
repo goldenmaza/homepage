@@ -1,69 +1,69 @@
 <?php
 
-	if (isset($alpha_downloadSize) == true) {
+	echo'
+		<h3 class="hidden">Downloads section</h3>
+	';
+	if (isset($downloadKeyMatching)) {
 		echo'
 			<section id="dow0" class="sections" data-sitemap="Download section">
-				<h2 class="hidden">
-					Download section
-				</h2>
 				<div class="container">
-					<div class="content row col-12-xs">
-						<div class="col-12-xs">
-							<h3>
-								<a href="#qua" title="Return to the Qualification page!">
-									List of Files
-								</a>
-							</h3>
-						</div>
-						<div class="row col-12-xs displaySummaryContainer iconsBar downloadHolder text-center">
+					<div class="containerColumn">
+						<div class="containerRow">
+							<h4>
+								<a href="#qua" title="Return to the Qualification page!">List of Downloadable files</a>
+							</h4>
+						</div><!-- containerRow ends -->
+					</div><!-- containerColumn ends -->
+					<div class="containerColumn">
 		';
-		for ($i = 0; $i < $alpha_downloadSize; $i++) {
-			$extension = pathinfo($alpha_download[$i]->getFilename(), PATHINFO_EXTENSION);
-			$filePatha = $dlFilesPath . "/" . $alpha_download[$i]->getFilename();
-			if ($i != 0 && $i % 2 == 0) {
+		foreach ($downloadKeyMatching as $sectionKey => $sectionArray) {
+			echo'
+						<div class="containerSwap gridLayout">
+			';
+			foreach ($sectionArray as $fileKey => $fileArray) {
 				echo'
-						</div>
-						<div class="row col-12-xs displaySummaryContainer iconsBar downloadHolder text-center">
+							<div class="containerColumn downloadGroup">
+								<div class="containerRow downloadHeader">
+									<h5>' . $fileArray[0] . '</h5>
+								</div><!-- containerRow ends -->
+				';
+				foreach ($fileArray[1] as $arrayKey => $arrayValue) {
+					$filename = substr($arrayValue, strrpos($arrayValue, '/'), strlen($arrayValue));
+					$extension = pathinfo($arrayValue, PATHINFO_EXTENSION);
+					echo'
+								<div class="containerColumn displaySummaryContainer downloadElement">
+									<a href="' . $arrayValue . '" target="_blank" title="Download the ' . $filename . ' file!" download>
+										<span class="dows ' . $extension . '">Download the ' . $extension . ' file...</span>
+									</a>
+								</div><!-- containerColumn ends -->
+					';
+				}
+				echo'
+							</div><!-- containerColumn ends -->
 				';
 			}
 			echo'
-							<h4 class="hidden">
-								' . $alpha_download[$i]->getName() . '
-							</h4>
-							<a class="' . $extension . '" href="' . $filePatha . '" target="_blank" title="Download the file: ' . $alpha_download[$i]->getFilename() . '!">
-								<p>
-									' . $alpha_download[$i]->getName() . '
-								</p>
-							</a>
+						</div><!-- containerSwap ends -->
 			';
 		}
 		echo'
-						</div>
-					</div>
+					</div><!-- containerColumn ends -->
 				</div><!-- container ends -->
 			</section><!-- section ends -->
 		';
-	}
-	else {
+	} else {
 		echo'
-			<section id="dow0" class="sections" data-sitemap="Empty | Error">
-				<h2 class="hidden">
-					Download section
-				</h2>
+			<section id="dow" class="sections" data-sitemap="Empty | Error">
 				<div class="container">
-					<div class="content row col-12-xs">
-						<h3>
-							Unable to load data / no data to be loaded - regarding the Download pages
-						</h3>
-						<div class="row col-12-xs">
-							<strong>
-								Currently, this page was unable to load! Please, try again later!
-							</strong>
-						</div>
-					</div>
+					<div class="containerColumn">
+						<h4>Unable to load data / no data to be loaded - regarding the Download page</h4>
+						<div class="containerRow">
+							<strong>Currently, this page was unable to load! Please, try again later!</strong>
+						</div><!-- containerRow ends -->
+					</div><!-- containerColumn ends -->
 				</div><!-- container ends -->
 			</section><!-- section ends -->
 		';
 	}
-	
+
 ?>
