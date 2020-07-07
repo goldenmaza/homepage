@@ -111,7 +111,7 @@
 									</div><!-- containerRow ends -->
 									<div class="containerRow">
 										<span class="force-mini-left">Author: </span>
-										<p>' . $alpha_testimonial[$i]->getAuthor() . '</p>
+										<p>' . substr($alpha_testimonial[$i]->getAuthor(), 0, strpos($alpha_testimonial[$i]->getAuthor(), ',')) . '</p>
 									</div><!-- containerRow ends -->
 								</div><!-- containerSwap ends -->
 								<div class="containerSwap force-left">
@@ -120,6 +120,7 @@
 										<p>' . $date . '</p>
 									</div><!-- containerRow ends -->
 									<div class="containerRow force-text-right">
+										<p>' . substr($alpha_testimonial[$i]->getAuthor(), strpos($alpha_testimonial[$i]->getAuthor(), ',') + 1, strlen($alpha_testimonial[$i]->getAuthor())) . '</p>
 									</div><!-- containerRow ends -->
 								</div><!-- containerSwap ends -->
 							</div><!-- containerColumn ends -->
