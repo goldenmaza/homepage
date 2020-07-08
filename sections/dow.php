@@ -22,7 +22,7 @@
             ';
             foreach ($sectionArray as $fileKey => $fileArray) {
                 echo'
-                            <div class="containerColumn downloadGroup">
+                            <div class="containerColumn exceptionColumn">
                                 <div class="containerRow downloadHeader">
                                     <h5>' . $fileArray[0] . '</h5>
                                 </div><!-- containerRow ends -->
