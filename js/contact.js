@@ -1,245 +1,292 @@
 /*
     Filename:   contact.js
-    Author:     Richard M. Hellstrand (Sweden)
+    Author:     Mats Richard Hellstrand (Sweden)
     Website:    www.hellstrand.org
-    Date:       October 1st, 2017
-    Comment:    This JS-file is used for validating the form under the Contact page and accessing the sendMail.php file asynchronously.
+    Date:       July 8th, 2020
+    Comment:    This JS-file is used for validating the form under the Contact page and accessing the sendEmail.php file asynchronously.
 */
 
-// It's used to clearing the contact form.
-function clearForm() {
-    "use strict";
-
-    document.getElementById("nameInput").value = "";
-    document.getElementById("mailInput").value = "";
-    document.getElementById("topicInput").value = "";
-    document.getElementById("messageInput").value = "";
-    document.getElementById("contactSummary").className = "";
-    document.getElementById("contactHelp").classList.add("hidden");
-    var className = document.getElementById("helpButton").className;
-    className = className.substring(0, className.lastIndexOf(" "));
-    document.getElementById("helpButton").className = className;
-}
-
 // Setup the labels used for describing the form limitations.
+var range = [
+    5, 5000,
+    2, 50,
+    2, 50,
+    2, 25,
+    2, 25,
+    2, 13
+];
+
 var labels = [
-    ["<strong>Name:</strong>", "<strong>E-mail:</strong>", "<strong>Topic:</strong>", "<strong>Message:</strong>"],
-    ["Incorrect format, details under 'HELP!'", "You are missing a detailed Message, details under 'HELP!'"],
     [
-        "a to z, åäö, A to Z, ÅÄÖ, space, dot, underscore and/or an apostrophe - number of characters between 2 and 50",
-        "username + AT + domain + DOT + prefix<br/><br/>username - hyphen, dot, a to z, A to Z and/or 0 to 9 - number of characters between 2 and 25<br/>domain - hyphen, dot, a to z, A to Z and/or 0 to 9 - number of characters between 2 and 25<br/>prefix - a to z and/or A to Z - number of characters between 2 and 13",
-        "2500 symbol limit, no other limitations (code syntax will be stripped, however)"
+        'Message',
+        'Topic',
+        'Name',
+        'E-mail'
+    ],
+    [
+        'Incorrect format for this field, details under "HELP!"',
+        'Currently, you are unable to send this message!',
+        'If you are ready to send this message, press here!'
+    ],
+    [
+
+        `a to z, åäö, A to Z, ÅÄÖ, space, dot, question mark, exclamation mark, ampersand, apostrophe, semicolon, colon, tilde and/or an hyphen - number of characters between ${range[0]} and ${range[1]}`,
+        `a to z, åäö, A to Z, ÅÄÖ, space, dot, question mark, exclamation mark, ampersand, apostrophe, semicolon, colon, tilde and/or an hyphen - number of characters between ${range[2]} and ${range[3]}`,
+        `a to z, åäö, A to Z, ÅÄÖ, space, dot, ampersand, apostrophe and/or an hyphen - number of characters between ${range[4]} and ${range[5]}`,
+        `username + AT + domain + DOT + suffix<br/><br/>username - hyphen, dot, a to z and/or A to Z - number of characters between ${range[6]} and ${range[7]}<br/>domain - hyphen, dot, a to z and/or A to Z - number of characters between ${range[8]} and ${range[9]}<br/>suffix - a to z and/or A to Z - number of characters between ${range[10]} and ${range[11]}`
     ]
 ];
 
-// It's used to clearing the help text under the contact form.
-function displayHelp() {
-    "use strict";
+var regex = [
+    `^([a-zA-ZåäöÅÄÖ \.\?\!\&\'\;\:\~\-]{${range[0]},${range[1]}})$`,
+    `^([a-zA-ZåäöÅÄÖ \.\?\!\&\'\;\:\~\-]{${range[2]},${range[3]}})$`,
+    `^([a-zA-ZåäöÅÄÖ \.\&\'\-]{${range[4]},${range[5]}})$`,
+    `^([a-zA-Z\.\-]{${range[6]},${range[7]}})+@([a-zA-Z\.\-]{${range[8]},${range[9]}})+\\.([a-zA-Z]{${range[10]},${range[11]}})$`
+];
 
-    if (document.getElementById("contactSummary").className !== "hidden") {
-        document.getElementById("helpButton").classList.add("selected");
-        document.getElementById("contactSummary").classList.add("hidden");
-        document.getElementById("contactHelp").classList.remove("hidden");
-        document.getElementById("contactHelp").children[0].getElementsByTagName("p")[0].innerHTML = labels[0][0];
-        document.getElementById("contactHelp").children[0].getElementsByTagName("p")[1].innerHTML = labels[2][0];
-        document.getElementById("contactHelp").children[1].getElementsByTagName("p")[0].innerHTML = labels[0][1];
-        document.getElementById("contactHelp").children[1].getElementsByTagName("p")[1].innerHTML = labels[2][1];
-        document.getElementById("contactHelp").children[2].getElementsByTagName("p")[0].innerHTML = labels[0][2];
-        document.getElementById("contactHelp").children[2].getElementsByTagName("p")[1].innerHTML = labels[2][0];
-        document.getElementById("contactHelp").children[3].getElementsByTagName("p")[0].innerHTML = labels[0][3];
-        document.getElementById("contactHelp").children[3].getElementsByTagName("p")[1].innerHTML = labels[2][2];
-    }
-    else {
-        var className = document.getElementById("helpButton").className;
-        className = className.substring(0, className.lastIndexOf(" "));
-        document.getElementById("helpButton").className = className;
-        document.getElementById("contactSummary").classList.remove("hidden");
-        document.getElementById("contactHelp").classList.add("hidden");
-    }
-}
-
-// It's used for validation of the user input.
 var delayTimer;
 var delayTime = 1000;
 
+// It's used to clearing the contact form.
+function clearForm() {
+    'use strict';
+
+    document.getElementById('messageInput').value = '';
+    document.getElementById('topicInput').value = '';
+    document.getElementById('nameInput').value = '';
+    document.getElementById('emailInput').value = '';
+    document.getElementById('formSummary').classList.remove('hidden');
+    document.getElementById('formHelp').classList.add('hidden');
+
+    var helpButton = document.getElementById('helpButton');
+    var className = helpButton.className;
+    className = className.substring(0, className.lastIndexOf(' '));
+    helpButton.className = className;
+}
+
+// It's used to clearing the help text under the contact form.
+function displayHelp() {
+    'use strict';
+
+    var helpButton = document.getElementById('helpButton'),
+        formSummary = document.getElementById('formSummary'),
+        formHelp = document.getElementById('formHelp'),
+        helpMessage = document.getElementById('helpMessage'),
+        helpTopic = document.getElementById('helpTopic'),
+        helpName = document.getElementById('helpName'),
+        helpEmail = document.getElementById('helpEmail');
+
+    if (!formSummary.classList.contains('hidden')) {
+        helpButton.classList.add('selected');
+        formSummary.classList.add('hidden');
+        formHelp.classList.remove('hidden');
+        helpMessage.children[0].getElementsByTagName('strong')[0].innerHTML = labels[0][0];
+        helpMessage.children[1].getElementsByTagName('p')[0].innerHTML = labels[2][0];
+        helpTopic.children[0].getElementsByTagName('strong')[0].innerHTML = labels[0][1];
+        helpTopic.children[1].getElementsByTagName('p')[0].innerHTML = labels[2][1];
+        helpName.children[0].getElementsByTagName('strong')[0].innerHTML = labels[0][2];
+        helpName.children[1].getElementsByTagName('p')[0].innerHTML = labels[2][2];
+        helpEmail.children[0].getElementsByTagName('strong')[0].innerHTML = labels[0][3];
+        helpEmail.children[1].getElementsByTagName('p')[0].innerHTML = labels[2][3];
+    } else {
+        helpButton.classList.remove('selected');
+        formSummary.classList.remove('hidden');
+        formHelp.classList.add('hidden');
+    }
+}
+
 function validateForm() {
-    "use strict";
+    'use strict';
 
     clearTimeout(delayTimer);
     delayTimer = setTimeout(function() {
-        document.getElementById("clearButton").setAttribute("disabled", "disabled");
-        document.getElementById("helpButton").removeAttribute("disabled");
-        document.getElementById("sendButton").setAttribute("disabled", "disabled");
-        if (document.getElementById("contactHelp").className === "hidden") {
-            document.getElementById("contactSummary").classList.remove("hidden");
+        var messageInput = document.getElementById('messageInput'),
+            topicInput = document.getElementById('topicInput'),
+            nameInput = document.getElementById('nameInput'),
+            emailInput = document.getElementById('emailInput'),
+            messageCounter = document.getElementById('messageCounter'),
+            topicCounter = document.getElementById('topicCounter'),
+            nameCounter = document.getElementById('nameCounter'),
+            emailCounter = document.getElementById('emailCounter'),
+            clearButton = document.getElementById('clearButton'),
+            helpButton = document.getElementById('helpButton'),
+            sendButton = document.getElementById('sendButton'),
+            formSummary = document.getElementById('formSummary'),
+            formHelp = document.getElementById('formHelp'),
+            summaryMessage = document.getElementById('summaryMessage'),
+            summaryTopic = document.getElementById('summaryTopic'),
+            summaryName = document.getElementById('summaryName'),
+            summaryEmail = document.getElementById('summaryEmail');
+
+        clearButton.setAttribute('disabled', 'disabled');
+        helpButton.removeAttribute('disabled');
+        sendButton.setAttribute('disabled', 'disabled');
+        if (formHelp.classList.contains('hidden')) {
+            formSummary.classList.remove('hidden');
         }
 
-        var nameRegex = new RegExp("^([a-zA-ZåäöÅÄÖ\.\_\' ]{2,50})$"), // Setup regular expressions for name, topic and e-mail.
-            topicRegex = new RegExp("^([a-zA-ZåäöÅÄÖ\.\_\' ]{2,50})$"),
-            emailRegex = new RegExp("^([a-zA-Z0-9\.\-]{2,25})+@([a-zA-Z0-9\.\-]{2,25})+\\.([a-zA-Z]{2,13})$"),
-            name = document.getElementById("nameInput").value, // Get the values found under the form.
-            mail = document.getElementById("mailInput").value,
-            topic = document.getElementById("topicInput").value,
-            message = document.getElementById("messageInput").value,
-            textareaCounter = 2500, // Setup the character limitations that will be used in the form.
-            nameCounter = 50,
-            mailCounter = 65,
-            topicCounter = 50,
-            corrections = 0;
+        var messageRegex = new RegExp(regex[0]), // Setup regular expressions for name, topic and e-mail.
+            topicRegex = new RegExp(regex[1]),
+            nameRegex = new RegExp(regex[2]),
+            emailRegex = new RegExp(regex[3]),
+            message = messageInput.value, // Get the values found under the form.
+            topic = topicInput.value,
+            name = nameInput.value,
+            email = emailInput.value,
+            messageCounterValue = range[1],
+            topicCounterValue = range[3],
+            nameCounterValue = range[5],
+            emailCounterValue = range[7] + range[9] + range[11],
+            correctionsNecessary = false;
 
         // Setup the starting character limitations that will be used in the form.
-        document.getElementById("textareaCounter").innerHTML = textareaCounter;
-        document.getElementById("topicCounter").innerHTML = topicCounter;
-        document.getElementById("mailCounter").innerHTML = mailCounter;
-        document.getElementById("nameCounter").innerHTML = nameCounter;
+        messageCounter.innerHTML = messageCounterValue;
+        topicCounter.innerHTML = topicCounterValue;
+        nameCounter.innerHTML = nameCounterValue;
+        emailCounter.innerHTML = emailCounterValue;
 
-        // Incase Name is empty.
-        if (name.length === 0) {
-            corrections++;
-            document.getElementById("nameInput").className = "input invalid";//.style.borderColor = "#500";
-        }
-        else { // No longer empty.
-            document.getElementById("clearButton").removeAttribute("disabled");
-            document.getElementById("nameInput").className = "input";//.removeAttribute("style");
-            document.getElementById("nameCounter").innerHTML = nameCounter - name.length;
-        }
-
-        // Incase E-mail is empty.
-        if (mail.length === 0) {
-            corrections++;
-            document.getElementById("mailInput").className = "input invalid";//.style.borderColor = "#500";
-        }
-        else { // No longer empty.
-            document.getElementById("clearButton").removeAttribute("disabled");
-            document.getElementById("mailInput").className = "input";//.removeAttribute("style");
-            document.getElementById("mailCounter").innerHTML = mailCounter - mail.length;
+        // Incase Message is empty.
+        if (message.length === 0) {
+            correctionsNecessary = true;
+            messageInput.classList.add('invalid');
+        } else { // No longer empty.
+            clearButton.removeAttribute('disabled');
+            messageInput.classList.remove('invalid');
+            messageCounter.innerHTML = messageCounterValue - message.length;
         }
 
         // Incase Topic is empty.
         if (topic.length === 0) {
-            corrections++;
-            document.getElementById("topicInput").className = "input invalid";//.style.borderColor = "#500";
-        }
-        else { // No longer empty.
-            document.getElementById("clearButton").removeAttribute("disabled");
-            document.getElementById("topicInput").className = "input";//.removeAttribute("style");
-            document.getElementById("topicCounter").innerHTML = topicCounter - topic.length;
-        }
-
-        // Validate the Name and if it's incorrect.
-        if (nameRegex.exec(name) === null) {
-            corrections++;
-            document.getElementById("contactSummary").children[0].getElementsByTagName("p")[0].innerHTML = labels[0][0];
-            document.getElementById("contactSummary").children[0].getElementsByTagName("p")[1].innerHTML = labels[1][0];
-            document.getElementById("nameInput").className = "input invalid";//.style.borderColor = "#500";
-        }
-        else { // It's validated.
-            document.getElementById("contactSummary").children[0].getElementsByTagName("p")[0].innerHTML = "";
-            document.getElementById("contactSummary").children[0].getElementsByTagName("p")[1].innerHTML = "";
-            document.getElementById("nameInput").className = "input";//.removeAttribute("style");
+            correctionsNecessary = true;
+            topicInput.classList.add('invalid');
+        } else { // No longer empty.
+            clearButton.removeAttribute('disabled');
+            topicInput.classList.remove('invalid');
+            topicCounter.innerHTML = topicCounterValue - topic.length;
         }
 
-        // Validate the E-mail and if it's incorrect.
-        if (emailRegex.exec(mail) === null) {
-            corrections++;
-            document.getElementById("contactSummary").children[1].getElementsByTagName("p")[0].innerHTML = labels[0][1];
-            document.getElementById("contactSummary").children[1].getElementsByTagName("p")[1].innerHTML = labels[1][0];
-            document.getElementById("mailInput").className = "input invalid";//.style.borderColor = "#500";
+        // Incase Name is empty.
+        if (name.length === 0) {
+            correctionsNecessary = true;
+            nameInput.classList.add('invalid');
+        } else { // No longer empty.
+            clearButton.removeAttribute('disabled');
+            nameInput.classList.remove('invalid');
+            nameCounter.innerHTML = nameCounterValue - name.length;
         }
-        else { // It's validated.
-            document.getElementById("contactSummary").children[1].getElementsByTagName("p")[0].innerHTML = "";
-            document.getElementById("contactSummary").children[1].getElementsByTagName("p")[1].innerHTML = "";
-            document.getElementById("mailInput").className = "input";//.removeAttribute("style");
+
+        // Incase E-mail is empty.
+        if (email.length === 0) {
+            correctionsNecessary = true;
+            emailInput.classList.add('invalid');
+        } else { // No longer empty.
+            clearButton.removeAttribute('disabled');
+            emailInput.classList.remove('invalid');
+            emailCounter.innerHTML = emailCounterValue - email.length;
+        }
+
+        // Validate the Message and if it's incorrect.
+        if (messageRegex.exec(message) === null) {
+            correctionsNecessary = true;
+            summaryMessage.children[0].getElementsByTagName('strong')[0].innerHTML = labels[0][0];
+            summaryMessage.children[1].getElementsByTagName('p')[0].innerHTML = labels[1][0];
+            messageInput.classList.add('invalid');
+        } else { // It's validated.
+            summaryMessage.children[0].getElementsByTagName('strong')[0].innerHTML = '';
+            summaryMessage.children[1].getElementsByTagName('p')[0].innerHTML = '';
+            messageInput.classList.remove('invalid');
         }
 
         // Validate the Topic and if it's incorrect.
         if (topicRegex.exec(topic) === null) {
-            corrections++;
-            document.getElementById("contactSummary").children[2].getElementsByTagName("p")[0].innerHTML = labels[0][2];
-            document.getElementById("contactSummary").children[2].getElementsByTagName("p")[1].innerHTML = labels[1][0];
-            document.getElementById("topicInput").className = "input invalid";//.style.borderColor = "#500";
-        }
-        else { // It's validated.
-            document.getElementById("contactSummary").children[2].getElementsByTagName("p")[0].innerHTML = "";
-            document.getElementById("contactSummary").children[2].getElementsByTagName("p")[1].innerHTML = "";
-            document.getElementById("topicInput").className = "input";//.removeAttribute("style");
+            correctionsNecessary = true;
+            summaryTopic.children[0].getElementsByTagName('strong')[0].innerHTML = labels[0][1];
+            summaryTopic.children[1].getElementsByTagName('p')[0].innerHTML = labels[1][0];
+            topicInput.classList.remove('invalid');
+        } else { // It's validated.
+            summaryTopic.children[0].getElementsByTagName('strong')[0].innerHTML = '';
+            summaryTopic.children[1].getElementsByTagName('p')[0].innerHTML = '';
+            topicInput.classList.remove('invalid');
         }
 
-        // Incase Message is empty.
-        if (message.length === 0) {
-            corrections++;
-            document.getElementById("contactSummary").children[3].getElementsByTagName("p")[0].innerHTML = labels[0][3];
-            document.getElementById("contactSummary").children[3].getElementsByTagName("p")[1].innerHTML = labels[1][1];
-            document.getElementById("messageInput").className = "input invalid";//.style.borderColor = "#500";
+        // Validate the Name and if it's incorrect.
+        if (nameRegex.exec(name) === null) {
+            correctionsNecessary = true;
+            summaryName.children[0].getElementsByTagName('strong')[0].innerHTML = labels[0][2];
+            summaryName.children[1].getElementsByTagName('p')[0].innerHTML = labels[1][0];
+            nameInput.classList.add('invalid');
+        } else { // It's validated.
+            summaryName.children[0].getElementsByTagName('strong')[0].innerHTML = '';
+            summaryName.children[1].getElementsByTagName('p')[0].innerHTML = '';
+            nameInput.classList.remove('invalid');
         }
-        else { // No longer empty.
-            if (message.length <= textareaCounter) {
-                document.getElementById("contactSummary").children[3].getElementsByTagName("p")[0].innerHTML = "";
-                document.getElementById("contactSummary").children[3].getElementsByTagName("p")[1].innerHTML = "";
-                document.getElementById("clearButton").removeAttribute("disabled");
-                document.getElementById("messageInput").className = "input";//.removeAttribute("style");
-            }
-            document.getElementById("textareaCounter").innerHTML = textareaCounter - message.length;
+
+        // Validate the E-mail and if it's incorrect.
+        if (emailRegex.exec(email) === null) {
+            correctionsNecessary = true;
+            summaryEmail.children[0].getElementsByTagName('strong')[0].innerHTML = labels[0][3];
+            summaryEmail.children[1].getElementsByTagName('p')[0].innerHTML = labels[1][0];
+            emailInput.classList.add('invalid');
+        } else { // It's validated.
+            summaryEmail.children[0].getElementsByTagName('strong')[0].innerHTML = '';
+            summaryEmail.children[1].getElementsByTagName('p')[0].innerHTML = '';
+            emailInput.classList.remove('invalid');
         }
 
         // If corrections contain anything, something is wrong with other words, state the situation.
-        if (corrections > 0) {
-            document.getElementById("sendButton").setAttribute("title", "Currently, you are unable to send this message!");
-        }
-        else { // Nothing is left to correct, validation is completed and the user can now send the message.
-            document.getElementById("contactSummary").classList.add("hidden");
-            document.getElementById("helpButton").setAttribute("disabled", "disabled");
-            document.getElementById("sendButton").setAttribute("title", "If you are ready to send this message, press here!");
-            document.getElementById("sendButton").removeAttribute("disabled");
+        if (correctionsNecessary) {
+            sendButton.setAttribute('title', labels[1][2]);
+        } else { // Nothing is left to correct, validation is completed and the user can now send the message.
+            formHelp.classList.add('hidden');
+            helpButton.setAttribute('disabled', 'disabled');
+            sendButton.setAttribute('title', labels[1][3]);
+            sendButton.removeAttribute('disabled');
         }
     }, delayTime);
 }
 
 // It's used for the storing procedure.
 function storeData() {
-    "use strict";
+    'use strict';
 
-    document.getElementById("contactSummary").classList.add("hidden");
-    document.getElementById("contactHelp").classList.add("hidden");
+    document.getElementById('formSummary').classList.add('hidden');
+    document.getElementById('formHelp').classList.add('hidden');
 
     // Get the values and asynchronously send the message to the default e-mail stated by using a PHP script.
     var inputData = [];
-    inputData.push(document.getElementById("nameInput").value);
-    inputData.push(document.getElementById("mailInput").value);
-    inputData.push(document.getElementById("topicInput").value);
-    inputData.push(document.getElementById("messageInput").value);
-    processServer("sendEmail.php?formText=" + inputData);
-    location.href = "#sen";
+    inputData.push(document.getElementById('messageInput').value);
+    inputData.push(document.getElementById('topicInput').value);
+    inputData.push(document.getElementById('nameInput').value);
+    inputData.push(document.getElementById('mailInput').value);
+    processServer('sendEmail.php?formText=' + inputData);
     setTimeout(function() {
         clearForm();
-    }, 1000);
+    }, delayTime);
+    location.href = '#sen';
 }
 
 // It's used for asynchronously load a file.
 function processServer(source) {
-    "use strict";
+    'use strict';
 
     var xhrObject = null;
 
     try {
         xhrObject = new XMLHttpRequest();  // Other browsers ... 
-    }
-    catch (exceptionOne) {
+    } catch (exceptionOne) {
         try {
-            xhrObject = new ActiveXObject("Microsoft.XMLHTTP");  // Some IE editions..
-        }
-        catch (exceptionTwo) {
+            xhrObject = new ActiveXObject('Microsoft.XMLHTTP');  // Some IE editions..
+        } catch (exceptionTwo) {
             try {
-                xhrObject = new ActiveXObject("Msxml2.XMLHTTP");  // Other IE editions..
-            }
-            catch (exceptionThree) {
+                xhrObject = new ActiveXObject('Msxml2.XMLHTTP');  // Other IE editions..
+            } catch (exceptionThree) {
                 xhrObject = false;
             }
         }
     }
 
     if (xhrObject) {
-        xhrObject.open("GET", source);
+        xhrObject.open('GET', source);
         xhrObject.send(null);
         xhrObject.onreadystatechange = function () {
             if (xhrObject.readyState === 4) {
