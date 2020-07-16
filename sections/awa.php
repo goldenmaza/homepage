@@ -148,7 +148,7 @@
                     $imagePathSrc = $badgePathLocation . $files[$j];
                     $downloadKeyMatching[$currentFile][$sectionId][0] = $alpha_award[$i]->getName();
                     $downloadKeyMatching[$currentFile][$sectionId][1][] = $imagePathSrc;
-                    $qualificationQuantities['Download']++;
+                    $qualificationKeyMatching['Download']++;
                     echo'
                                         <img src="' . $imagePathSrc . '" alt="The verified badge for the ' . $alpha_award[$i]->getName() . ' award!" />
                     ';
@@ -166,7 +166,7 @@
                     $extension = pathinfo($files[$j], PATHINFO_EXTENSION);
                     $filePathLocation = $downloadPathLocation . $files[$j];
                     $downloadKeyMatching[$currentFile][$sectionId][1][] = $filePathLocation;
-                    $qualificationQuantities['Download']++;
+                    $qualificationKeyMatching['Download']++;
                     echo'
                                         <a class="expandingThumbnailIcon ' . $extension . '" href="' . $filePathLocation . '" target="_blank" title="Download the ' . $files[$j] . ' file!"></a>
                     ';

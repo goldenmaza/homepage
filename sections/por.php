@@ -135,7 +135,7 @@
                         $imagePathSrc = $screensPathLocation . $files[$j];
                         $downloadKeyMatching[$currentFile][$sectionId][0] = $alpha_project[$i]->getName();
                         $downloadKeyMatching[$currentFile][$sectionId][1][] = $imagePathSrc;
-                        $qualificationQuantities['Download']++;
+                        $qualificationKeyMatching['Download']++;
                         echo'
                                         <a href="' . $imagePathThumb . '" target="_blank" title="View the full image #' . ($j - 1) . ' of the ' . $alpha_project[$i]->getName() . ' project!">
                                             <img class="displayThumbnailImage expandingThumbnailImage" src="' . $imagePathThumb . '" alt="The thumbnail #' . $j . ' used for the ' . $alpha_project[$i]->getName() . ' project!" />
@@ -156,7 +156,7 @@
                     $extension = pathinfo($files[$j], PATHINFO_EXTENSION);
                     $filePathLocation = $downloadPathLocation . $files[$j];
                     $downloadKeyMatching[$currentFile][$sectionId][1][] = $filePathLocation;
-                    $qualificationQuantities['Download']++;
+                    $qualificationKeyMatching['Download']++;
                     echo'
                                         <a class="expandingThumbnailIcon ' . $extension . '" href="' . $filePathLocation . '" target="_blank" title="Download ' . $files[$j] . '!"></a>
                     ';
