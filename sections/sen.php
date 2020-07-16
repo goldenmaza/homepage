@@ -17,7 +17,7 @@
                                     <!--[if lt IE 10]>
                                     <span class="required">Message:</span>
                                     <![endif]-->
-                                    <textarea id="messageInput" class="input" maxlength="2500" title="Please give a detailed message..." placeholder="Please give a detailed message..." accesskey="m" tabindex="11" autocomplete="off"></textarea>
+                                    <textarea id="messageInput" class="input" maxlength="2500" title="Please give a detailed message..." placeholder="Please give a detailed message..." accesskey="m" autocomplete="off"></textarea>
                                     <span id="messageCounter"></span>
                                 </label>
                             </div><!-- containerColumn ends -->
@@ -26,21 +26,21 @@
                                     <!--[if lt IE 10]>
                                     <span class="required">Topic:</span>
                                     <![endif]-->
-                                    <input id="topicInput" class="input" type="text" maxlength="50" title="What is the topic of this message?" placeholder="Topic" accesskey="t" tabindex="14" autocomplete="off" />
+                                    <input id="topicInput" class="input" type="text" maxlength="50" title="What is the topic of this message?" placeholder="Topic" accesskey="t" autocomplete="off" />
                                     <span id="topicCounter"></span>
                                 </label>
                                 <label for="nameInput">
                                     <!--[if lt IE 10]>
                                     <span class="required">Name:</span>
                                     <![endif]-->
-                                    <input id="nameInput" class="input" type="text" maxlength="50" title="What is your name?" placeholder="Name" accesskey="n" tabindex="12" autocomplete="off" />
+                                    <input id="nameInput" class="input" type="text" maxlength="50" title="What is your name?" placeholder="Name" accesskey="n" autocomplete="off" />
                                     <span id="nameCounter"></span>
                                 </label>
                                 <label for="emailInput">
                                     <!--[if lt IE 10]>
                                     <span class="required">E-mail:</span>
                                     <![endif]-->
-                                    <input id="emailInput" class="input" type="text" maxlength="65" title="What is your e-mail?" placeholder="E-mail" accesskey="e" tabindex="13" autocomplete="off" />
+                                    <input id="emailInput" class="input" type="text" maxlength="65" title="What is your e-mail?" placeholder="E-mail" accesskey="e" autocomplete="off" />
                                     <span id="emailCounter"></span>
                                 </label>
                             </div><!-- containerColumn ends -->
@@ -51,19 +51,19 @@
                                     <!--[if lt IE 10]>
                                     <span>Clear button:</span>
                                     <![endif]-->
-                                    <input id="clearButton" class="input" type="button" disabled="disabled" onclick="clearForm()" title="If you want to clear out this contact form, press here!" value="CLEAR!" accesskey="c" tabindex="15" />
+                                    <input id="clearButton" class="input" type="button" disabled="disabled" onclick="clearForm()" title="If you want to clear out this contact form, press here!" value="CLEAR!" accesskey="c" />
                                 </label>
                                 <label class="containerColumn exceptionColumn" for="helpButton">
                                     <!--[if lt IE 10]>
                                     <span>Help button:</span>
                                     <![endif]-->
-                                    <input id="helpButton" class="input" type="button" disabled="disabled" onclick="displayHelp()" title="If you need help with this contact form, press here!" value="HELP!" accesskey="h" tabindex="16" />
+                                    <input id="helpButton" class="input" type="button" disabled="disabled" onclick="displayHelp()" title="If you need help with this contact form, press here!" value="HELP!" accesskey="h" />
                                 </label>
                                 <label class="containerColumn exceptionColumn" for="sendButton">
                                     <!--[if lt IE 10]>
                                     <span>Send button:</span>
                                     <![endif]-->
-                                    <input id="sendButton" class="input" type="button" disabled="disabled" onclick="storeData()" title="If you are ready to send this message, press here!" value="SEND!" accesskey="s" tabindex="17" />
+                                    <input id="sendButton" class="input" type="button" disabled="disabled" onclick="storeData()" title="If you are ready to send this message, press here!" value="SEND!" accesskey="s" />
                                 </label>
                             </div><!-- containerColumn ends -->
                         </div><!-- containerColumn ends -->
