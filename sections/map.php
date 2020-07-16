@@ -1,71 +1,65 @@
 <?php
 
-	if (isset($finalArray) == true) {
+	echo'
+		<h2 class="hidden">Map section</h2>
+	';
+	if (isset($sitemapArray)) {
 		echo'
 			<section id="map" class="sections">
 				<div class="container">
-					<div class="content row col-12-xs">
-						<div class="row col-12-xs">
-							<h2>
-								Sitemap
-							</h2>
-						</div>
-						<div class="row col-12-xs">
+					<div class="containerColumn">
+						<div class="containerRow">
+							<h3>Sitemap</h3>
+						</div><!-- containerRow ends -->
+					</div><!-- containerColumn ends -->
+					<div class="containerColumn">
+						<div class="containerSwap gridLayout">
 		';
-		$index = 0;
-		foreach ($finalArray as $finalKey => $groupArray) {
-			if ($index > 0 && in_array($finalKey, $sitemapGrouping)) {
+		$ignore = true;
+		foreach ($sitemapArray as $sitemapKey => $linkArray) {
+			if (!$ignore && in_array($sitemapKey, $sitemapGrouping)) {
 				echo'
-						</div>
-						<div class="col-12-xs">
+						</div><!-- containerSwap ends -->
+						<div class="containerSwap gridLayout">
 				';
+			} else {
+				$ignore = false;
 			}
 			echo'
-							<div class="col-4-lg col-6-md col-6-sm col-12-xs sitemapGroup">
-								<div class="sitemapHeader text-left">
-									<h3>
-										' . $sitemapKeyMatching[$finalKey] . '
-									</h3>
-								</div>
+							<div class="containerColumn exceptionColumn sitemapGroup">
+								<div class="containerRow sitemapHeader">
+									<h4>' . $sitemapKeyMatching[$sitemapKey] . '</h4>
+								</div><!-- containerRow ends -->
 			';
-			foreach ($groupArray as $groupKey => $elementArray) {
+			foreach ($linkArray as $linkKey => $elementArray) {
 				echo'
-								<div class="displaySummaryContainer sitemapElement text-left">
-									<a href="?#' . $elementArray[0] . '" target="_blank" title="View the page regarding this subject!">
-										<p>
-											<span class="viewTarget"></span> ' . $elementArray[1] . '
-										</p>
+								<div class="containerColumn displaySummaryContainer sitemapElement">
+									<a href="?#' . $elementArray[0] . '" target="_blank" title="Click here to view the page!">
+										<span class="viewTarget">' . $elementArray[1] . '</span>
 									</a>
-								</div>
+								</div><!-- containerColumn ends -->
 				';
 			}
 			echo'
-							</div>
+							</div><!-- containerColumn ends -->
 			';
-			$index++;
 		}
 		echo'
-							</div>
-						</div>
-					</div>
+						</div><!-- containerSwap ends -->
+					</div><!-- containerColumn ends -->
 				</div><!-- container ends -->
 			</section><!-- section ends -->
 		';
-	}
-	else {
+	} else {
 		echo'
-			<section id="map" class="sections">
+			<section id="map" class="sections" data-sitemap="Empty | Error">
 				<div class="container">
-					<div class="content row col-12-xs">
-						<h3>
-							Unable to load data / no data to be loaded - regarding the Sitemap page
-						</h3>
-						<div class="row col-12-xs">
-							<strong>
-								Currently, this page was unable to load! Please, try again later!
-							</strong>
-						</div>
-					</div>
+					<div class="containerColumn">
+						<h3>Unable to load data / no data to be loaded - regarding the Sitemap page</h3>
+						<div class="containerRow">
+							<strong>Currently, this page was unable to load! Please, try again later!</strong>
+						</div><!-- containerRow ends -->
+					</div><!-- containerColumn ends -->
 				</div><!-- container ends -->
 			</section><!-- section ends -->
 		';
