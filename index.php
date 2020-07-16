@@ -13,18 +13,17 @@
      * @copyright   Copyright (c) 2015-2025, Mats Richard Hellstrand
      * @license     TODO: http://
      * @link        TODO: http://
-     * @since       July 7th, 2020 - Version 1.3
+     * @since       July 16th, 2020 - Version 1.4
      */
 
     // ===========================================================================
 
+    // Prepare and fetch data from the MySQL database.
     require_once('database/Process.php');
     $_SESSION['process']        =   new Process();
     require_once('database/fetch.php');
 
-    $title                      =   'goldenmaza - Software Developer';
-    $date                       =   '2015 - ' . date('Y');
-
+    // Prepare the variables used throughout the scripts.
     $anchorKeyMatching          =   [
                                         'Education' => 'edu', 'Career' => 'car', 'Results' => 'res', 'Experience' => 'exp', 'Certifications' => 'cer',
                                         'Download' => 'dow', 'Awards' => 'awa', 'Testimonials' => 'tes'
@@ -33,7 +32,7 @@
                                         'Education' => $alpha_degreeSize + $alpha_educationSize, 'Career' => $alpha_careerSize,
                                         'Testimonials' => $alpha_testimonialSize, 'Experience' => $alpha_experienceSize,
                                         'Certifications' => $alpha_certificationSize, 'Results' => $alpha_resultSize,
-                                        'Download' => 0, 'Awards' => $alpha_awardSize
+                                        'Awards' => $alpha_awardSize, 'Download' => '0'
                                     ];
     $sitemapKeyMatching         =   [
                                         'abo' => 'About pages', 'por' => 'Portfolio overview', 'pro' => 'Project pages', 'qua' => 'Qualification overview',
@@ -71,7 +70,7 @@
                                         'A video representing The Royalist Campaign &copy;'
                                     ];
 
-    // Turn on the output buffering.
+    // Turn on the output buffering and start generating the content of the site.
     ob_start();
 
     // Generate the thumbnails if some/all are missing, run this script once a week.
@@ -82,20 +81,30 @@
     // Generate the pages.
     require_once('sections/abo.php');
     require_once('sections/por.php');
+
+    // Assign the variable the content of the buffer, up until the Qualification pages, which is used in the template.
+    $content = ob_get_clean();
+
+    // Turn on the output buffering again and continue with the Qualification pages.
+    ob_start();
     require_once('sections/qua.php');
+
+    // Generate the contact form.
     require_once('sections/sen.php');
 
     // Generate the sitemap.xml and prepare the data for the map.php file.
     require_once('sitemap.php');
     require_once('sections/map.php');
 
-    // Assign the variable the content of the buffer, which is used in the template.
-    $content = ob_get_contents();
+    // Assign the content of the buffer, which is used in the template, then empty the buffer and turn off output buffering.
+    $content .= ob_get_clean();
 
-    // Empty the buffer and turn off output buffering.
-    ob_end_clean();
-
-    // Include the template, which is used for creating the entire website.
+    // Include the template, which is used for creating the entire website with data from $content, and echo the meta data stated below.
+    $title                      =   'goldenmaza - Software Developer';
+    $date                       =   '2015 - ' . date('Y');
+    $keywords                   =   'mats richard hellstrand, goldenmaza, maza, system developer, software developer, fullstack developer, web designer, webdesigner, webdesign, wed design, systemutvecklare, webbutvecklare, webbdesign, certified java programmer, certifierad java utvecklare';
+    $description                =   'Software Developer that loves everything regarding software engineering!';
+    $author                     =   'goldenmaza - Mats Richard Hellstrand';
     require_once('template.php');
 
 ?>
