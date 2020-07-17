@@ -23,9 +23,7 @@
 		<meta property="og:title" content="<?php echo $author ?>" />
 		<meta property="og:site_name" content="<?php echo $author ?>" />
 		<meta property="og:description" content="<?php echo $description ?>" />
-		<link href="css/foundation_attributes.css" rel="stylesheet" type="text/css" media="screen" />
-		<link href="css/section_attributes.css" rel="stylesheet" type="text/css" media="screen" />
-		<link href="css/row_attributes.css" rel="stylesheet" type="text/css" media="screen" />
+		<link href="css/mandatory.css" rel="stylesheet" type="text/css" media="screen" />
 		<link rel="shortcut icon" href="favicon.ico" />
 		<link rel="icon" type="image/png" href="favicon.png" sizes="33x33">
 		<link rel="apple-touch-icon" sizes="33x33" href="favicon.png">
@@ -85,11 +83,8 @@
 				</strong>
 			</div><!-- statement ends -->
 		</footer><!-- footer ends -->
-		<link href="css/form_attributes.css" rel="stylesheet" type="text/css" media="screen" />
-		<link href="css/responsive_columnFont.css" rel="stylesheet" type="text/css" media="screen" />
-		<link href="css/responsive_adaptive.css" rel="stylesheet" type="text/css" media="screen" />
-		<link href="css/unsupported_attributes.css" rel="stylesheet" type="text/css" media="screen" />
-		<script src="js/contact.js"></script>
-		<script src="js/foundation.js"></script>
+		<link href="css/other.css" rel="stylesheet" type="text/css" media="screen" />
+		<script src="js/contact.js" async></script>
+		<script src="js/foundation.js" async></script>
 	</body><!-- body ends -->
 </html><!-- html ends -->

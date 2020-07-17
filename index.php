@@ -13,9 +13,8 @@
      * @copyright   Copyright (c) 2015-2025, Mats Richard Hellstrand
      * @license     TODO: http://
      * @link        TODO: http://
-     * @since       July 16th, 2020 - Version 1.4
+     * @since       July 17th, 2020 - Version 1.5
      */
-
     // ===========================================================================
 
     // Prepare and fetch data from the MySQL database.
@@ -73,8 +72,9 @@
     // Turn on the output buffering and start generating the content of the site.
     ob_start();
 
-    // Generate the thumbnails if some/all are missing, run this script once a week.
+    // Generate the combined css style files and thumbnails if some/all are missing, run this script once a week.
     if (date('D') == 'Mon') {
+        require_once('styling.php');
         require_once('thumbnail.php');
     }
 
