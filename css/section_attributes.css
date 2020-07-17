@@ -4,7 +4,7 @@
 	Filename:		section_attributes.css
 	Author:			Mats Richard Hellstrand (Sweden)
 	Website:		www.hellstrand.org
-	Date:			October 1st, 2017
+	Date:			June 29th, 2020
 	Language:		English
 	Description:	This stylesheet is used for the section-tag and it's children.
 */
@@ -17,8 +17,6 @@
 	margin-left				:	-250%;
 	display					:	block;
 	z-index					:	0;
-	overflow-y				:	auto;
-	overflow-x				:	hidden;
 }
 
 	.sections:target {
@@ -26,10 +24,13 @@
 	}
 
 	.container {
+		display					:	flex;
+		flex-direction			:	column;
+		align-items				:	center;
 		height					:	100%;
 		width					:	100%;
-		margin					:	0 auto 0 auto;
-		padding					:	60px 7px 50px 7px;
+		margin					:	0 auto 50px auto;
+		padding					:	7vh 3vh;
 		border-top				:	3px none #000;
 		border-left				:	3px solid #000;
 		border-right			:	3px solid #000;
@@ -39,24 +40,140 @@
 		overflow-x				:	hidden;
 	}
 
-		.container + div + .row {
-			margin-top				:	40px !important;
+		.container > header, .containerColumn, .containerRow {
+			display					:	flex;
+			flex-direction			:	column;
+			width					:	100%;
 		}
 
+		.container > header {
+			margin					:	3vh 0vh;
+		}
+
+		.container > header > ul {
+			justify-content			:	space-between;
+			width					:	100%;
+		}
+
+		.container > .containerColumn > .containerRow {
+			margin					:	3vh 0vh;
+		}
+
+		.containerSwap {
+			display					:	flex;
+			flex-direction			:	column;
+			width					:	100%;
+		}
+
+		@media (min-width: 768px) {
+			.container > header {
+				width					:	90%;
+			}
+
+			.containerSwap {
+				flex-direction			:	row;
+				width					:	100%;
+			}
+
+			.containerSwap > .containerColumn:not(.exceptionColumn):first-child {
+				flex					:	1 0 60%;
+				order					:	1;
+			}
+
+			.containerSwap > .containerColumn:not(.exceptionColumn):last-child {
+				flex					:	1 0 20%;
+			}
+
+			.containerSwap > .containerRow:first-child {
+				justify-content			:	flex-end;
+				flex					:	1 0 20%;
+			}
+
+			.containerSwap > .containerRow:last-child {
+				justify-content			:	flex-start;
+				flex					:	1 0 60%;
+			}
+		}
+
+		.containerColumn {
+			align-items				:	center;
+		}
+
+		.containerColumn > :not(div) {
+			margin-bottom			:	2vh;
+		}
+
+		.containerColumn > .containerColumn {
+			align-items				:	center;
+			margin					:	0vh 0vh 3vh 0vh;
+		}
+
+		.containerColumn > .containerRow > p {
+			margin					:	0vh 0vh 2vh 0vh;
+		}
+
+		.containerRow {
+			flex-direction			:	row;
+			justify-content			:	center;
+			align-items				:	center;
+			flex-wrap				:	wrap;
+		}
+
+		.containerSwap.gridLayout, .containerColumn.gridLayout, .containerRow.gridLayout {
+		}
+
+		.containerSwap.gridLayout > *, .containerColumn.gridLayout > *, .containerRow.gridLayout > * {
+			display					:	flex;
+			flex-direction			:	column;
+			justify-content			:	center;
+		}
+
+		@media (min-width: 480px) {
+			.containerSwap.gridLayout, .containerColumn.gridLayout, .containerRow.gridLayout {
+				flex-direction			:	row;
+				justify-content			:	space-evenly;
+				flex-wrap				:	wrap;
+			}
+
+			.containerSwap.gridLayout > *, .containerColumn.gridLayout > *, .containerRow.gridLayout > * {
+				flex					:	1 0 50%;
+				margin-top				:	5vh;
+			}
+		}
+
+		@media (min-width: 768px) {
+			.containerSwap.gridLayout > *, .containerColumn.gridLayout > *, .containerRow.gridLayout > * {
+				flex					:	0 0 30%;
+				margin-top				:	7vh;
+			}
+		}
+
+/*		@media (min-width: 1024px) {
+			.containerSwap.gridLayout > *, .containerColumn.gridLayout > *, .containerRow.gridLayout > * {
+				flex					:	1 0 50%;
+			}
+		}*/
+
 		.previousPage {
-			float					:	left;
 			width					:	auto;
 			height					:	auto;
-			margin					:	10px 0 0 10px;
+			margin					:	0 1vh 0 1vh;
 			border					:	2px solid transparent;
 			display					:	inline-block;
 		    font-size				:	1.75rem;
 		}
 
 			.previousPage:hover {
-				border					:	2px solid #f90 !important;
+				border					:	2px solid #f90;
 				background-color		:	#F90;
 				color 					:	#000;
+			}
+
+			.previousPage.disabled {
+				border					:	2px solid #333;
+				background-color		:	#333;
+				color 					:	#000;
+				cursor					:	not-allowed;
 			}
 
 			.previousPage > a {
@@ -66,27 +183,33 @@
 
 				.previousPage > a::before {
 			    	padding-left			: 	5px;
-					content					:	"\f060" !important;
+					content					:	"\f060";
 				}
 
 				.previousPage > a::after {
-					content					:	none !important;
+					content					:	none;
 				}
 
 		.nextPage {
-			float					:	right;
 			width					:	auto;
 			height					:	auto;
-			margin					:	10px 10px 0 0;
+			margin					:	0 1vh 0 1vh;
 			border					:	2px solid transparent;
 			display					:	inline-block;
 		    font-size				:	1.75rem;
 		}
 
 			.nextPage:hover {
-				border					:	2px solid #f90 !important;
+				border					:	2px solid #f90;
 				background-color		:	#F90;
 				color 					:	#000;
+			}
+
+			.nextPage.disabled {
+				border					:	2px solid #333;
+				background-color		:	#333;
+				color 					:	#000;
+				cursor					:	not-allowed;
 			}
 
 			.nextPage > a {
@@ -96,20 +219,20 @@
 
 				.nextPage > a::after {
 			    	padding-right			: 		5px;
-					content					:		"\f061" !important;
+					content					:		"\f061";
 				}
 
 				.nextPage > a::before {
-					content					:		none !important;
+					content					:		none;
 				}
 
 		.content {
 			width					:	100%;
-			margin					:	20px auto 50px auto !important;
+			margin					:	20px auto 75px auto;
 		}
 
 			.force-mini-left, .force-mini-right {
-				margin					:	0 10px 0 0 !important;
+				margin					:	0 10px 0 0;
 				padding					:	0;
 				display					:	inline-block;
 				color					:	#FFF;
@@ -117,5 +240,5 @@
 			}
 
 			.no-margin {
-				margin					:	0 !important;
+				margin					:	0;
 			}

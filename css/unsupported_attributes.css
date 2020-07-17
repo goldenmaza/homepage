@@ -42,7 +42,7 @@ html {
 .edu::before, .deg::before, .car::before, .res::before, .exp::before, .cer::before, .dow::before, .awa::before, .tes::before,
 .email::before, .skype::before, .linkedin::before, .github::before, .videopresentation::before,
 .download::before, .facebook::before, .youtube::before, .twitter::before,
-.avi::before, .doc::before, .jpg::before, .pdf::before, .zip::before {
+.avi::before, .doc::before, .jpg::before, .png::before, .pdf::before, .zip::before {
 	-webkit-text-rendering		:	optimizeLegibility;
 	-moz-text-rendering			:	optimizeLegibility;
 	-ms-text-rendering			:	optimizeLegibility;
@@ -55,7 +55,7 @@ html {
 	font-smoothing				:	antialiased;
 }
 
-h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, a strong:hover, p > a:hover, .displaySummaryContainer a:hover {
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, a strong:hover, p > a:hover, .displaySummaryContainer a:hover, .sitemapContainer a:hover {
     color                       :   #F90;
 	/*-webkit-animation			:	awesomePulse 1s ease-in-out infinite alternate;
 	-moz-animation				:	awesomePulse 1s ease-in-out infinite alternate;
@@ -73,7 +73,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, a strong:hover, p > a:hover, .di
 		}
 	}
 
-	header {
+	body > header {
 		-webkit-box-shadow			:	0 5px 13px #000;
 		-moz-box-shadow				:	0 5px 13px #000;
 		-ms-box-shadow				:	0 5px 13px #000;
@@ -86,7 +86,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, a strong:hover, p > a:hover, .di
 		transition					:	height 1s;
 	}
 
-		.sitemap:hover, .selectedSection, nav ul li:hover, .row > ul > li:hover {
+		.pages > ul > li:hover {
 			-webkit-animation			:	selectedPulse 1s ease-in-out infinite alternate;
 			-moz-animation				:	selectedPulse 1s ease-in-out infinite alternate;
 			-ms-animation				:	selectedPulse 1s ease-in-out infinite alternate;
@@ -148,7 +148,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, a strong:hover, p > a:hover, .di
 			transition					:	padding 1s;
 		}
 
-			nav ul li, .row ul li {
+			nav ul li, .pages ul li {
 				-webkit-transition			:	background-color 0.5s,
 												color 0.5s;
 				-moz-transition				:	background-color 0.5s,
@@ -167,6 +167,9 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, a strong:hover, p > a:hover, .di
 					-ms-border-radius			:	18px 0 0 18px;
 					-o-border-radius			:	18px 0 0 18px;
 					border-radius				:	18px 0 0 18px;
+				}
+
+				.previousPage:not(.disabled) {
 					-webkit-animation			:	previousPulse 1s ease-in-out infinite alternate;
 					-moz-animation				:	previousPulse 1s ease-in-out infinite alternate;
 					-ms-animation				:	previousPulse 1s ease-in-out infinite alternate;
@@ -202,6 +205,9 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, a strong:hover, p > a:hover, .di
 					-ms-border-radius			:	0 18px 18px 0;
 					-o-border-radius			:	0 18px 18px 0;
 					border-radius				:	0 18px 18px 0;
+				}
+
+				.nextPage:not(.disabled) {
 					-webkit-animation			:	nextPulse 1s ease-in-out infinite alternate;
 					-moz-animation				:	nextPulse 1s ease-in-out infinite alternate;
 					-ms-animation				:	nextPulse 1s ease-in-out infinite alternate;
@@ -239,14 +245,10 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, a strong:hover, p > a:hover, .di
 				border-radius				:	3px;
 			}
 
-			.avi:hover::before, .doc:hover::before, .jpg:hover::before, .pdf:hover::before, .zip:hover::before,
-			.edu:hover::before, .car:hover::before, .exp:hover::before, .cer:hover::before, .awa:hover::before,
-			.tes:hover::before, .res:hover::before, .dow:hover::before, .deg:hover::before, .iconsBar a:hover {
-				-webkit-animation			:	iconPulse 1s ease-in-out infinite alternate;
-				-moz-animation				:	iconPulse 1s ease-in-out infinite alternate;
-				-ms-animation				:	iconPulse 1s ease-in-out infinite alternate;
-				-o-animation				:	iconPulse 1s ease-in-out infinite alternate;
-				animation					:	iconPulse 1s ease-in-out infinite alternate;
+			.avi:hover::before, .doc:hover::before, .jpg:hover::before, .png:hover::before, .pdf:hover::before,
+			.zip:hover::before, .edu:hover::before, .car:hover::before, .exp:hover::before, .cer:hover::before,
+			.awa:hover::before,	.tes:hover::before, .res:hover::before, .dow:hover::before, .deg:hover::before,
+			.iconsBar a:hover, .viewTarget:hover::before {
 			}
 
 				@keyframes iconPulse {

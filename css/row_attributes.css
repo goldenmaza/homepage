@@ -12,7 +12,7 @@
 .row {
 	clear					:	both;
 	width					:	100%;
-	margin					:	20px 0 0 0;
+	margin-top				:	20px;
 	display					:	inline-block;
 	text-align				:	center;
 }
@@ -70,24 +70,26 @@
 
 		span.viewTarget {
 		    float                   :   left;
-		    padding                 :   2px 10px 10px 10px;
+		    padding                 :   0px 10px 10px 10px;
 		    display                 :   block;
 		}
 
-		.viewTarget::after {
+		.viewTarget::before {
+			margin					:	10px;
 			content					:	"\f002";
+			color					:	#fff;
 			font-family				:	fontawesome-webfont;
 		}
 
 	.iconsBar {
-		display					:	table;
+/*		display					:	table;
 		table-layout			:	fixed;
-		margin-top				:	10px;
+		margin-top				:	10px;*/
 		font-size				:	2rem;
 	}
 
 		.iconsBar > a {
-			padding					:	5px 5px 7px 5px;
+			padding					:	1vh 2vh;
 			display					:	inline-block;
 			border-left				:	3px solid transparent;
 			border-right			:	3px solid transparent;
@@ -97,7 +99,7 @@
 			.iconsBar > a:hover {
 				border-left				:	3px solid #F90;
 				border-right			:	3px solid #F90;
-				color 					:	#F90;
+				color 					:	#f90;
 			}
 			
 			.iconsBar > a.disabled:hover {
@@ -149,9 +151,9 @@
 			content					:	"\f099";
 		}
 		
-	.displaySummaryContainer {
-		display					:	table;
-		table-layout			:	fixed;
+	.displaySummaryContainer, .sitemapContainer {
+/*		display					:	table;
+		table-layout			:	fixed;*/
 		overflow				:	hidden;
 	}
 	
@@ -160,7 +162,6 @@
 		}
 
 		.displaySummaryContainer.iconsBar > a {
-			width					:	100%;
 		}
 
 		.displaySummaryContainer.iconsBar * {
@@ -168,24 +169,23 @@
 		}
 	
 		.displayPortfolioGroup {
-			height					:	auto;
-			width					:	75%;
-			margin					:	10px auto 10px auto !important;
+			flex					:	0 0 20%;
+			margin					:	3vh 1vh 1vh 1vh;
 			padding					:	5px;
 			border-top				:	3px solid #F90;
 			word-wrap				:	break-word;
 		}
+
+			.displayPortfolioGroup:hover .overlay {
+				color					:	#FFF;
+				opacity					:	1;
+			}
 
 			.displayPortfolioGroup > a {
 				width					:	100%;
 				display					:	inline-block;
 				cursor					: 	pointer;
 			}
-
-				.displayPortfolioGroup > a:hover .overlay {
-					color					:	#FFF;
-					opacity					:	1;
-				}
 
 			.displayPortfolioGroup > a > img {
 				max-width				:	100%;
@@ -236,8 +236,8 @@
 			overflow				:	hidden;
 		}
 
-			.edu p:first-child, .deg p:first-child, .car p:first-child, .res p:first-child, .exp p:first-child,
-			.cer p:first-child, .dow p:first-child, .awa p:first-child, .tes p:first-child {
+			.edu span:first-child, .deg span:first-child, .car span:first-child, .res span:first-child, .exp span:first-child,
+			.cer span:first-child, .dow span:first-child, .awa span:first-child, .tes span:first-child {
 				margin-top				:	10px;
 			}
 
@@ -282,14 +282,14 @@
 				content					:	'\f164';
 			}
 
-		.avi::before, .doc::before, .jpg::before, .pdf::before, .zip::before {
+		.avi::before, .doc::before, .jpg::before, .png::before, .pdf::before, .zip::before {
 			margin					:	10px;
 			display					:	block;
 			font-size				:	5rem;
 			color					:	#3c3c3c;
 		}
 
-			.avi:hover::before, .doc:hover::before, .jpg:hover::before, .pdf:hover::before, .zip:hover::before {
+			.avi:hover::before, .doc:hover::before, .jpg:hover::before, .png:hover::before, .pdf:hover::before, .zip:hover::before {
 				color 					:	#f90;
 			}
 
@@ -305,12 +305,21 @@
 				content					:	'\f1c5';
 			}
 
+			.png::before {
+				content					:	'\f1c5';
+			}
+
 			.pdf::before {
 				content					:	'\f1c1';
 			}
 
 			.zip::before {
 				content					:	'\f1c6';
+			}
+
+			.dows.avi::before, .dows.doc::before, .dows.jpg::before, .dows.png::before, .dows.pdf::before, .dows.zip::before {
+			    display					:	inline;
+			    font-size				:	1.5rem;
 			}
 
 		.sent::before {
@@ -352,7 +361,6 @@
 
 				.expand {
 					height					:	1px;
-					position				:	absolute;
 					margin					:	1px 0 0 2px;
 				}
 
@@ -361,7 +369,6 @@
 					}
 
 					.beginnerLine::before, .basicLine::after, .goodLine::after, .advanceLine::after, .expertLine::after {
-						position				:	absolute;
 						top						:	7px;
 					}
 
@@ -390,23 +397,23 @@
 							content					:	"expert";
 						}
 
-	.sitemapGroup {
+	.sitemapGroup, .downloadGroup {
 		margin					:	10px 0 10px 0;
-		padding					:	10px 10px 15px 10px;
+		padding					:	10px 10px 10px 10px;
 	}
 
-		.sitemapHeader {
+		.sitemapHeader, .downloadHeader {
 			margin-bottom			:	15px;
 			padding					:	10px;
 			background-color		:	#222;
 			color					:	#FFF;
 		}
 
-		.sitemapElement {
+		.sitemapElement, .downloadElement {
 			padding					:	3px 5px 5px 3px;
 			color					:	#FFF;
 		}
 
-			.sitemapElement > a {
+			.sitemapElement > a, .downloadElement > a {
 				font-size				:	1.1rem;
 			}

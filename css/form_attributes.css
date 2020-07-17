@@ -4,7 +4,7 @@
 	Filename:		form_attributes.css
 	Author:			Mats Richard Hellstrand (Sweden)
 	Website:		www.hellstrand.org
-	Date:			October 1st, 2017
+	Date:			July 8th, 2020
 	Language:		English
 	Description:	This stylesheet is used for the form-tag and it's children (found under the contact page).
 */
@@ -12,6 +12,14 @@
 .contactContainer {
 	overflow-y				:	scroll;
 }
+
+	form {
+		width: 100%;
+	}
+
+	label {
+		width: 75%;
+	}
 
 	textarea, input {
 		border					:	1px solid #0F0;
@@ -35,7 +43,7 @@
 		@media (min-width: 1600px) {
 			textarea, input {
 				border					:	2px solid #0F0;
-				font-size 				:	2rem;
+				font-size 				:	1.5rem;
 			}
 
 			input[type=text] {
@@ -103,7 +111,7 @@
 		input[type=text] {
 			height					:	34px;
 			width					:	100%;
-			margin					:	3px 0 5px 0;
+			margin					:	3vh 0 5px 0;
 			padding					:	5px 5px 5px 15px;
 		}
 
@@ -153,19 +161,26 @@
 				}
 		
 
-	#textareaCounter, #nameCounter, #mailCounter, #topicCounter {
-		right					:	10px;
+	#messageCounter, #topicCounter, #nameCounter, #emailCounter {
 		margin-top				:	-30px;
-		position				:	absolute;
+		position				:	static;
 		display					:	block;
 		color					:	#F90;
 	}
+
+		#messageCounter {
+			bottom					:	12px;
+		}
+
+		/*##topicCounter, nameCounter, #emailCounter {
+			bottom					:	15px;
+		}*/
 
 		/*
 		*	>= 1024x - large monitor resolution...
 		*/
 		@media (min-width: 1024px) {
-			#nameCounter, #mailCounter, #topicCounter {
+			#topicCounter, #nameCounter, #emailCounter {
 				bottom					:	13px;
 			}
 		}
@@ -174,30 +189,31 @@
 		*	>= 1600x - very large monitor resolution...
 		*/
 		@media (min-width: 1600px) {
-			#textareaCounter {
+			#messageCounter {
 				bottom					:	20px;
 			}
 
-			#nameCounter, #mailCounter, #topicCounter {
-				bottom					:	15px;
+			#topicCounter, #nameCounter, #emailCounter {
+				bottom					:	20px;
 			}
 
-			#textareaCounter, #nameCounter, #mailCounter, #topicCounter {
+			#messageCounter, #topicCounter, #nameCounter, #emailCounter {
 				right					:	30px;
-				font-size 				:	1.5rem;
+				font-size 				:	1.25rem;
 			}
 		}
 
-		#textareaCounter {
-			bottom					:	12px;
+		/*
+		*	>= 1900x - very very large monitor resolution...
+		*/
+		@media (min-width: 1900px) {
+			#topicCounter, #nameCounter, #emailCounter {
+				bottom					:	20px;
+			}
 		}
-
-		/*#nameCounter, #mailCounter, #topicCounter {
-			bottom					:	15px;
-		}*/
 
 	#clearButton, #helpButton {
-		width					:	45% !important;
+		width					:	50%;
 	}
 
 		#clearButton:hover {
@@ -206,8 +222,8 @@
 		}
 
 		#helpButton.selected {
-			border-color			:	#F90 !important;
-			color					:	#F90 !important;
+			border-color			:	#F90;
+			color					:	#F90;
 		}
 
 		#helpButton:hover {
@@ -216,7 +232,7 @@
 		}
 
 	#sendButton {
-		width					:	75% !important;
+		width					:	50%;
 	}
 
 		#sendButton:hover {
@@ -224,8 +240,5 @@
 			cursor					:	pointer;
 		}
 
-	#contactSummary {
-	}
-
-	#contactHelp {
+	#helpSection {
 	}

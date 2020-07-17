@@ -31,6 +31,10 @@ html {
 		overflow				:	hidden;
 	}
 
+	    ul {
+	        font-family:"Verdana", "Geneva", sans-serif;
+	    }
+
 		h1, h2, h3, h4, p {
 			clear					:	both;
 			display					:	block;
@@ -61,22 +65,25 @@ html {
 
 				a:hover {
 					text-decoration			:	none;
-					cursor					:	pointer;
 				}
 
-			p {
+			p, li {
 				font-size				:	1rem; /* any larger and Certification won't fit */
 			}
 
-				p > strong, i > strong {
+				.containerRow > strong {
 					font-size				:	inherit;
 				}
 
-					p > a:hover {
+				i > strong {
+					font-size				:	inherit;
+				}
+
+					.containerRow > a:hover {
 						color 					:	#F90;
 					}
 
-					p > a::after {
+					.containerRow > a::after {
 						content					:	"\f08e";
 					}
 
@@ -85,6 +92,7 @@ html {
 			}
 
 				h1 > a::after, h2 > a::after, h3 > a::after, h4 > a::after {
+					margin-left				:	1vh;
 					content					:	"\f1da";
 				}/*, a strong::after*/
 
@@ -100,7 +108,7 @@ html {
 			padding					:	0 10px 0 10px;
 		}
 
-		header {
+		body > header {
 			height					:	auto;
 			width					:	100%;
 			position				:	absolute;
@@ -129,7 +137,7 @@ html {
 
 					.handlerButton {
 						float					:	right;
-						margin					:	15px 15px 15px 0;
+						margin					:	15px 15px 10px 0;
 						display					:	inline-block;
 						background-color		:	transparent;
 						color					:	#FFF;
@@ -142,12 +150,11 @@ html {
 						}
 
 			#navigationBar {
-				display					:	inline-block;
 				margin					:	0px auto 0px auto;
 			}
 
-				.showing {
-					max-height				:	400px;
+				#navigationBar.showing {
+					max-height				:	450px;
 				}
 
 				nav ul {
@@ -169,7 +176,7 @@ html {
 						text-align				:	right;
 					}
 
-						nav > ul > li:hover {
+						nav > ul > li:hover, nav ul li:focus {
 							border-left				:	3px solid #F90;
 							border-right			:	3px solid #F90;
 							background-color		:	#F90;
@@ -259,5 +266,5 @@ html {
 				.statement img {
 					height					:	15px;
 					width					:	15px;
-					vertical-align			:	middle;
+					vertical-align			:	bottom;
 				}
