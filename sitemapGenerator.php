@@ -1,7 +1,7 @@
 <?php
 
     /**
-     * sitemap.php
+     * sitemapGenerator.php
      *
      * This file is used for generating the sitemap.xml file and to prepare
      * the sitemap data used for the map.php file.
