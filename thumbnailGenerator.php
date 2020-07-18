@@ -1,7 +1,7 @@
 <?php
 
     /**
-     * thumbnail.php
+     * thumbnailGenerator.php
      *
      * This file is used for generating the thumbnails used around the site.
      *
@@ -10,7 +10,7 @@
      * @copyright   Copyright (c) 2015-2025, Mats Richard Hellstrand
      * @license     TODO: http://
      * @link        TODO: http://
-     * @since       July 18th, 2020 - Version 1.1
+     * @since       July 18th, 2020 - Version 1.2
      */
     // ===========================================================================
 
