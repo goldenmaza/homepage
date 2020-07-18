@@ -73,10 +73,10 @@
 		}
 
 		.viewTarget::before {
-			margin					:	10px;
+/*			margin					:	10px;
 			content					:	"\f002";
 			color					:	#fff;
-			font-family				:	fontawesome-webfont;
+			font-family				:	fontawesome-webfont;*/
 		}
 
 	.iconsBar {

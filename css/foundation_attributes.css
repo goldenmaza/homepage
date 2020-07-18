@@ -81,7 +81,7 @@ html {
 						color 					:	#F90;
 					}
 
-					.containerRow > a::after {
+					.containerRow > a::after, .sitemapElement > a::after {
 						content					:	"\f08e";
 					}
 

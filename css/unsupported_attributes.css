@@ -242,6 +242,11 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, a strong:hover, p > a:hover, .di
 			.zip:hover::before, .edu:hover::before, .car:hover::before, .exp:hover::before, .cer:hover::before,
 			.awa:hover::before,	.tes:hover::before, .res:hover::before, .dow:hover::before, .deg:hover::before,
 			.iconsBar a:hover, .viewTarget:hover::before {
+				-webkit-transition			:	color 0.5s;
+				-moz-transition				:	color 0.5s;
+				-ms-transition				:	color 0.5s;
+				-o-transition				:	color 0.5s;
+				transition 					:	color 0.5s;
 			}
 
 				@keyframes iconPulse {
