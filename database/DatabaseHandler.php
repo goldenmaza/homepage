@@ -61,35 +61,38 @@
          */
         private function loadFromDatabase($values) {
             // Establish a connection with the database.
-            $this->connection = mysqli_connect($this->user[0], $this->user[1], $this->user[2], $this->user[3]);
-            $this->connection->set_charset("utf8");
-            $_SESSION["SQL_CONNECT_ERROR"] = mysqli_connect_error();
+            $this->connection = new mysqli($this->user[0], $this->user[1], $this->user[2], $this->user[3]);
 
-            if (empty($_SESSION["SQL_CONNECT_ERROR"])) {
+            // If an error occurs, a description of the error will be returned.
+            if ($this->connection->connect_errno) {
+                $_SESSION['SQL_CONNECT_ERROR'] = $this->connection->connect_errno;
+            }
+
+            if (empty($_SESSION['SQL_CONNECT_ERROR'])) {
                 // Construct the SQL-statement.
                 $query = $this->constructStatement($values);
+                $this->connection->set_charset('utf8');
                 $this->success = -1;
 
-                // echo "[".$query."]";
+                // echo '['.$query.']';
                 // Run the SQL query and return the results to the variable with the same name.
-                $result = mysqli_query($this->connection, $query);
+                $result = $this->connection->query($query, MYSQLI_USE_RESULT);
                 if (!empty($result)) {
                     // Fetch every row according to the specification of the query.
-                    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                        // Hide rows that are seen as hidden.
-                        if (isset($row['hidden']) && $row['hidden'] === 0) {
-                            if ($values["table"][0] === "alpha_information") {
+                    while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                        if (isset($row['hidden']) && $row['hidden'] === '0') { // Hide rows that are seen as hidden.
+                            if ($values['table'][0] === 'alpha_information') {
                                 // Get the paragraphs data under the About page.
                                 $this->success      = -1;
                                 $this->tuples       = [];
                                 $this->tuples[0]    = $row['id'];
                                 $this->tuples[1]    = $row['title'];
-                                $this->tuples[2]    = str_replace("#YEAR#", (date("Y") - $married), $row['paragraph']);
+                                $this->tuples[2]    = str_replace('#YEAR#', (date('Y') - $married), $row['paragraph']);
                                 $this->tuples[3]    = $row['page'];
                                 $this->tuples[4]    = $row['group'];
                                 $_SESSION['process']->addAlpha_Information($this->tuples);
                                 $this->success = 0;
-                            } else if ($values["table"][0] === "alpha_project") {
+                            } else if ($values['table'][0] === 'alpha_project') {
                                 // Get the project data under the Portfolio page.
                                 $this->success      = -1;
                                 $this->tuples       = [];
@@ -105,7 +108,7 @@
                                 $this->tuples[9]    = $row['directory'];
                                 $_SESSION['process']->addAlpha_Project($this->tuples);
                                 $this->success = 0;
-                            } else if ($values["table"][0] === "alpha_education") {
+                            } else if ($values['table'][0] === 'alpha_education') {
                                 // Get the education data under the Qualification page (Education : Course overview).
                                 $this->success      = -1;
                                 $this->tuples       = [];
@@ -122,7 +125,7 @@
                                 $this->tuples[10]   = $row['keyword'];
                                 $_SESSION['process']->addAlpha_Education($this->tuples);
                                 $this->success = 0;
-                            } else if ($values["table"][0] === "alpha_degree") {
+                            } else if ($values['table'][0] === 'alpha_degree') {
                                 // Get the education data under the Qualification page (Education : Degree overview).
                                 $this->success      = -1;
                                 $this->tuples       = [];
@@ -139,7 +142,7 @@
                                 $this->tuples[10]   = $row['keyword'];
                                 $_SESSION['process']->addAlpha_Degree($this->tuples);
                                 $this->success = 0;
-                            } else if ($values["table"][0] === "alpha_career") {
+                            } else if ($values['table'][0] === 'alpha_career') {
                                 // Get the career data under the Qualification page (Career).
                                 $this->success      = -1;
                                 $this->tuples       = [];
@@ -154,7 +157,7 @@
                                 $this->tuples[8]    = $row['keyword'];
                                 $_SESSION['process']->addAlpha_Career($this->tuples);
                                 $this->success = 0;
-                            } else if ($values["table"][0] === "alpha_result") {
+                            } else if ($values['table'][0] === 'alpha_result') {
                                 // Get the result data under the Qualification page (Result).
                                 $this->success      = -1;
                                 $this->tuples       = [];
@@ -168,7 +171,7 @@
                                 $this->tuples[7]    = $row['description'];
                                 $_SESSION['process']->addAlpha_Result($this->tuples);
                                 $this->success = 0;
-                            } else if ($values["table"][0] === "alpha_experience") {
+                            } else if ($values['table'][0] === 'alpha_experience') {
                                 // Get the experience data under the Qualification page (Experience).
                                 $this->success      = -1;
                                 $this->tuples       = [];
@@ -178,7 +181,7 @@
                                 $this->tuples[3]    = $row['grading'];
                                 $_SESSION['process']->addAlpha_Experience($this->tuples);
                                 $this->success = 0;
-                            } else if ($values["table"][0] === "alpha_certification") {
+                            } else if ($values['table'][0] === 'alpha_certification') {
                                 // Get the result data under the Certification page (Certification).
                                 $this->success      = -1;
                                 $this->tuples       = [];
@@ -192,7 +195,7 @@
                                 $this->tuples[7]    = $row['directory'];
                                 $_SESSION['process']->addAlpha_Certification($this->tuples);
                                 $this->success = 0;
-                            } else if ($values["table"][0] === "alpha_award") {
+                            } else if ($values['table'][0] === 'alpha_award') {
                                 // Get the award data under the Qualification page (Award).
                                 $this->success      = -1;
                                 $this->tuples       = [];
@@ -206,7 +209,7 @@
                                 $this->tuples[7]    = $row['directory'];
                                 $_SESSION['process']->addAlpha_Award($this->tuples);
                                 $this->success = 0;
-                            } else if ($values["table"][0] === "alpha_testimonial") {
+                            } else if ($values['table'][0] === 'alpha_testimonial') {
                                 // Get the testimonial data under the Qualification page (Testimonial).
                                 $this->success      = -1;
                                 $this->tuples       = [];
@@ -224,18 +227,20 @@
                     }
 
                     // Free the memory used for the last SQL query.
-                    mysqli_free_result($result);
+                    $result->free();
                 } else {
                     // If an error occurs, a description of the error will be returned.
-                    $_SESSION["SQL_ERROR"][] = mysqli_error($this->connection);
+                    if ($mysqli->connect_errno) {
+                        $_SESSION['SQL_ERROR'][] = $this->connection->connect_errno;
+                    }
                 }
-            }
 
-            mysqli_close($this->connection);
+                $this->connection->close();
+            }
 
             if ($this->success === 0) { // Data was found under the database and processed.
                 return true;
-            } else { // Data was NOT found under the database.
+            } else { // Data was NOT found, OR some issue happend, under the database.
                 return false;
             }
         }
@@ -251,53 +256,53 @@
          * @return      string                      the result of the loading session
          */
         private function constructStatement($values) {
-            $query = "SELECT ";
+            $query = 'SELECT ';
 
-            if (!empty($values["column"])) { // If there are no columns, request ALL.
-                $query .= "*";
+            if (empty($values['column'])) { // If there are no columns, request ALL.
+                $query .= '*';
             } else { // Otherwise, request specific ones.
-                $size = count($values["column"]);
+                $size = count($values['column']);
                 for ($i = 0; $i < $size; $i++) {
-                    $query .= $values["column"][$i];
-
-                    // Only on the last coloumn should this be ignored.
-                    if ($i != ($size - 1)) {
-                        $query .= ", ";
-                    }
-                }
-            }
-
-            $query .= " FROM " . $values["table"][0];
-
-            if (!empty($values["condition"])) { // If there are conditions, add them to the statement.
-                $query .= " WHERE ";
-
-                $size = count($values["condition"]);
-                if ($size > 1) {
-                    for ($i = 0; $i < $size; $i+=2) {
-                        $query .= $values["condition"][$i] . "='" . $values["condition"][$i+1] . "'";
-
-                        // Only on the last coloumn should this be ignored.
-                        if ($i < $size - 2) {
-                            $query .= " AND ";
-                        }
-                    }
-                } else {
-                    $query .= $values["condition"][0];
-                }
-            }
-
-            if (!empty($values["sort"])) { // If there are sorting, add them to the statement.
-                $query .= " ORDER BY ";
-
-                $size = count($values["sort"]);
-                for ($i = 0; $i < $size; $i++) {
-                    $query .= $values["sort"][$i];
-                    $query .= " " . $values["order"][$i];
+                    $query .= $values['column'][$i];
 
                     // Only on the last coloumn should this be ignored.
                     if ($i !== ($size - 1)) {
-                        $query .= ", ";
+                        $query .= ', ';
+                    }
+                }
+            }
+
+            $query .= ' FROM ' . $values['table'][0];
+
+            if (!empty($values['condition'])) { // If there are conditions, add them to the statement.
+                $query .= ' WHERE ';
+
+                $size = count($values['condition']);
+                if ($size > 1) {
+                    for ($i = 0; $i < $size; $i+=2) {
+                        $query .= $values['condition'][$i] . "='" . $values['condition'][$i+1] . "'";
+
+                        // Only on the last coloumn should this be ignored.
+                        if ($i < $size - 2) {
+                            $query .= ' AND ';
+                        }
+                    }
+                } else {
+                    $query .= $values['condition'][0];
+                }
+            }
+
+            if (!empty($values['order'])) { // If there are sorting, add them to the statement.
+                $query .= ' ORDER BY ';
+
+                $size = count($values['order']);
+                for ($i = 0; $i < $size; $i++) {
+                    $query .= $values['order'][$i];
+                    $query .= ' ' . $values['sort'][$i];
+
+                    // Only on the last coloumn should this be ignored.
+                    if ($i !== ($size - 1)) {
+                        $query .= ', ';
                     }
                 }
             }

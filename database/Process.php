@@ -16,15 +16,15 @@
     // ===========================================================================
 
     // The following are used for storing data under specific objects.
-    require_once("tables/Alpha_Information.php");
-    require_once("tables/Alpha_Project.php");
-    require_once("tables/Alpha_Education.php");
-    require_once("tables/Alpha_Career.php");
-    require_once("tables/Alpha_Result.php");
-    require_once("tables/Alpha_Experience.php");
-    require_once("tables/Alpha_Certification.php");
-    require_once("tables/Alpha_Award.php");
-    require_once("tables/Alpha_Testimonial.php");
+    require_once('tables/Alpha_Information.php');
+    require_once('tables/Alpha_Project.php');
+    require_once('tables/Alpha_Education.php');
+    require_once('tables/Alpha_Career.php');
+    require_once('tables/Alpha_Result.php');
+    require_once('tables/Alpha_Experience.php');
+    require_once('tables/Alpha_Certification.php');
+    require_once('tables/Alpha_Award.php');
+    require_once('tables/Alpha_Testimonial.php');
 
     class Process {
         private $alpha_information      = NULL;
@@ -34,7 +34,7 @@
         private $alpha_career           = NULL;
         private $alpha_result           = NULL;
         private $alpha_experience       = NULL;
-        private $Alpha_certification    = NULL;
+        private $alpha_certification    = NULL;
         private $alpha_award            = NULL;
         private $alpha_testimonial      = NULL;
 
@@ -425,25 +425,25 @@
          * @param       string      $target         the name of the array to be emptied
          */
         public function clearObject($target) {
-            if ($target === "Alpha_Information") {
+            if ($target === 'Alpha_Information') {
                 $this->alpha_information = [];
-            } else if ($target === "Alpha_Project") {
+            } else if ($target === 'Alpha_Project') {
                 $this->alpha_project = [];
-            } else if ($target === "Alpha_Degree") {
+            } else if ($target === 'Alpha_Degree') {
                 $this->alpha_degree = [];
-            } else if ($target === "Alpha_Education") {
+            } else if ($target === 'Alpha_Education') {
                 $this->alpha_education = [];
-            } else if ($target === "Alpha_Career") {
+            } else if ($target === 'Alpha_Career') {
                 $this->alpha_career = [];
-            } else if ($target === "Alpha_Result") {
+            } else if ($target === 'Alpha_Result') {
                 $this->alpha_result = [];
-            } else if ($target === "Alpha_Experience") {
+            } else if ($target === 'Alpha_Experience') {
                 $this->alpha_experience = [];
-            } else if ($target === "Alpha_Certification") {
+            } else if ($target === 'Alpha_Certification') {
                 $this->alpha_certification = [];
-            } else if ($target === "Alpha_Award") {
+            } else if ($target === 'Alpha_Award') {
                 $this->alpha_award = [];
-            } else if ($target === "Alpha_Testimonial") {
+            } else if ($target === 'Alpha_Testimonial') {
                 $this->alpha_testimonial = [];
             }
         }
