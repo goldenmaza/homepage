@@ -4,17 +4,17 @@
      * sendEmail.php
      *
      * This class is used for sending an e-mail.
-     * 
+     *
      * @package      Homepage
      * @author       Mats Richard Hellstrand
      * @copyright    Copyright (c) 2015-2025, Alpheria
      * @license      TODO: http://
      * @link         TODO: http://
-     * @since        July 8th, 2020 - Version 1.1
+     * @since        July 18th, 2020 - Version 1.2
      */
     // ===========================================================================
 
-    require_once("configuration.php");
+    require_once('configuration.php');
 
     $formText        =   $_GET['formText'];
     $formArray       =   explode(',', $formText);
