@@ -13,7 +13,7 @@
      * @copyright   Copyright (c) 2015-2025, Mats Richard Hellstrand
      * @license     TODO: http://
      * @link        TODO: http://
-     * @since       July 17th, 2020 - Version 1.5
+     * @since       July 18th, 2020 - Version 1.5
      */
     // ===========================================================================
 
@@ -75,7 +75,7 @@
     // Generate the combined css style files and thumbnails if some/all are missing, run this script once a week.
     if (date('D') == 'Mon') {
         require_once('styling.php');
-        require_once('thumbnail.php');
+        require_once('thumbnailGenerator.php');
     }
 
     // Generate the pages.
@@ -93,7 +93,7 @@
     require_once('sections/sen.php');
 
     // Generate the sitemap.xml and prepare the data for the map.php file.
-    require_once('sitemap.php');
+    require_once('sitemapGenerator.php');
     require_once('sections/map.php');
 
     // Assign the content of the buffer, which is used in the template, then empty the buffer and turn off output buffering.
