@@ -1,813 +1,813 @@
 /*
-	Filename:		responsive_adaptive.css
-	Author:			Mats Richard Hellstrand (Sweden)
-	Website:		www.hellstrand.org
-	Date:			October 1st, 2017
-	Language:		English
-	Description:	This stylesheet is used for all selectors that are ment for responsive design regarding all tags.
+    Filename:       responsive_adaptive.css
+    Author:         Mats Richard Hellstrand (Sweden)
+    Website:        www.hellstrand.org
+    Date:           July 18th, 2020
+    Language:       English
+    Description:    This stylesheet is used for all selectors that are ment for responsive design regarding all tags.
 */
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	p {
-		font-size 				:	1.15rem;
-	}
+    p {
+        font-size               :   1.15rem;
+    }
 }
 
 /*
-*	>= 1920x - very large monitor resolution...
+*   >= 1920x - very large monitor resolution...
 */
 @media (min-width: 1920px) {
-	/*h1 {
-		font-size				:	4rem;
-	}
+    /*h1 {
+        font-size               :   4rem;
+    }
 
-	h2 {
-		font-size				:	3rem;
-	}
+    h2 {
+        font-size               :   3rem;
+    }
 
-	h3 {
-		font-size				:	2.75rem;
-	}
+    h3 {
+        font-size               :   2.75rem;
+    }
 
-	h4 {
-		font-size				:	3.5rem;
-	}*/
+    h4 {
+        font-size               :   3.5rem;
+    }*/
 
-	p, li {
-		font-size 				:	1.5rem;
-	}
+    p, li {
+        font-size               :   1.5rem;
+    }
 }
 
 /*
-*	<= 480x320 - small mobile resolution...
+*   <= 480x320 - small mobile resolution...
 */
 @media (max-width: 480px) and (max-height: 320px) {
-	body > header {
-		display					:	none;
-	}
+    body > header {
+        display                 :   none;
+    }
 }
 
 /*
-*	>= x320 - small mobile resolution...
+*   >= x320 - small mobile resolution...
 */
 @media (min-height: 320px) {
-	body > header {
-		display					:	block;
-	}
+    body > header {
+        display                 :   block;
+    }
 }
 
 /*
-*	>= 768x - tablet or standard mobile resolution...
+*   >= 768x - tablet or standard mobile resolution...
 */
 /*@media (min-height: 768px) {
-	body > header {
-		max-height				:	100px;
-	}
+    body > header {
+        max-height              :   100px;
+    }
 }*/
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	body > header {
-		border-bottom			:	5px solid #F90;
-	}
+    body > header {
+        border-bottom           :   5px solid #F90;
+    }
 }
 
 /*
-*	>= 768x - tablet or standard monitor resolution...
+*   >= 768x - tablet or standard monitor resolution...
 */
 @media (min-width: 768px) {
-	.handler {
-		display					:	none;
-	}
+    .handler {
+        display                 :   none;
+    }
 }
 
 /*
-*	<= 800x600 - small mobile resolution...
+*   <= 800x600 - small mobile resolution...
 */
 @media (max-width: 800px) and (max-height: 600px) {
-	.handlerButton {
-		margin					:	10px 10px 10px 0;
-	}
+    .handlerButton {
+        margin                  :   10px 10px 10px 0;
+    }
 }
 
 /*
-*	>= 768x - tablet or standard monitor resolution...
+*   >= 768x - tablet or standard monitor resolution...
 */
 @media (min-width: 768px) {
-	.handlerButton {
-		display					:	none;
-	}
+    .handlerButton {
+        display                 :   none;
+    }
 }
 
 /*
-*	<= 767x - tablet or standard monitor resolution...
+*   <= 767x - tablet or standard monitor resolution...
 */
 @media (max-width: 767px) {
-	nav ul {
-		max-height				:	0;
-	}
-	.content {
-		margin					:	20px auto 50px auto !important;
-	}
+    nav ul {
+        max-height              :   0;
+    }
+    .content {
+        margin                  :   20px auto 50px auto !important;
+    }
 }
 
 /*
-*	>= 768x - tablet or standard monitor resolution...
+*   >= 768x - tablet or standard monitor resolution...
 */
 @media (min-width: 768px) {
-	nav ul li {
-		width					:	inherit;
-	}
+    nav ul li {
+        width                   :   inherit;
+    }
 }
 
 /*
-*	>= x450 - tablet or standard monitor resolution...
+*   >= x450 - tablet or standard monitor resolution...
 */
 @media (min-height: 450px) {
-	nav ul li a {
-		padding					:	10px;
-		font-size				:	2rem;
-	}
+    nav ul li a {
+        padding                 :   10px;
+        font-size               :   2rem;
+    }
 }
 
 /*
-*	>= 768x - tablet or standard monitor resolution...
+*   >= 768x - tablet or standard monitor resolution...
 */
 @media (min-width: 768px) {
-	nav ul li a {
-		font-size				:	1.25rem;
-	}
+    nav ul li a {
+        font-size               :   1.25rem;
+    }
 }
 
 /*
-*	>= 1024x - large monitor resolution...
+*   >= 1024x - large monitor resolution...
 */
 @media (min-width: 1024px) {
-	#navigationBar {
-		margin					:	0px auto -1px auto;
-	}
+    #navigationBar {
+        margin                  :   0px auto -1px auto;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	nav ul li {
-		border-top				:	5px solid transparent;
-		border-left				:	5px solid transparent;
-		border-right			:	5px solid transparent;
-		border-bottom			:	5px solid transparent;
-	}
+    nav ul li {
+        border-top              :   5px solid transparent;
+        border-left             :   5px solid transparent;
+        border-right            :   5px solid transparent;
+        border-bottom           :   5px solid transparent;
+    }
 
-		nav ul li:hover {
-			border-left				:	5px solid #F90;
-			border-right			:	5px solid #F90;
-		}
+        nav ul li:hover {
+            border-left             :   5px solid #F90;
+            border-right            :   5px solid #F90;
+        }
 
-	nav ul li a {
-		padding					:	20px;
-		font-size				:	1.5rem;
-	}
+    nav ul li a {
+        padding                 :   20px;
+        font-size               :   1.5rem;
+    }
 }
 
 /*
-*	>= 1920x - very large monitor resolution...
+*   >= 1920x - very large monitor resolution...
 */
 @media (min-width: 1920px) {
-	/*nav ul li a {
-		font-size 				:	2.25rem;
-	}*/
+    /*nav ul li a {
+        font-size               :   2.25rem;
+    }*/
 }
 
 /*
-*	>= 768x - tablet or standard monitor resolution...
+*   >= 768x - tablet or standard monitor resolution...
 */
 @media (min-width: 768px) {
-	.forceLeft:hover {
-		border-top				:	3px solid transparent;
-		border-left				:	3px solid transparent;
-		border-right			:	3px solid #F90;
-		border-bottom			:	3px solid transparent;
-	}
+    .forceLeft:hover {
+        border-top              :   3px solid transparent;
+        border-left             :   3px solid transparent;
+        border-right            :   3px solid #F90;
+        border-bottom           :   3px solid transparent;
+    }
 
-	.forceRight:hover {
-		border-top				:	3px solid transparent;
-		border-left				:	3px solid #F90;
-		border-right			:	3px solid transparent;
-		border-bottom			:	3px solid transparent;
-	}
+    .forceRight:hover {
+        border-top              :   3px solid transparent;
+        border-left             :   3px solid #F90;
+        border-right            :   3px solid transparent;
+        border-bottom           :   3px solid transparent;
+    }
 }
-			
+            
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.forceLeft:hover {
-	    height                  :   100%;
-		border-top				:	5px solid transparent;
-		border-left				:	5px solid transparent;
-		border-right			:	5px solid #F90;
-		border-bottom			:	5px solid transparent;
-	}
+    .forceLeft:hover {
+        height                  :   100%;
+        border-top              :   5px solid transparent;
+        border-left             :   5px solid transparent;
+        border-right            :   5px solid #F90;
+        border-bottom           :   5px solid transparent;
+    }
 
-	.forceRight:hover {
-	    height                  :   100%;
-		border-top				:	5px solid transparent;
-		border-left				:	5px solid #F90;
-		border-right			:	5px solid transparent;
-		border-bottom			:	5px solid transparent;
-	}
+    .forceRight:hover {
+        height                  :   100%;
+        border-top              :   5px solid transparent;
+        border-left             :   5px solid #F90;
+        border-right            :   5px solid transparent;
+        border-bottom           :   5px solid transparent;
+    }
 }
 
 /*
-*	>= x450 - tablet or standard monitor resolution...
+*   >= x450 - tablet or standard monitor resolution...
 */
 @media (min-height: 450px) {
-	.navHom::before, .navAbo::before, .navPor::before, .navQua::before, .navMap::before, .navCon::before {
-		font-size				:	2.25rem;
-	}
+    .navHom::before, .navAbo::before, .navPor::before, .navQua::before, .navMap::before, .navCon::before {
+        font-size               :   2.25rem;
+    }
 }
 
 /*
-*	>= 768x - tablet or standard monitor resolution...
+*   >= 768x - tablet or standard monitor resolution...
 */
 @media (min-width: 768px) {
-	.forceLeft {
-		left					:	0;
-		position				:	absolute;
-	}
+    .forceLeft {
+        left                    :   0;
+        position                :   absolute;
+    }
 
-	.forceRight {
-		right					:	0;
-		position				:	absolute;
-	}
+    .forceRight {
+        right                   :   0;
+        position                :   absolute;
+    }
 
-	.forceHidden {
-		position				:	absolute;
-		left					:	-999rem;
-		width					:	1rem;
-		overflow				:	hidden;
-	}
+    .forceHidden {
+        position                :   absolute;
+        left                    :   -999rem;
+        width                   :   1rem;
+        overflow                :   hidden;
+    }
 
-	.navHom::before, .navMap::before {
-		width					:	inherit;
-		display					:	block;
-	}
+    .navHom::before, .navMap::before {
+        width                   :   inherit;
+        display                 :   block;
+    }
 
-	.navHom::before {
-		padding					:	0 10px 3px 5px;
-	}
+    .navHom::before {
+        padding                 :   0 10px 3px 5px;
+    }
 
-	.navMap::before {
-		padding					:	0 5px 3px 10px;
-	}
+    .navMap::before {
+        padding                 :   0 5px 3px 10px;
+    }
 
-	.navHom::before, .navAbo::before, .navPor::before, .navQua::before, .navMap::before, .navCon::before {
-		float					:	none;
-		font-size				:	1.35rem;
-	}
+    .navHom::before, .navAbo::before, .navPor::before, .navQua::before, .navMap::before, .navCon::before {
+        float                   :   none;
+        font-size               :   1.35rem;
+    }
 }
 
 /*
-*	>= 900x - standard monitor resolution...
+*   >= 900x - standard monitor resolution...
 */
 @media (min-width: 900px) {
-	.navHom::before, .navAbo::before, .navPor::before, .navQua::before, .navMap::before, .navCon::before {
-		font-size				:	1.5rem;
-	}
+    .navHom::before, .navAbo::before, .navPor::before, .navQua::before, .navMap::before, .navCon::before {
+        font-size               :   1.5rem;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 /*@media (min-width: 1600px) {
-	.navHom::before, .navAbo::before, .navPor::before, .navQua::before, .navMap::before, .navCon::before {
-		font-size				:	2rem;
-	}
+    .navHom::before, .navAbo::before, .navPor::before, .navQua::before, .navMap::before, .navCon::before {
+        font-size               :   2rem;
+    }
 }*/
 
 /*
-*	>= 1920x - very large monitor resolution...
+*   >= 1920x - very large monitor resolution...
 */
 /*@media (min-width: 1920px) {
-	.navHom::before, .navAbo::before, .navPor::before, .navQua::before, .navMap::before, .navCon::before {
-		font-size 				:	2.5rem;
-	}
+    .navHom::before, .navAbo::before, .navPor::before, .navQua::before, .navMap::before, .navCon::before {
+        font-size               :   2.5rem;
+    }
 }*/
 
 /*
-*	<= x320 - small mobile resolution...
+*   <= x320 - small mobile resolution...
 */
 @media (max-height: 320px) {
-	.container {
-		padding					:	0px 5px 0px 5px;
-	}
+    .container {
+        padding                 :   0px 5px 0px 5px;
+    }
 }
 
 /*
-*	>= 600x - tablet monitor resolution...
+*   >= 600x - tablet monitor resolution...
 */
 @media (min-width: 600px) {
-	.container {
-		width					:	85%;
-	}
+    .container {
+        width                   :   85%;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 /*@media (min-width: 1600px) {
-	.container {
-		padding					:	100px 5px 100px 5px;
-	}
+    .container {
+        padding                 :   100px 5px 100px 5px;
+    }
 }*/
 
 /*
-*	>= 768x, <= 900x - standard monitor resolution...
+*   >= 768x, <= 900x - standard monitor resolution...
 */
 @media (min-width: 768px) and (max-width: 900px) {
-	.container + div + .row {
-		margin-top				:	30px !important;
-	}
+    .container + div + .row {
+        margin-top              :   30px !important;
+    }
 }
 
 /*
-*	>= 900x, <= 1600x - standard to very large monitor resolution...
+*   >= 900x, <= 1600x - standard to very large monitor resolution...
 */
 @media (min-width: 900px) and (max-width: 1600px) {
-	.container + div + .row {
-		margin-top				:	25px !important;
-	}
+    .container + div + .row {
+        margin-top              :   25px !important;
+    }
 }
 
 /*
-*	>= 1920x - very large monitor resolution...
+*   >= 1920x - very large monitor resolution...
 */
 @media (min-width: 1920px) {
-	.container + div + .row {
-		margin-top				:	60px !important;
-	}
+    .container + div + .row {
+        margin-top              :   60px !important;
+    }
 }
 
 /*
-*	>= 768x - tablet or standard monitor resolution...
+*   >= 768x - tablet or standard monitor resolution...
 */
 /*@media (min-width: 768px) {
-	.previousPage {
-		margin					:	0 0 0 10px !important;
-		font-size 				:	1.25rem;
-	}
+    .previousPage {
+        margin                  :   0 0 0 10px !important;
+        font-size               :   1.25rem;
+    }
 }*/
 
 /*
-*	>= 1024x - large monitor resolution...
+*   >= 1024x - large monitor resolution...
 */
 /*@media (min-width: 1024px) {
-	.previousPage {
-		margin					:	10px 0 0 30px !important;
-	}
+    .previousPage {
+        margin                  :   10px 0 0 30px !important;
+    }
 }*/
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 /*@media (min-width: 1600px) {
-	.previousPage {
-		margin					:	30px 0 0 30px !important;
-		border					:	4px solid transparent;
-	}
+    .previousPage {
+        margin                  :   30px 0 0 30px !important;
+        border                  :   4px solid transparent;
+    }
 
-	.previousPage:hover {
-		border					:	4px solid #f90 !important;
-	}
+    .previousPage:hover {
+        border                  :   4px solid #f90 !important;
+    }
 }*/
 
 /*
-*	>= 768x - tablet or standard monitor resolution...
+*   >= 768x - tablet or standard monitor resolution...
 */
 @media (min-width: 768px) {
-	.previousPage > a {
-		padding					:	10px 5px 10px 10px;
-	}
+    .previousPage > a {
+        padding                 :   10px 5px 10px 10px;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.previousPage > a {
-		padding					:	15px 15px 15px 20px;
-	}
+    .previousPage > a {
+        padding                 :   15px 15px 15px 20px;
+    }
 }
 
 /*
-*	>= 768x - tablet or standard monitor resolution...
+*   >= 768x - tablet or standard monitor resolution...
 */
 /*@media (min-width: 768px) {
-	.nextPage {
-		margin					:	0 10px 0 0 !important;
-		font-size 				:	1.25rem;
-	}
+    .nextPage {
+        margin                  :   0 10px 0 0 !important;
+        font-size               :   1.25rem;
+    }
 }*/
 
 /*
-*	>= 1024x - large monitor resolution...
+*   >= 1024x - large monitor resolution...
 */
 /*@media (min-width: 1024px) {
-	.nextPage {
-		margin					:	10px 30px 0 0 !important;
-	}
+    .nextPage {
+        margin                  :   10px 30px 0 0 !important;
+    }
 }*/
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 /*@media (min-width: 1600px) {
-	.nextPage {
-		margin					:	30px 30px 0 0 !important;
-		border					:	4px solid transparent;
-	}
+    .nextPage {
+        margin                  :   30px 30px 0 0 !important;
+        border                  :   4px solid transparent;
+    }
 
-	.nextPage:hover {
-		border					:	4px solid #f90 !important;
-	}
+    .nextPage:hover {
+        border                  :   4px solid #f90 !important;
+    }
 }*/
 
 /*
-*	>= 768x - tablet or standard monitor resolution...
+*   >= 768x - tablet or standard monitor resolution...
 */
 @media (min-width: 768px) {
-	.nextPage > a {
-		padding					:	10px 10px 10px 5px;
-	}
+    .nextPage > a {
+        padding                 :   10px 10px 10px 5px;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.nextPage > a {
-		padding					:	15px 20px 15px 15px;
-	}
+    .nextPage > a {
+        padding                 :   15px 20px 15px 15px;
+    }
 }
 
 /*
-*	>= 768x - small tablet resolution...
+*   >= 768x - small tablet resolution...
 */
 @media (min-width: 768px) {
-	.force-text-right {
-		padding-right			:	25px !important;
-		text-align				:	right !important;
-	}
+    .force-text-right {
+        padding-right           :   25px !important;
+        text-align              :   right !important;
+    }
 
-	.force-mini-left, .force-mini-right {
-		display					:	none !important;
-	}
+    .force-mini-left, .force-mini-right {
+        display                 :   none !important;
+    }
 }
 
 /*
-*	>= 768x - small tablet resolution...
+*   >= 768x - small tablet resolution...
 */
 @media (min-width: 768px) {
-	.no-margin {
-		margin					:	20px 0 0 0 !important;
-	}
+    .no-margin {
+        margin                  :   20px 0 0 0 !important;
+    }
 }
 
 /*
-*	>= 600x800 + 800x600 - tablet or standard monitor resolution...
+*   >= 600x800 + 800x600 - tablet or standard monitor resolution...
 */
-/*		@media (min-width: 600px) and (min-height: 800px), (min-width: 800px) and (min-height: 600px) {
-	.content {
-		width					:	90%;
-	}
+/*      @media (min-width: 600px) and (min-height: 800px), (min-width: 800px) and (min-height: 600px) {
+    .content {
+        width                   :   90%;
+    }
 }*/
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 /*@media (min-width: 1600px) {
-	.row {
-		margin					:	30px 0 0 0 !important;
-	}
+    .row {
+        margin                  :   30px 0 0 0 !important;
+    }
 }*/
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.row > strong {
-		font-size 				:	1.5rem;
-	}
+    .row > strong {
+        font-size               :   1.5rem;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.displayProfileImage {
-		padding					:	10px;
-		border-top				:	5px solid #F90;
-		border-bottom			:	5px solid #F90;
-	}
+    .displayProfileImage {
+        padding                 :   10px;
+        border-top              :   5px solid #F90;
+        border-bottom           :   5px solid #F90;
+    }
 }
 
 /*
-*	>= 400x - small monitor resolution...
+*   >= 400x - small monitor resolution...
 */
 @media (min-width: 400px) {
-	.iconsBar {
-		font-size 				:	2.5rem;
-	}
+    .iconsBar {
+        font-size               :   2.5rem;
+    }
 }
 
 /*
-*	>= 768x - tablet or standard monitor resolution...
+*   >= 768x - tablet or standard monitor resolution...
 */
 @media (min-width: 768px) {
-	.iconsBar {
-		font-size 				:	2.75rem;
-	}
+    .iconsBar {
+        font-size               :   2.75rem;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	/*.iconsBar {
-		font-size 				:	3rem;
-	}*/
+    /*.iconsBar {
+        font-size               :   3rem;
+    }*/
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.iconsBar a:hover {
-		border-left				:	3px solid #F90 !important;
-		border-right			:	3px solid #F90 !important;
-	}
+    .iconsBar a:hover {
+        border-left             :   3px solid #F90 !important;
+        border-right            :   3px solid #F90 !important;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.expandingThumbnailIcon::before {
-		font-size				:	6rem !important;
-	}
+    .expandingThumbnailIcon::before {
+        font-size               :   6rem !important;
+    }
 }
 
 /*
-*	>= 768x - tablet or standard monitor resolution...
+*   >= 768x - tablet or standard monitor resolution...
 */
 @media (min-width: 768px) {
-	.sent::before {
-		font-size				:	13rem;
-	}
+    .sent::before {
+        font-size               :   13rem;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.sent::before {
-		font-size				:	18rem;
-	}
+    .sent::before {
+        font-size               :   18rem;
+    }
 }
 
 /*
-*	>= 768x - tablet or standard monitor resolution...
+*   >= 768x - tablet or standard monitor resolution...
 */
 /*@media (min-width: 768px) {
-	.displaySummaryContainer.iconsBar > a {
-		width					:	75%;
-	}
+    .displaySummaryContainer.iconsBar > a {
+        width                   :   75%;
+    }
 }*/
 
 /*
-*	>= 1440x - large monitor resolution...
+*   >= 1440x - large monitor resolution...
 */
 /*@media (min-width: 1440px) {
-	.displaySummaryContainer.iconsBar > a {
-		width					:	75%;
-	}
+    .displaySummaryContainer.iconsBar > a {
+        width                   :   75%;
+    }
 }*/
 
 /*
-*	>= 1024x - large monitor resolution...
+*   >= 1024x - large monitor resolution...
 */
 @media (min-width: 1024px) {
-	.edu::before, .car::before, .exp::before, .cer::before, .awa::before,
-	.tes::before, .res::before, .dow::before, .deg::before {
-		font-size				:	4rem;
-	}
+    .edu::before, .car::before, .exp::before, .cer::before, .awa::before,
+    .tes::before, .res::before, .dow::before, .deg::before {
+        font-size               :   4rem;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.edu::before, .car::before, .exp::before, .cer::before, .awa::before,
-	.tes::before, .res::before, .dow::before, .deg::before {
-		font-size				:	6rem;
-	}
+    .edu::before, .car::before, .exp::before, .cer::before, .awa::before,
+    .tes::before, .res::before, .dow::before, .deg::before {
+        font-size               :   6rem;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.displayPortfolioGroup {
-		padding					:	10px;
-		border-top				:	5px solid #F90;
-	}
+    .displayPortfolioGroup {
+        padding                 :   10px;
+        border-top              :   5px solid #F90;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.displayThumbnailImage {
-		padding					:	10px;
-		border-top				:	5px solid #F90;
-	}
+    .displayThumbnailImage {
+        padding                 :   10px;
+        border-top              :   5px solid #F90;
+    }
 }
 
 /*
-*	>= 600x - small monitor resolution...
+*   >= 600x - small monitor resolution...
 */
 @media (min-width: 600px) {
-	.videoObject {
-		height					:	375px;
-		width					:	475px;
-		margin					:	0 auto 0 auto;
-		display					:	block;
-	}
+    .videoObject {
+        height                  :   375px;
+        width                   :   475px;
+        margin                  :   0 auto 0 auto;
+        display                 :   block;
+    }
 
-	.objectFlash {
-		height					:	350px;
-		width					:	90%;
-		margin					:	0 auto 0 auto;
-		display					:	block;
-	}
+    .objectFlash {
+        height                  :   350px;
+        width                   :   90%;
+        margin                  :   0 auto 0 auto;
+        display                 :   block;
+    }
 
-		.objectFlashHidden {
-			display					:	none;
-		}
+        .objectFlashHidden {
+            display                 :   none;
+        }
 }
 
 /*
-*	>= 800x - tablet or standard monitor resolution...
+*   >= 800x - tablet or standard monitor resolution...
 */
 @media (min-width: 800px) {
-	.videoObject {
-		height					:	475px;
-		width					:	575px;
-		margin					:	0 auto 0 auto;
-		display					:	block;
-	}
+    .videoObject {
+        height                  :   475px;
+        width                   :   575px;
+        margin                  :   0 auto 0 auto;
+        display                 :   block;
+    }
 }
 
 /*
-*	>= 768x - tablet or standard monitor resolution...
+*   >= 768x - tablet or standard monitor resolution...
 */
 @media (min-width: 768px) {
-	.skillTree {
-		width					:	90%;
-	}
+    .skillTree {
+        width                   :   90%;
+    }
 }
 
 /*
-*	>= 768x - tablet or standard monitor resolution...
+*   >= 768x - tablet or standard monitor resolution...
 */
 @media (min-width: 768px) {
-	.skillTree .line {
-		height					:	6px;
-		margin					:	4px 0 50px 0;
-	}
+    .skillTree .line {
+        height                  :   6px;
+        margin                  :   4px 0 50px 0;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.skillTree .line {
-		height					:	13px;
-		margin					:	10px 0 50px 0;
-		border-top				:	2px solid #111;
-		border-left				:	2px solid #111;
-		border-right			:	2px solid #333;
-		border-bottom			:	2px solid #333;
-	}
+    .skillTree .line {
+        height                  :   13px;
+        margin                  :   10px 0 50px 0;
+        border-top              :   2px solid #111;
+        border-left             :   2px solid #111;
+        border-right            :   2px solid #333;
+        border-bottom           :   2px solid #333;
+    }
 }
 
 /*
-*	>= 768x - tablet or standard monitor resolution...
+*   >= 768x - tablet or standard monitor resolution...
 */
 @media (min-width: 768px) {
-	.expand {
-		height					:	1px;
-		margin					:	2px 0 0 2px;
-	}
+    .expand {
+        height                  :   1px;
+        margin                  :   2px 0 0 2px;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.expand {
-		height					:	4px;
-		margin					:	3px 0 0 4px;
-	}
+    .expand {
+        height                  :   4px;
+        margin                  :   3px 0 0 4px;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.sitemapHeader {
-		padding					:	15px 10px 15px 20px;
-	}
+    .sitemapHeader {
+        padding                 :   15px 10px 15px 20px;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.sitemapElement {
-		padding					:	3px 5px 5px 6px;
-	}
+    .sitemapElement {
+        padding                 :   3px 5px 5px 6px;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.sitemapElement > a {
-		font-size 				:	1.75rem;
-	}
+    .sitemapElement > a {
+        font-size               :   1.75rem;
+    }
 }
 
 /*
-*	<= x320 - small mobile resolution...
+*   <= x320 - small mobile resolution...
 */
 @media (max-height: 320px) {
-	footer {
-		display					:	none;
-		border-top				:	2px solid #F90;
-	}
+    footer {
+        display                 :   none;
+        border-top              :   2px solid #F90;
+    }
 }
 
 /*
-*	>= x320 - small mobile resolution...
+*   >= x320 - small mobile resolution...
 */
 @media (min-height: 320px) {
-	footer {
-		display					:	block !important;
-	}
+    footer {
+        display                 :   block !important;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	footer {
-		border-top				:	5px solid #F90;
-	}
+    footer {
+        border-top              :   5px solid #F90;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.statement {
-		padding					:	15px 0 15px 0;
-		font-size				:	1.1rem;
-	}
+    .statement {
+        padding                 :   15px 0 15px 0;
+        font-size               :   1.1rem;
+    }
 }
 
 /*
-*	>= 1600x - very large monitor resolution...
+*   >= 1600x - very large monitor resolution...
 */
 @media (min-width: 1600px) {
-	.statement > img {
-		height					:	20px;
-		width					:	20px;
-	}
+    .statement > img {
+        height                  :   20px;
+        width                   :   20px;
+    }
 }
 
 /*
-*	>= 1920x - very large monitor resolution...
+*   >= 1920x - very large monitor resolution...
 */
 @media (min-width: 1920px) {
-	.statement img {
-		height					:	30px;
-		width					:	30px;
-	}
+    .statement img {
+        height                  :   30px;
+        width                   :   30px;
+    }
 }

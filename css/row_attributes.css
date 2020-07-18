@@ -1,417 +1,417 @@
 /*
-	Filename:		row_attributes.css
-	Author:			Mats Richard Hellstrand (Sweden)
-	Website:		www.hellstrand.org
-	Date:			October 1st, 2017
-	Language:		English
-	Description:	This stylesheet is used for the row-tag and it's children.
+    Filename:       row_attributes.css
+    Author:         Mats Richard Hellstrand (Sweden)
+    Website:        www.hellstrand.org
+    Date:           July 18th, 2020
+    Language:       English
+    Description:    This stylesheet is used for the row-tag and it's children.
 */
 
 .row {
-	clear					:	both;
-	width					:	100%;
-	margin-top				:	20px;
-	display					:	inline-block;
-	text-align				:	center;
+    clear                   :   both;
+    width                   :   100%;
+    margin-top              :   20px;
+    display                 :   inline-block;
+    text-align              :   center;
 }
 
-	.row > strong {
-		font-size				:	1.25rem;
-	}
-
-	.text-left {
-		text-align				:	left;
-	}
-
-	.text-right {
-		text-align				:	right;
-	}
-
-	.text-center {
-		text-align				:	center;
-	}
-
-	.text-justify {
-		text-align				:	justify;
-	}
-
-		.text-justify p {
-			margin-bottom			:	10px;
-		}
-
-	.hidden {
-		display					:	none !important;
-	}
-	
-	.disabled {
-		cursor					:	not-allowed !important;
-	}
-
-	.aboutSectionHolder {
-	}
-
-		.aboutSectionHolder > .iconsBar > a {
-			width 					:	30%;
-		}
-
-		.displayProfileImage {
-			width					:	80%;
-			padding					:	7px;
-			border-top				:	3px solid #F90;
-			border-left				:	none;
-			border-right			:	none;
-			border-bottom			:	3px solid #F90;
-		}
-
-	.viewTarget {
-	}
-
-		span.viewTarget {
-		    float                   :   left;
-		    padding                 :   0px 10px 10px 10px;
-		    display                 :   block;
-		}
-
-		.viewTarget::before {
-/*			margin					:	10px;
-			content					:	"\f002";
-			color					:	#fff;
-			font-family				:	fontawesome-webfont;*/
-		}
-
-	.iconsBar {
-/*		display					:	table;
-		table-layout			:	fixed;
-		margin-top				:	10px;*/
-		font-size				:	2rem;
-	}
-
-		.iconsBar > a {
-			padding					:	1vh 2vh;
-			display					:	inline-block;
-			border-left				:	3px solid transparent;
-			border-right			:	3px solid transparent;
-			color					:	#3c3c3c;
-		}
-
-			.iconsBar > a:hover {
-				border-left				:	3px solid #F90;
-				border-right			:	3px solid #F90;
-				color 					:	#f90;
-			}
-			
-			.iconsBar > a.disabled:hover {
-				color 					:	#cc0000;
-			}
-
-			.iconsBar > a::after {
-				content					:	none;
-			}
-
-		.email::before, .skype::before, .linkedin::before, .github::before, .videopresentation::before,
-		.download::before, .facebook::before, .youtube::before, .twitter::before {
-			display					:	inline-block;
-		}
-
-		.email::before {
-			content					:	"\f0e0";
-		}
-		
-		.skype::before {
-			content					:	"\f17e";
-		}
-
-		.linkedin::before {
-			content					:	"\f0e1";
-		}
-		
-		.github::before {
-			content					:	"\f09b";
-		}
-		
-		.videopresentation::before {
-			content					:	"\f03d";
-		}
-		
-		.download::before {
-			content					:	"\f019";
-		}
-		
-		.facebook::before {
-			content					:	"\f09a";
-		}
-		
-		.youtube::before {
-			content					:	"\f167";
-		}
-		
-		.twitter::before {
-			content					:	"\f099";
-		}
-		
-	.displaySummaryContainer, .sitemapContainer {
-/*		display					:	table;
-		table-layout			:	fixed;*/
-		overflow				:	hidden;
-	}
-	
-		.displaySummaryContainer > div > div {
-			margin-top				:	10px !important;
-		}
-
-		.displaySummaryContainer.iconsBar > a {
-		}
-
-		.displaySummaryContainer.iconsBar * {
-			color					:	#FFF;
-		}
-	
-		.displayPortfolioGroup {
-			flex					:	0 0 20%;
-			margin					:	3vh 1vh 1vh 1vh;
-			padding					:	5px;
-			border-top				:	3px solid #F90;
-			word-wrap				:	break-word;
-		}
-
-			.displayPortfolioGroup:hover .overlay {
-				color					:	#FFF;
-				opacity					:	1;
-			}
-
-			.displayPortfolioGroup > a {
-				width					:	100%;
-				display					:	inline-block;
-				cursor					: 	pointer;
-			}
-
-			.displayPortfolioGroup > a > img {
-				max-width				:	100%;
-			}
-
-			.portfolioMediaHolder.iconsBar > a {
-				width 					:	85%;
-				margin					:	20px 0 0 0;
-			}
-
-			.overlay {
-				margin					:	0 !important;
-				padding					:	15px 0 10px 0;
-				background 				:	transparent;
-				color					:	transparent;
-				text-align				:	center;
-			}
-
-			.certificationMultimediaHolder > img, .awardMultimediaHolder > img {
-				max-width				:	50%;
-			}
-
-			.displayThumbnailImage {
-				height					:	initial;
-				display					:	inline-block;
-				margin					:	5px auto 5px auto;
-				padding					:	5px;
-				border-top				:	2px solid #F90;
-				border-left				:	none;
-				border-right			:	none;
-				border-bottom			:	none;
-			}
-
-			.expandingThumbnailImage {
-				width					:	90%;
-			}
-
-				.downloadHolder > a > * {
-					margin-left				:	initial;
-					margin-right			:	initial;
-				}
-
-		.edu::before, .deg::before, .car::before, .res::before, .exp::before, .cer::before,
-		.dow::before, .awa::before, .tes::before {
-			display					:	block;
-			font-size				:	5rem;
-			color					:	#3c3c3c;
-			overflow				:	hidden;
-		}
-
-			.edu span:first-child, .deg span:first-child, .car span:first-child, .res span:first-child, .exp span:first-child,
-			.cer span:first-child, .dow span:first-child, .awa span:first-child, .tes span:first-child {
-				margin-top				:	10px;
-			}
-
-			.edu:hover::before, .deg:hover::before, .car:hover::before, .res:hover::before, .exp:hover::before,
-			.cer:hover::before, .dow:hover::before, .awa:hover::before, .tes:hover::before {
-				color 					:	#f9b01d;
-			}
-
-			.edu::before {
-				content					:	'\f19c';
-			}
-
-			.deg::before {
-				content					:	'\f19d';
-			}
-
-			.car::before {
-				content					:	'\f109';
-			}
-
-			.res::before {
-				content					:	'\f24e';
-			}
-
-			.exp::before {
-				content					:	'\f036';
-			}
-
-			.cer::before {
-				content					:	'\f0a3';
-			}
-
-			.dow::before {
-				content					:	'\f019';
-			}
-
-			.awa::before {
-				content					:	'\f091';
-			}
-
-			.tes::before {
-				content					:	'\f164';
-			}
-
-		.avi::before, .doc::before, .jpg::before, .png::before, .pdf::before, .zip::before {
-			margin					:	10px;
-			display					:	block;
-			font-size				:	5rem;
-			color					:	#3c3c3c;
-		}
-
-			.avi:hover::before, .doc:hover::before, .jpg:hover::before, .png:hover::before, .pdf:hover::before, .zip:hover::before {
-				color 					:	#f90;
-			}
-
-			.avi::before {
-				content					:	'\f1c8';
-			}
-
-			.doc::before {
-				content					:	'\f1c2';
-			}
-
-			.jpg::before {
-				content					:	'\f1c5';
-			}
-
-			.png::before {
-				content					:	'\f1c5';
-			}
-
-			.pdf::before {
-				content					:	'\f1c1';
-			}
-
-			.zip::before {
-				content					:	'\f1c6';
-			}
-
-			.dows.avi::before, .dows.doc::before, .dows.jpg::before, .dows.png::before, .dows.pdf::before, .dows.zip::before {
-			    display					:	inline;
-			    font-size				:	1.5rem;
-			}
-
-		.sent::before {
-			display					:	block;
-			font-size				:	9rem;
-			content					:	'\f1d8';
-		}
-
-		.videoObject {
-			height					:	275px;
-			width					:	375px;
-			margin					:	0 auto 0 auto;
-			display					:	block;
-		}
-
-		.objectFlash {
-			display					:	none;
-		}
-
-			.objectFlashHidden {
-				display					:	block;
-			}
-
-		.skillTree {
-			margin					:	10px 0 0 0;
-			list-style				:	none;
-		}
-
-			.skillTree .line {
-				height					:	5px;
-				margin					:	5px 0 50px 0;
-				padding					:	0;
-				border-top				:	1px solid #111;
-				border-left				:	1px solid #111;
-				border-right			:	1px solid #333;
-				border-bottom			:	1px solid #333;
-				display					:	block;
-			}
-
-				.expand {
-					height					:	1px;
-					margin					:	1px 0 0 2px;
-				}
-
-					section[id^="exp"]:target .expand {
-						background-color		:	#F80;
-					}
-
-					.beginnerLine::before, .basicLine::after, .goodLine::after, .advanceLine::after, .expertLine::after {
-						top						:	7px;
-					}
-
-						section[id^="exp"]:target .beginnerLine::before {
-							left					:	0;
-							content					:	"beginner";
-						}
-
-					.basicLine::after, .goodLine::after, .advanceLine::after, .expertLine::after {
-						right					: 	0;
-					}
-
-						section[id^="exp"]:target .basicLine::after {
-							content					:	"basic";
-						}
-
-						section[id^="exp"]:target .goodLine::after {
-							content					:	"good";
-						}
-
-						section[id^="exp"]:target .advanceLine::after {
-							content					:	"advance";
-						}
-
-						section[id^="exp"]:target .expertLine::after {
-							content					:	"expert";
-						}
-
-	.sitemapGroup, .downloadGroup {
-		margin					:	10px 0 10px 0;
-		padding					:	10px 10px 10px 10px;
-	}
-
-		.sitemapHeader, .downloadHeader {
-			margin-bottom			:	15px;
-			padding					:	10px;
-			background-color		:	#222;
-			color					:	#FFF;
-		}
-
-		.sitemapElement, .downloadElement {
-			padding					:	3px 5px 5px 3px;
-			color					:	#FFF;
-		}
-
-			.sitemapElement > a, .downloadElement > a {
-				font-size				:	1.1rem;
-			}
+    .row > strong {
+        font-size               :   1.25rem;
+    }
+
+    .text-left {
+        text-align              :   left;
+    }
+
+    .text-right {
+        text-align              :   right;
+    }
+
+    .text-center {
+        text-align              :   center;
+    }
+
+    .text-justify {
+        text-align              :   justify;
+    }
+
+        .text-justify p {
+            margin-bottom           :   10px;
+        }
+
+    .hidden {
+        display                 :   none !important;
+    }
+    
+    .disabled {
+        cursor                  :   not-allowed !important;
+    }
+
+    .aboutSectionHolder {
+    }
+
+        .aboutSectionHolder > .iconsBar > a {
+            width                   :   30%;
+        }
+
+        .displayProfileImage {
+            width                   :   80%;
+            padding                 :   7px;
+            border-top              :   3px solid #F90;
+            border-left             :   none;
+            border-right            :   none;
+            border-bottom           :   3px solid #F90;
+        }
+
+    .viewTarget {
+    }
+
+        span.viewTarget {
+            float                   :   left;
+            padding                 :   0px 10px 10px 10px;
+            display                 :   block;
+        }
+
+        .viewTarget::before {
+/*          margin                  :   10px;
+            content                 :   "\f002";
+            color                   :   #fff;
+            font-family             :   fontawesome-webfont;*/
+        }
+
+    .iconsBar {
+/*      display                 :   table;
+        table-layout            :   fixed;
+        margin-top              :   10px;*/
+        font-size               :   2rem;
+    }
+
+        .iconsBar > a {
+            padding                 :   1vh 2vh;
+            display                 :   inline-block;
+            border-left             :   3px solid transparent;
+            border-right            :   3px solid transparent;
+            color                   :   #3c3c3c;
+        }
+
+            .iconsBar > a:hover {
+                border-left             :   3px solid #F90;
+                border-right            :   3px solid #F90;
+                color                   :   #f90;
+            }
+            
+            .iconsBar > a.disabled:hover {
+                color                   :   #cc0000;
+            }
+
+            .iconsBar > a::after {
+                content                 :   none;
+            }
+
+        .email::before, .skype::before, .linkedin::before, .github::before, .videopresentation::before,
+        .download::before, .facebook::before, .youtube::before, .twitter::before {
+            display                 :   inline-block;
+        }
+
+        .email::before {
+            content                 :   "\f0e0";
+        }
+        
+        .skype::before {
+            content                 :   "\f17e";
+        }
+
+        .linkedin::before {
+            content                 :   "\f0e1";
+        }
+        
+        .github::before {
+            content                 :   "\f09b";
+        }
+        
+        .videopresentation::before {
+            content                 :   "\f03d";
+        }
+        
+        .download::before {
+            content                 :   "\f019";
+        }
+        
+        .facebook::before {
+            content                 :   "\f09a";
+        }
+        
+        .youtube::before {
+            content                 :   "\f167";
+        }
+        
+        .twitter::before {
+            content                 :   "\f099";
+        }
+        
+    .displaySummaryContainer, .sitemapContainer {
+/*      display                 :   table;
+        table-layout            :   fixed;*/
+        overflow                :   hidden;
+    }
+    
+        .displaySummaryContainer > div > div {
+            margin-top              :   10px !important;
+        }
+
+        .displaySummaryContainer.iconsBar > a {
+        }
+
+        .displaySummaryContainer.iconsBar * {
+            color                   :   #FFF;
+        }
+    
+        .displayPortfolioGroup {
+            flex                    :   0 0 20%;
+            margin                  :   3vh 1vh 1vh 1vh;
+            padding                 :   5px;
+            border-top              :   3px solid #F90;
+            word-wrap               :   break-word;
+        }
+
+            .displayPortfolioGroup:hover .overlay {
+                color                   :   #FFF;
+                opacity                 :   1;
+            }
+
+            .displayPortfolioGroup > a {
+                width                   :   100%;
+                display                 :   inline-block;
+                cursor                  :   pointer;
+            }
+
+            .displayPortfolioGroup > a > img {
+                max-width               :   100%;
+            }
+
+            .portfolioMediaHolder.iconsBar > a {
+                width                   :   85%;
+                margin                  :   20px 0 0 0;
+            }
+
+            .overlay {
+                margin                  :   0 !important;
+                padding                 :   15px 0 10px 0;
+                background              :   transparent;
+                color                   :   transparent;
+                text-align              :   center;
+            }
+
+            .certificationMultimediaHolder > img, .awardMultimediaHolder > img {
+                max-width               :   50%;
+            }
+
+            .displayThumbnailImage {
+                height                  :   initial;
+                display                 :   inline-block;
+                margin                  :   5px auto 5px auto;
+                padding                 :   5px;
+                border-top              :   2px solid #F90;
+                border-left             :   none;
+                border-right            :   none;
+                border-bottom           :   none;
+            }
+
+            .expandingThumbnailImage {
+                width                   :   90%;
+            }
+
+                .downloadHolder > a > * {
+                    margin-left             :   initial;
+                    margin-right            :   initial;
+                }
+
+        .edu::before, .deg::before, .car::before, .res::before, .exp::before, .cer::before,
+        .dow::before, .awa::before, .tes::before {
+            display                 :   block;
+            font-size               :   5rem;
+            color                   :   #3c3c3c;
+            overflow                :   hidden;
+        }
+
+            .edu span:first-child, .deg span:first-child, .car span:first-child, .res span:first-child, .exp span:first-child,
+            .cer span:first-child, .dow span:first-child, .awa span:first-child, .tes span:first-child {
+                margin-top              :   10px;
+            }
+
+            .edu:hover::before, .deg:hover::before, .car:hover::before, .res:hover::before, .exp:hover::before,
+            .cer:hover::before, .dow:hover::before, .awa:hover::before, .tes:hover::before {
+                color                   :   #f9b01d;
+            }
+
+            .edu::before {
+                content                 :   '\f19c';
+            }
+
+            .deg::before {
+                content                 :   '\f19d';
+            }
+
+            .car::before {
+                content                 :   '\f109';
+            }
+
+            .res::before {
+                content                 :   '\f24e';
+            }
+
+            .exp::before {
+                content                 :   '\f036';
+            }
+
+            .cer::before {
+                content                 :   '\f0a3';
+            }
+
+            .dow::before {
+                content                 :   '\f019';
+            }
+
+            .awa::before {
+                content                 :   '\f091';
+            }
+
+            .tes::before {
+                content                 :   '\f164';
+            }
+
+        .avi::before, .doc::before, .jpg::before, .png::before, .pdf::before, .zip::before {
+            margin                  :   10px;
+            display                 :   block;
+            font-size               :   5rem;
+            color                   :   #3c3c3c;
+        }
+
+            .avi:hover::before, .doc:hover::before, .jpg:hover::before, .png:hover::before, .pdf:hover::before, .zip:hover::before {
+                color                   :   #f90;
+            }
+
+            .avi::before {
+                content                 :   '\f1c8';
+            }
+
+            .doc::before {
+                content                 :   '\f1c2';
+            }
+
+            .jpg::before {
+                content                 :   '\f1c5';
+            }
+
+            .png::before {
+                content                 :   '\f1c5';
+            }
+
+            .pdf::before {
+                content                 :   '\f1c1';
+            }
+
+            .zip::before {
+                content                 :   '\f1c6';
+            }
+
+            .dows.avi::before, .dows.doc::before, .dows.jpg::before, .dows.png::before, .dows.pdf::before, .dows.zip::before {
+                display                 :   inline;
+                font-size               :   1.5rem;
+            }
+
+        .sent::before {
+            display                 :   block;
+            font-size               :   9rem;
+            content                 :   '\f1d8';
+        }
+
+        .videoObject {
+            height                  :   275px;
+            width                   :   375px;
+            margin                  :   0 auto 0 auto;
+            display                 :   block;
+        }
+
+        .objectFlash {
+            display                 :   none;
+        }
+
+            .objectFlashHidden {
+                display                 :   block;
+            }
+
+        .skillTree {
+            margin                  :   10px 0 0 0;
+            list-style              :   none;
+        }
+
+            .skillTree .line {
+                height                  :   5px;
+                margin                  :   5px 0 50px 0;
+                padding                 :   0;
+                border-top              :   1px solid #111;
+                border-left             :   1px solid #111;
+                border-right            :   1px solid #333;
+                border-bottom           :   1px solid #333;
+                display                 :   block;
+            }
+
+                .expand {
+                    height                  :   1px;
+                    margin                  :   1px 0 0 2px;
+                }
+
+                    section[id^="exp"]:target .expand {
+                        background-color        :   #F80;
+                    }
+
+                    .beginnerLine::before, .basicLine::after, .goodLine::after, .advanceLine::after, .expertLine::after {
+                        top                     :   7px;
+                    }
+
+                        section[id^="exp"]:target .beginnerLine::before {
+                            left                    :   0;
+                            content                 :   "beginner";
+                        }
+
+                    .basicLine::after, .goodLine::after, .advanceLine::after, .expertLine::after {
+                        right                   :   0;
+                    }
+
+                        section[id^="exp"]:target .basicLine::after {
+                            content                 :   "basic";
+                        }
+
+                        section[id^="exp"]:target .goodLine::after {
+                            content                 :   "good";
+                        }
+
+                        section[id^="exp"]:target .advanceLine::after {
+                            content                 :   "advance";
+                        }
+
+                        section[id^="exp"]:target .expertLine::after {
+                            content                 :   "expert";
+                        }
+
+    .sitemapGroup, .downloadGroup {
+        margin                  :   10px 0 10px 0;
+        padding                 :   10px 10px 10px 10px;
+    }
+
+        .sitemapHeader, .downloadHeader {
+            margin-bottom           :   15px;
+            padding                 :   10px;
+            background-color        :   #222;
+            color                   :   #FFF;
+        }
+
+        .sitemapElement, .downloadElement {
+            padding                 :   3px 5px 5px 3px;
+            color                   :   #FFF;
+        }
+
+            .sitemapElement > a, .downloadElement > a {
+                font-size               :   1.1rem;
+            }
