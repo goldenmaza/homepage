@@ -1,110 +1,110 @@
 <?php
 
-	/**
-	 * Alpha_Information.php
-	 *
-	 * This class is used for holding the aspects regarding the Alpha_Information-profile.
-	 * 
-	 * @package				Homepage
-	 * @author				Mats Richard Hellstrand
-	 * @copyright			Copyright (c) 2015-2020, Alpheria
-	 * @license				http://www.alpheria.com/about/license.html
-	 * @link				http://www.alpheria.com
-	 * @since				July 7th, 2020 - Version 1.2
-	 */
-	// ===========================================================================
+    /**
+     * Alpha_Information.php
+     *
+     * This class is used for holding the aspects regarding the Alpha_Information-profile.
+     *
+     * @package     Homepage
+     * @author      Mats Richard Hellstrand
+     * @copyright   Copyright (c) 2015-2025, Mats Richard Hellstrand
+     * @license     TODO: http://
+     * @link        TODO: http://
+     * @since       July 18th, 2020 - Version 1.3
+     */
+    // ===========================================================================
 
-	class Alpha_Information {
-		private $number 		= NULL;
-		private $title			= NULL;
-		private $paragraph 		= NULL;
-		private $page			= NULL;
-		private $group 			= NULL;
-		
-		/**
-		 * The default constructor of the Alpha_Information-object.
-		 */
-		public function __construct($dataArray) {
-			$this->number 		= $dataArray[0];
-			$this->title 		= $dataArray[1];
-			$this->paragraph 	= $dataArray[2];
-			$this->page 		= $dataArray[3];
-			$this->group 		= $dataArray[4];
-		}
+    class Alpha_Information {
+        private $number         = NULL;
+        private $title          = NULL;
+        private $paragraph      = NULL;
+        private $page           = NULL;
+        private $group          = NULL;
 
-		// ===========================================================================
+        /**
+         * The default constructor of the Alpha_Information-object.
+         */
+        public function __construct($dataArray) {
+            $this->number       = $dataArray[0];
+            $this->title        = $dataArray[1];
+            $this->paragraph    = $dataArray[2];
+            $this->page         = $dataArray[3];
+            $this->group        = $dataArray[4];
+        }
 
-		/**
-		 * Alpha_Information - getObject
-		 * 
-		 * This function is used for returning non-static properties of the given object
-		 * 
-		 * @access		public
-		 * @return		array		return the properties of the given object
-		 */
-		public function getObject() {
-			return get_object_vars($this);
-		}
+        // ===========================================================================
 
-		/**
-		 * Alpha_Information - getNumber
-		 * 
-		 * This function is used for returning the id attribute
-		 * 
-		 * @access		public
-		 * @return		integer		the id attribute loaded from the database table
-		 */
-		public function getNumber() {
-			return $this->number;
-		}
+        /**
+         * Alpha_Information - getObject
+         *
+         * This function is used for returning non-static properties of the given object
+         *
+         * @access      public
+         * @return      array       return the properties of the given object
+         */
+        public function getObject() {
+            return get_object_vars($this);
+        }
 
-		/**
-		 * Alpha_Information - getTitle
-		 * 
-		 * This function is used for returning the title attribute
-		 * 
-		 * @access		public
-		 * @return		string		the title attribute loaded from the database table
-		 */
-		public function getTitle() {
-			return $this->title;
-		}
+        /**
+         * Alpha_Information - getNumber
+         *
+         * This function is used for returning the id attribute
+         *
+         * @access      public
+         * @return      integer     the id attribute loaded from the database table
+         */
+        public function getNumber() {
+            return $this->number;
+        }
 
-		/**
-		 * Alpha_Information - getParagraph
-		 * 
-		 * This function is used for returning the paragraph attribute
-		 * 
-		 * @access		public
-		 * @return		string		the paragraph attribute loaded from the database table
-		 */
-		public function getParagraph() {
-			return $this->paragraph;
-		}
+        /**
+         * Alpha_Information - getTitle
+         *
+         * This function is used for returning the title attribute
+         *
+         * @access      public
+         * @return      string      the title attribute loaded from the database table
+         */
+        public function getTitle() {
+            return $this->title;
+        }
 
-		/**
-		 * Alpha_Information - getPage
-		 * 
-		 * This function is used for returning the page attribute
-		 * 
-		 * @access		public
-		 * @return		string		the page attribute loaded from the database table
-		 */
-		public function getPage() {
-			return $this->page;
-		}
+        /**
+         * Alpha_Information - getParagraph
+         *
+         * This function is used for returning the paragraph attribute
+         *
+         * @access      public
+         * @return      string      the paragraph attribute loaded from the database table
+         */
+        public function getParagraph() {
+            return $this->paragraph;
+        }
 
-		/**
-		 * Alpha_Information - getGroup
-		 * 
-		 * This function is used for returning the group attribute
-		 * 
-		 * @access		public
-		 * @return		integer		the group attribute loaded from the database table
-		 */
-		public function getGroup() {
-			return $this->group;
-		}
-	}
+        /**
+         * Alpha_Information - getPage
+         *
+         * This function is used for returning the page attribute
+         *
+         * @access      public
+         * @return      string      the page attribute loaded from the database table
+         */
+        public function getPage() {
+            return $this->page;
+        }
+
+        /**
+         * Alpha_Information - getGroup
+         *
+         * This function is used for returning the group attribute
+         *
+         * @access      public
+         * @return      integer     the group attribute loaded from the database table
+         */
+        public function getGroup() {
+            return $this->group;
+        }
+    }
 
 ?>
