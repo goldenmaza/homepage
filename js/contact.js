@@ -2,7 +2,7 @@
     Filename:   contact.js
     Author:     Mats Richard Hellstrand (Sweden)
     Website:    www.hellstrand.org
-    Date:       July 8th, 2020
+    Date:       July 18th, 2020
     Comment:    This JS-file is used for validating the form under the Contact page and accessing the sendEmail.php file asynchronously.
 */
 
@@ -29,7 +29,6 @@ var labels = [
         'If you are ready to send this message, press here!'
     ],
     [
-
         `a to z, åäö, A to Z, ÅÄÖ, space, dot, question mark, exclamation mark, ampersand, apostrophe, semicolon, colon, tilde and/or an hyphen - number of characters between ${range[0]} and ${range[1]}`,
         `a to z, åäö, A to Z, ÅÄÖ, space, dot, question mark, exclamation mark, ampersand, apostrophe, semicolon, colon, tilde and/or an hyphen - number of characters between ${range[2]} and ${range[3]}`,
         `a to z, åäö, A to Z, ÅÄÖ, space, dot, ampersand, apostrophe and/or an hyphen - number of characters between ${range[4]} and ${range[5]}`,
