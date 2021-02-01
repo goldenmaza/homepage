@@ -1,4 +1,4 @@
-# Homepage &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/goldenmaza/homepage/blob/master/LICENSE.md)
+# Homepage &middot; [![GitHub license](https://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/goldenmaza/homepage/blob/master/LICENSE.md)
 
 This is my personal website that I started working on during the middle of 2015 and have on and off worked on until today.
 
