@@ -1,5 +1,25 @@
 # Homepage &middot; [![GitHub license](https://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/goldenmaza/homepage/blob/master/LICENSE.md)
 
+* [Comprised of](#comprised-of)
+* [Overview](#overview)
+* [File management](#file-management)
+* [User-friendly](#user-friendly)
+* [Responsiveness](#responsiveness)
+* [Page generation](#page-generation)
+  + [About](#about)
+  + [Portfolio](#portfolio)
+  + [Contact](#contact)
+  + [Sitemap](#sitemap)
+  + [Qualification](#qualification)
+    - [Education](#education)
+    - [Career](#career)
+    - [Testimonials](#testimonials)
+    - [Experience](#experience)
+    - [Certifications](#certifications)
+    - [Results](#results)
+    - [Awards](#awards)
+    - [Download](#download)
+
 This is my personal website that I started working on during the middle of 2015 and have on and off worked on until today.
 
 **Note:** It's a work in progress no dobut. Since I do not have a formal education (other than a course), other challenging projects, or even much working experience with PHP development, I therefore excuse the current design choices I've made for this project. I know that there are so many things I could do with PHP that would improve the source code but for this project, as it is old, I do not feel like I should make such a redesign overall. I've whetted my appetite for React, Redux, Node and JavaScript development and if I create a new personal website, I would probably just redesign my website with those libraries, runtimes and languages.
